@@ -141,17 +141,33 @@
             .track-container button { border-radius: 8px; padding: 20px; }
         }
     </style>
+
+
+
+
+
+
+
 </head>
 <body>
 
     <!-- VIDEO HEADER -->
     <header class="hero-header">
         <div class="nav-glass">
+<div style="display:flex; align-items:center; gap:10px;">
             <div style="font-weight:900; color:#fff; letter-spacing:2px; font-size: 20px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
             <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:5px 12px; border-radius:20px; font-weight: bold;">
+
                 <span class="status-dot"></span> SYSTEM LIVE
             </div>
         </div>
+<select id="langSelect" onchange="changeLanguage(this.value)" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid #fff; border-radius:4px; padding:2px 5px; font-size:10px; cursor:pointer; outline:none;">
+        <option value="en" style="color:#000;">EN (English)</option>
+        <option value="it" style="color:#000;">IT (Italiano)</option>
+        <option value="fr" style="color:#000;">FR (Français)</option>
+        <option value="es" style="color:#000;">ES (Español)</option>
+    </select>
+</div>
         <video class="header-video" autoplay muted loop playsinline>
             <source src="v.mp4" type="video/mp4">
         </video>
@@ -667,77 +683,132 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
 
-
-<!-- SMARTXPRESS FOOTER -->
-<footer style="background:#002d5b; color:#fff; padding:50px 5%; font-family:Segoe UI, sans-serif;">
-
-    <!-- TOP GRID -->
-    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
-
-        <!-- BRAND -->
-        <div style="flex:1; min-width:220px;">
-            <h2 style="margin:0; font-weight:900; letter-spacing:2px;">
+<!-- SMARTXPRESS CONSOLIDATED HORIZONTAL GRID FOOTER -->
+<footer style="background:#001a35; color:#ffffff; padding:70px 5% 80px 5%; font-family:'Segoe UI', Roboto, sans-serif; border-top: 4px solid #00d4ff;">
+    
+    <!-- MAIN HORIZONTAL GRID -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
+        
+        <!-- COLUMN 1: BRAND IDENTITY -->
+        <div style="padding-right: 20px;">
+            <h2 style="margin:0 0 20px 0; font-weight:900; letter-spacing:2px; font-size: 22px;">
                 SMART<span style="color:#00d4ff;">XPRESS</span>
             </h2>
-            <p style="margin-top:15px; font-size:14px; line-height:1.6; color:#cbd5e1;">
-                Global logistics and freight solutions with real-time tracking, 
-                secure delivery, and world-class operational efficiency.
+            <p style="font-size:13px; line-height:1.8; color:#94a3b8; margin:0;">
+                Deploying next-generation logistics through real-time telemetry and global grid optimization.
             </p>
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <span style="width: 8px; height: 8px; background: #00a859; border-radius: 50%; display: inline-block;"></span>
+                <span style="font-size: 10px; font-weight: 800; color: #00d4ff; text-transform: uppercase;">Global Network Active</span>
+            </div>
         </div>
 
-        <!-- QUICK LINKS -->
-        <div style="flex:1; min-width:180px;">
-            <h4 style="margin-bottom:15px; font-size:14px; text-transform:uppercase;">Quick Links</h4>
-            <ul style="list-style:none; padding:0; margin:0; font-size:14px;">
-                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Track Shipment</a></li>
-                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Services</a></li>
-                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">About Us</a></li>
-                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Contact</a></li>
+        <!-- COLUMN 2: OPERATIONS -->
+        <div>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Operations</h4>
+            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2;">
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none; transition: 0.3s;">Air Freight Command</a></li>
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none;">Ocean Cargo Portal</a></li>
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none;">Ground Distribution</a></li>
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none;">Warehouse Sync</a></li>
             </ul>
         </div>
 
-        <!-- SERVICES -->
-        <div style="flex:1; min-width:180px;">
-            <h4 style="margin-bottom:15px; font-size:14px; text-transform:uppercase;">Services</h4>
-            <ul style="list-style:none; padding:0; margin:0; font-size:14px;">
-                <li style="margin-bottom:10px;">Air Freight</li>
-                <li style="margin-bottom:10px;">Ocean Freight</li>
-                <li style="margin-bottom:10px;">Warehousing</li>
-                <li style="margin-bottom:10px;">Custom Clearance</li>
+        <!-- COLUMN 3: TOOLS -->
+        <div>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Command Tools</h4>
+            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2;">
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none;">Live Global Tracking</a></li>
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none;">Rate Calculator</a></li>
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none;">Client Dashboard</a></li>
+                <li><a href="#" style="color:#cbd5e1; text-decoration:none;">Compliance Docs</a></li>
             </ul>
         </div>
 
-        <!-- CONTACT -->
-        <div style="flex:1; min-width:220px;">
-            <h4 style="margin-bottom:15px; font-size:14px; text-transform:uppercase;">Contact</h4>
-            <p style="margin:5px 0; font-size:14px; color:#cbd5e1;">Email: support@smartxpress.com</p>
-            <p style="margin:5px 0; font-size:14px; color:#cbd5e1;">Phone: +234 800 000 0000</p>
-            <p style="margin:5px 0; font-size:14px; color:#cbd5e1;">24/7 Global Support</p>
+        <!-- COLUMN 4: SUPPORT -->
+        <div>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Contact Hub</h4>
+            <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Global: +234 800 000 0000</p>
+            <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Ops: support@smartxpress.com</p>
+            <p style="margin:0; font-size:13px; color:#cbd5e1;">24/7 Priority Response</p>
         </div>
 
     </div>
 
-    <!-- DIVIDER -->
-    <div style="margin:40px 0; height:1px; background:rgba(255,255,255,0.1);"></div>
-
-    <!-- BOTTOM -->
-    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
-
-        <!-- COPYRIGHT -->
-        <p style="margin:0; font-size:13px; color:#94a3b8;">
-            © 2026 SmartXpress. All Rights Reserved.
-        </p>
-
-        <!-- SOCIAL -->
-        <div style="display:flex; gap:15px;">
-            <a href="#" style="color:#fff; font-size:14px; text-decoration:none;">Facebook</a>
-            <a href="#" style="color:#fff; font-size:14px; text-decoration:none;">Twitter</a>
-            <a href="#" style="color:#fff; font-size:14px; text-decoration:none;">LinkedIn</a>
+    <!-- BOTTOM BAR (STRICTLY ONE LINE) -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        
+        <div style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+            &copy; 2026 SmartXpress Infrastructure Group. All Rights Reserved.
         </div>
 
+        <div style="display: flex; gap: 25px;">
+            <a href="#" style="color:#94a3b8; font-size:12px; text-decoration:none; font-weight: 700;">LINKEDIN</a>
+            <a href="#" style="color:#94a3b8; font-size:12px; text-decoration:none; font-weight: 700;">TWITTER</a>
+            <a href="#" style="color:#94a3b8; font-size:12px; text-decoration:none; font-weight: 700;">INSTAGRAM</a>
+        </div>
+        
     </div>
 
 </footer>
+
+
+<script>
+const translations = {
+    en: {
+        heroMsg: "GLOBAL FREIGHT COMMAND",
+        trackPlaceholder: "Enter Airway Bill or Tracking ID",
+        fleetTitle: "Last-Mile Fleet Velocity",
+        opsManifest: "ACTIVE MANIFEST STREAM",
+        systemOnline: "● SYSTEM ONLINE"
+    },
+    it: {
+        heroMsg: "COMANDO GLOBALE MERCI",
+        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
+        fleetTitle: "Velocità della Flotta Ultimo Miglio",
+        opsManifest: "FLUSSO MANIFESTO ATTIVO",
+        systemOnline: "● SISTEMA ONLINE"
+    },
+    fr: {
+        heroMsg: "COMMANDE DE FRET MONDIALE",
+        trackPlaceholder: "Entrez le bordereau d'expédition",
+        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
+        opsManifest: "FLUX DE MANIFESTE ACTIF",
+        systemOnline: "● SYSTÈME EN LIGNE"
+    }
+};
+
+function changeLanguage(lang) {
+    // 1. Update all static elements with data-key
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // 2. Update Input Placeholders
+    const trackInput = document.getElementById('trackInput');
+    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
+
+    // 3. Update the Rotating Hero Messages (Optional)
+    if(lang === 'it') {
+        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
+    } else if (lang === 'en') {
+        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
+    }
+    
+    // Save preference to browser so it stays if they refresh
+    localStorage.setItem('preferredLang', lang);
+}
+
+// Auto-load saved language on page start
+window.onload = () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    document.getElementById('langSelect').value = savedLang;
+    changeLanguage(savedLang);
+};
+</script>
 
 </body>
 </html>
