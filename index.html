@@ -688,62 +688,6 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
 
-<script>
-const translations = {
-    en: {
-        heroMsg: "GLOBAL FREIGHT COMMAND",
-        trackPlaceholder: "Enter Airway Bill or Tracking ID",
-        fleetTitle: "Last-Mile Fleet Velocity",
-        opsManifest: "ACTIVE MANIFEST STREAM",
-        systemOnline: "● SYSTEM ONLINE"
-    },
-    it: {
-        heroMsg: "COMANDO GLOBALE MERCI",
-        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
-        fleetTitle: "Velocità della Flotta Ultimo Miglio",
-        opsManifest: "FLUSSO MANIFESTO ATTIVO",
-        systemOnline: "● SISTEMA ONLINE"
-    },
-    fr: {
-        heroMsg: "COMMANDE DE FRET MONDIALE",
-        trackPlaceholder: "Entrez le bordereau d'expédition",
-        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
-        opsManifest: "FLUX DE MANIFESTE ACTIF",
-        systemOnline: "● SYSTÈME EN LIGNE"
-    }
-};
-
-function changeLanguage(lang) {
-    // 1. Update all static elements with data-key
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translations[lang][key]) {
-            element.innerHTML = translations[lang][key];
-        }
-    });
-
-    // 2. Update Input Placeholders
-    const trackInput = document.getElementById('trackInput');
-    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
-
-    // 3. Update the Rotating Hero Messages (Optional)
-    if(lang === 'it') {
-        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
-    } else if (lang === 'en') {
-        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
-    }
-    
-    // Save preference to browser so it stays if they refresh
-    localStorage.setItem('preferredLang', lang);
-}
-
-// Auto-load saved language on page start
-window.onload = () => {
-    const savedLang = localStorage.getItem('preferredLang') || 'en';
-    document.getElementById('langSelect').value = savedLang;
-    changeLanguage(savedLang);
-};
-</script>
 
 
 
@@ -792,13 +736,6 @@ window.onload = () => {
                 </p>
                 <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Sarah Jenkins <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Global Health Initiative</span></h5>
             </div>
-
-            <!-- Message 3 -->
-            <div style="border-left: 3px solid #ffffff; padding-left: 25px;">
-                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">
-                    "Their last-mile fleet velocity is unmatched. Real-time updates every 10 seconds kept our clients informed and happy."
-                </p>
-                <h5 style="margin: 0; font-size: 14px; font-weight: 900;">David Okonjo <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ West-African Commerce</span></h5>
             </div>
         </div>
 
@@ -807,11 +744,6 @@ window.onload = () => {
 
 
 
-
-
-
-</body>
-</html>
 
 <!-- SMARTXPRESS CONSOLIDATED HORIZONTAL GRID FOOTER -->
 <footer style="background:#001a35; color:#ffffff; padding:70px 5% 80px 5%; font-family:'Segoe UI', Roboto, sans-serif; border-top: 4px solid #00d4ff;">
@@ -881,6 +813,71 @@ window.onload = () => {
     </div>
 
 </footer>
+
+
+</body>
+</html>
+
+
+<script>
+const translations = {
+    en: {
+        heroMsg: "GLOBAL FREIGHT COMMAND",
+        trackPlaceholder: "Enter Airway Bill or Tracking ID",
+        fleetTitle: "Last-Mile Fleet Velocity",
+        opsManifest: "ACTIVE MANIFEST STREAM",
+        systemOnline: "● SYSTEM ONLINE"
+    },
+    it: {
+        heroMsg: "COMANDO GLOBALE MERCI",
+        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
+        fleetTitle: "Velocità della Flotta Ultimo Miglio",
+        opsManifest: "FLUSSO MANIFESTO ATTIVO",
+        systemOnline: "● SISTEMA ONLINE"
+    },
+    fr: {
+        heroMsg: "COMMANDE DE FRET MONDIALE",
+        trackPlaceholder: "Entrez le bordereau d'expédition",
+        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
+        opsManifest: "FLUX DE MANIFESTE ACTIF",
+        systemOnline: "● SYSTÈME EN LIGNE"
+    }
+};
+
+function changeLanguage(lang) {
+    // 1. Update all static elements with data-key
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // 2. Update Input Placeholders
+    const trackInput = document.getElementById('trackInput');
+    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
+
+    // 3. Update the Rotating Hero Messages (Optional)
+    if(lang === 'it') {
+        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
+    } else if (lang === 'en') {
+        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
+    }
+    
+    // Save preference to browser so it stays if they refresh
+    localStorage.setItem('preferredLang', lang);
+}
+
+// Auto-load saved language on page start
+window.onload = () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    document.getElementById('langSelect').value = savedLang;
+    changeLanguage(savedLang);
+};
+</script>
+
+
+
 
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Track Shipment</a></li>
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Services</a></li>
