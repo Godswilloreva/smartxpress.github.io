@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartXpress | Global Logistics Command</title>
+    <style>
+        /* 1. GLOBAL SETTINGS */
+        :root {
+            --primary: #002d5b;
+            --accent: #00d4ff;
+            --dark: #020408;
+            --surface: #0b0f17;
+            --success: #00ff88;
+        }
+
+        body { 
+            margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--dark); color: #e0e6ed; overflow-x: hidden;
+        }
+
+        /* 2. CINEMATIC VIDEO HEADER */
+        .hero-header {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .header-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0.5;
+            object-fit: cover;
+        }
+
+        .nav-glass {
+            position: absolute;
+            top: 0; width: 100%; padding: 20px 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            z-index: 20; display: flex; justify-content: space-around; align-items: center;
+        }
+
+        .header-overlay { position: relative; z-index: 10; text-align: center; width: 90%; }
+
+        .fade-text {
+            font-size: clamp(22px, 5vw, 45px);
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0;
+            animation: textSequence 8s infinite; /* Change text fade speed here */
+        }
+
+        @keyframes textSequence {
+            0%, 10% { opacity: 0; transform: translateY(10px); }
+            20%, 80% { opacity: 1; transform: translateY(0); }
+            90%, 100% { opacity: 0; transform: translateY(-10px); }
+        }
+
+        /* 3. TRACKING BOX (Placed right under header) */
+        .track-bar {
+            background: var(--surface);
+            padding: 30px 5%;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #1a2233;
+        }
+        .track-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            gap: 10px;
+        }
+        .track-container input {
+            flex: 2; padding: 15px; background: #000; border: 1px solid #1e293b;
+            color: var(--success); border-radius: 5px; font-weight: bold; outline: none;
+        }
+        .track-container button {
+            flex: 1; background: var(--accent); color: #000; border: none;
+            font-weight: 900; border-radius: 5px; cursor: pointer; text-transform: uppercase;
+        }
+
+        /* 4. GLOBAL LIVE LOG (MOBILE RESPONSIVE) */
+        .activity-section { padding: 40px 5%; }
+        .log-container { width: 100%; background: var(--surface); border-radius: 8px; border: 1px solid #1a2233; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 15px; background: #0d1117; color: #4a5568; font-size: 11px; text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid #1a2233; font-size: 13px; }
+
+        .tag { padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+        .tag-success { color: var(--success); border: 1px solid var(--success); background: rgba(0,255,136,0.1); }
+        .tag-transit { color: var(--accent); border: 1px solid var(--accent); background: rgba(0,212,255,0.1); }
+
+        /* 5. GRID FOOTER */
+        .site-footer { background: #05070a; padding: 60px 5% 30px; border-top: 2px solid var(--accent); margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .footer-col p, .footer-col a { color: #94a3b8; font-size: 13px; text-decoration: none; line-height: 1.8; }
+        .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid #1e293b; text-align: center; font-size: 11px; color: #4a5568; }
+
+        /* WHATSAPP */
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); text-decoration: none; font-weight: bold; }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .track-container { flex-direction: column; }
+            table, thead, tbody, th, td, tr { display: block; }
+            thead { display: none; }
+            tr { margin-bottom: 15px; border: 1px solid #1a2233; border-radius: 8px; }
+            td { display: flex; justify-content: space-between; border: none; border-bottom: 1px solid #161b22; }
+            td::before { content: attr(data-label); color: var(--accent); font-weight: bold; font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- VIDEO HEADER -->
+    <header class="hero-header">
+        <div class="nav-glass">
+            <div style="font-weight:900; color:#fff; letter-spacing:2px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
+            <div style="color:var(--success); font-size:10px; border:1px solid var(--success); padding:3px 8px; border-radius:15px;">● SYSTEMS ONLINE</div>
+        </div>
+        <!-- Replace 'logistics_video.mp4' with your actual video link -->
+        <video class="header-video" autoplay muted loop playsinline>
+            <source src="logistics_video.mp4" type="video/mp4">
+        </video>
+        <div class="header-overlay">
+            <div class="fade-text" id="rotateMsg">GLOBAL FREIGHT COMMAND</div>
+        </div>
+    </header>
+
+    <!-- TRACKING BAR -->
+    <section class="track-bar">
+        <div class="track-container">
+            <input type="text" id="trackInput" placeholder="ENTER TRACKING ID (e.g. XP-7721)">
+            <button onclick="handleTrack()">SECURE TRACK</button>
+        </div>
+    </section>
+
+    <!-- LIVE LOG -->
+    <section class="activity-section">
+        <h3 style="color:#fff; margin-bottom:20px; font-size:14px; letter-spacing:2px;">LIVE OPERATIONS FEED</h3>
+        <div class="log-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>Destination</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="logRows">
+                    <!-- Loaded by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- GRID FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SmartXpress</h4>
+                <p>Licensed International Carrier<br>HQ: Victoria Island, Lagos</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="#">Air Freight</a><br>
+                <a href="#">Ocean Cargo</a><br>
+                <a href="#">Customs Clear</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Track Package</a><br>
+                <a href="#">Contact Us</a><br>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 SmartXpress Global Logistics. All Rights Reserved.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/2340000000000" class="wa-float">WA</a>
+
+
+
+<script>
+    // 1. DATA POOLS FOR RANDOM GENERATION
+    const clients = ["Global Logistics", "Apex Freight", "Trans-Atlantic", "Nexus Supply", "Prime Shipping", "Euro-Express", "Pacific Blue", "Sky-Link", "Atlas Cargo"];
+    const destinations = ["London, UK", "New York, USA", "Tokyo, Japan", "Dubai, UAE", "Paris, France", "Singapore, SG", "Berlin, GER", "Toronto, CAN", "Shanghai, CN"];
+    const statuses = ["IN TRANSIT", "PROCESSING", "ARRIVED", "DELIVERED"];
+    const updates = ["Departed Hub", "Customs Clearing", "On-Flight", "Sorting Facility", "Handover", "Verified"];
+
+    const logEl = document.getElementById('logRows');
+    const msgEl = document.getElementById('rotateMsg');
+    
+    // FADING TEXT MESSAGES
+    const messages = [
+        "GLOBAL FREIGHT COMMAND",
+        "SECURE AIR & SEA CARGO",
+        "REAL-TIME SATELLITE TRACKING",
+        "DIRECT DOOR-TO-DOOR DELIVERY"
+    ];
+    let msgIdx = 0;
+
+    // 2. FUNCTION TO GENERATE A NEW RANDOM SHIPMENT
+    function generateLiveShipment() {
+        const idPrefix = "XP-";
+        const idNum = Math.floor(1000 + Math.random() * 9000);
+        const cityCode = ["LDN", "NYC", "DXB", "TYO", "HKG", "SIN"][Math.floor(Math.random() * 6)];
+        
+        return {
+            id: `${idPrefix}${idNum}-${cityCode}`,
+            name: clients[Math.floor(Math.random() * clients.length)],
+            dest: destinations[Math.floor(Math.random() * destinations.length)],
+            status: statuses[Math.floor(Math.random() * statuses.length)],
+            note: updates[Math.floor(Math.random() * updates.length)]
+        };
+    }
+
+    // 3. FUNCTION TO UPDATE THE TABLE
+    function tickLiveOperations() {
+        // We generate 5 fresh rows every 3 seconds
+        logEl.innerHTML = "";
+        
+        for (let i = 0; i < 5; i++) {
+            const s = generateLiveShipment();
+            const isDone = (s.status === "DELIVERED" || s.status === "ARRIVED");
+            
+            // Adding a flash animation class to show it's new
+            const row = `
+                <tr class="update-flash">
+                    <td data-label="ID" style="color:var(--accent); font-weight:bold;">${s.id}</td>
+                    <td data-label="Client">${s.name}</td>
+                    <td data-label="Dest">${s.dest}</td>
+                    <td data-label="Status">
+                        <span class="tag ${isDone ? 'tag-success' : 'tag-transit'}">${s.status}</span>
+                        <div style="font-size:9px; opacity:0.5; margin-top:2px;">${s.note}</div>
+                    </td>
+                </tr>
+            `;
+            logEl.innerHTML += row;
+        }
+    }
+
+    // 4. HEADER TEXT ROTATION (8 seconds)
+    setInterval(() => {
+        msgIdx = (msgIdx + 1) % messages.length;
+        msgEl.textContent = messages[msgIdx];
+    }, 8000);
+
+    // 5. TRACKING INPUT HANDLER
+    function handleTrack() {
+        const val = document.getElementById('trackInput').value;
+        if(val) {
+            window.location.href = "track.html?id=" + val;
+        } else {
+            alert("Please enter a Tracking ID");
+        }
+    }
+
+    // INITIAL START
+    tickLiveOperations();
+    
+    // REFRESH EVERY 3 SECONDS
+    setInterval(tickLiveOperations, 3000);
+</script>
+
+</body>
+</html>
