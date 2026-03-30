@@ -115,25 +115,7 @@
         }
         .track-container button:hover { background: #fff; color: var(--primary); }
 
-        /* 4. GLOBAL LIVE LOG - CLEAN WHITE CARD */
-        .activity-section { padding: 50px 5%; }
-        .activity-section h3 { color: var(--primary); font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
-        
-        .log-container { 
-            width: 100%; 
-            background: var(--surface); 
-            border-radius: 12px; 
-            border: none; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-        table { width: 100%; border-collapse: collapse; }
-        th { text-align: left; padding: 18px; background: #f8fafc; color: var(--primary); font-size: 12px; text-transform: uppercase; border-bottom: 2px solid #edf2f7; }
-        td { padding: 18px; border-bottom: 1px solid #f1f5f9; font-size: 14px; color: #334155; font-weight: 500; }
-
-        .tag { padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; }
-        .tag-success { color: var(--success); background: rgba(0,168,89,0.1); border: 1px solid var(--success); }
-        .tag-transit { color: var(--primary); background: rgba(0,45,91,0.05); border: 1px solid var(--primary); }
+       
 
         /* 6. CHAT HUB */
         .chat-hub-wrapper {
@@ -185,24 +167,155 @@
             <button onclick="handleTrack()">Track Shipment</button>
         </div>
     </section>
+<br>
+<br>
 
-    <!-- LIVE LOG -->
-    <section class="activity-section">
-        <h3>Live Operations Feed</h3>
-        <div class="log-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Reference ID</th>
-                        <th>Client</th>
-                        <th>Route</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="logRows"></tbody>
-            </table>
+    <!-- SMARTXPRESS COMMAND CENTER (STRICT SCREEN FIT) -->
+<div style="width:100%; height:40vh; overflow:hidden; background:#020617; color:#e2e8f0; font-family: 'Segoe UI', Roboto, sans-serif; display:flex; flex-direction:column; padding:20px; box-sizing:border-box; border: 4px solid #1e293b;">
+
+    <!-- TOP BAR: SYSTEM METRICS -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; border-bottom:1px solid #1e293b; padding-bottom:15px;">
+        <div>
+            <h2 style="margin:0; font-size:18px; font-weight:900; letter-spacing:3px; color:#38bdf8;">
+                SMART<span style="color:#ffffff;">XPRESS</span> // MONITOR.V3
+            </h2>
+            <div style="display:flex; gap:15px; margin-top:5px;">
+                <span style="font-size:10px; color:#22c55e; font-weight:bold;">● SYSTEM ONLINE</span>
+                <span style="font-size:10px; color:#94a3b8;">ENC-PROTOCOL: AES-256</span>
+                <span style="font-size:10px; color:#38bdf8;">LATENCY: 24ms</span>
+            </div>
         </div>
-    </section>
+        
+        <div style="text-align:right;">
+            <div id="sysDate" style="font-size:12px; color:#94a3b8; font-weight:bold;"></div>
+            <div id="sysTime2" style="font-size:24px; font-weight:900; color:#ffffff; font-family:monospace;"></div>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD AREA -->
+    <div style="display:flex; gap:20px; flex:1; min-height:0;">
+        
+        <!-- LEFT COLUMN: LIVE LOGS (60%) -->
+        <div style="flex:1.5; display:flex; flex-direction:column;">
+            <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; flex:1; display:flex; flex-direction:column; overflow:hidden;">
+                <div style="background:#1e293b; padding:10px 15px; font-size:11px; font-weight:900; letter-spacing:1px; color:#38bdf8;">
+                    ACTIVE MANIFEST STREAM
+                </div>
+                
+                <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
+                    <thead style="background:rgba(56, 189, 248, 0.05); color:#94a3b8; font-size:10px;">
+                        <tr>
+                            <th style="padding:12px;">TRACKING ID</th>
+                            <th style="padding:12px;">CLIENT ENTITY</th>
+                            <th style="padding:12px;">ROUTE NODE</th>
+                            <th style="padding:12px;">LOGISTIC STATUS</th>
+                            <th style="padding:12px; text-align:right;">TIMESTAMP</th>
+                        </tr>
+                    </thead>
+                    <tbody id="liveLogBody2">
+                        <!-- JS injected rows (Optimized for 5-6 rows to fit screen) -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: STATS & MAP (40%) -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:20px;">
+            
+            <!-- GLOBAL UPTIME CARD -->
+            <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:15px;">
+                <div style="font-size:10px; color:#94a3b8; margin-bottom:10px; font-weight:bold;">GLOBAL NETWORK CAPACITY</div>
+                <div style="height:8px; background:#1e293b; border-radius:10px; overflow:hidden;">
+                    <div style="width:84%; height:100%; background:linear-gradient(90deg, #38bdf8, #22c55e);"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:14px; font-weight:900;">
+                    <span>84.2%</span>
+                    <span style="color:#22c55e;">OPTIMAL</span>
+                </div>
+            </div>
+
+            <!-- MINI RADAR/MAP PLACEHOLDER -->
+            <div style="flex:1; background:#0f172a; border:1px solid #1e293b; border-radius:8px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                <div style="position:absolute; inset:0; opacity:0.1; background: repeating-linear-gradient(0deg, #38bdf8, #38bdf8 1px, transparent 1px, transparent 20px);"></div>
+                <div style="text-align:center; z-index:1;">
+                    <div style="font-size:10px; color:#38bdf8; letter-spacing:2px; margin-bottom:5px;">SATELLITE LINK</div>
+                    <div style="font-size:30px; opacity:0.5;">🛰️</div>
+                    <div style="font-size:10px; color:#94a3b8;">ACTIVE TRACKING IN 142 COUNTRIES</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER STATUS -->
+    <div style="margin-top:15px; border-top:1px solid #1e293b; padding-top:10px; display:flex; justify-content:space-between; font-size:10px; color:#64748b; font-weight:bold;">
+        <span>SECURE TERMINAL: SMX-A09</span>
+        <span style="color:#38bdf8;">SYNCING DATA...</span>
+    </div>
+
+</div>
+
+<script>
+const clients2 = ["Apex Global", "Nexus Ltd", "Prime Freight", "Transit King", "Oceanic Co", "SkyLink Hub"];
+const locations2 = ["London → DXB", "NYC → Tokyo", "Paris → Lagos", "Berlin → SIN", "Sydney → LAX"];
+const statusFlow2 = ["PROCESSING", "IN TRANSIT", "ARRIVED", "DELIVERED"];
+
+const logBody2 = document.getElementById("liveLogBody2");
+const sysTime2 = document.getElementById("sysTime2");
+const sysDate = document.getElementById("sysDate");
+
+// CLOCK
+function updateClock() {
+    const now = new Date();
+    sysTime2.textContent = now.toLocaleTimeString();
+    sysDate.textContent = now.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// GENERATE ROWS
+function generateLog2() {
+    logBody2.innerHTML = "";
+
+    // Using 6 rows ensures it fills space without triggering a scrollbar on standard screens
+    for (let i = 0; i < 6; i++) {
+        let status = statusFlow2[Math.floor(Math.random() * statusFlow2.length)];
+        let color = "#38bdf8"; // Default blue
+        
+        if (status === "DELIVERED") color = "#22c55e";
+        if (status === "PROCESSING") color = "#f97316";
+        if (status === "ARRIVED") color = "#a855f7";
+
+        logBody2.innerHTML += `
+            <tr style="border-top:1px solid #1e293b;">
+                <td style="padding:12px; font-family:monospace; color:#38bdf8; font-weight:700;">XP-${Math.floor(1000+Math.random()*9000)}</td>
+                <td style="padding:12px; font-weight:600;">${clients2[Math.floor(Math.random()*clients2.length)]}</td>
+                <td style="padding:12px; color:#94a3b8; font-size:11px;">${locations2[Math.floor(Math.random()*locations2.length)]}</td>
+                <td style="padding:12px;">
+                    <span style="padding:3px 8px; border-radius:4px; font-size:9px; font-weight:900; color:${color}; background:rgba(0,0,0,0.3); border:1px solid ${color};">
+                        ● ${status}
+                    </span>
+                </td>
+                <td style="padding:12px; color:#64748b; text-align:right; font-family:monospace;">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'})}</td>
+            </tr>
+        `;
+    }
+}
+
+generateLog2();
+setInterval(generateLog2, 5000); // Slower refresh for professional readability
+</script>
+
+
+
+
+
+
+
+
+
+
+<br>
+
 
     <!-- CHAT HUB -->
     <div class="chat-hub-wrapper">
@@ -576,6 +689,58 @@
         <div style="flex:1; min-width:180px;">
             <h4 style="margin-bottom:15px; font-size:14px; text-transform:uppercase;">Quick Links</h4>
             <ul style="list-style:none; padding:0; margin:0; font-size:14px;">
+                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Track Shipment</a></li>
+                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Services</a></li>
+                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">About Us</a></li>
+                <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- SERVICES -->
+        <div style="flex:1; min-width:180px;">
+            <h4 style="margin-bottom:15px; font-size:14px; text-transform:uppercase;">Services</h4>
+            <ul style="list-style:none; padding:0; margin:0; font-size:14px;">
+                <li style="margin-bottom:10px;">Air Freight</li>
+                <li style="margin-bottom:10px;">Ocean Freight</li>
+                <li style="margin-bottom:10px;">Warehousing</li>
+                <li style="margin-bottom:10px;">Custom Clearance</li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div style="flex:1; min-width:220px;">
+            <h4 style="margin-bottom:15px; font-size:14px; text-transform:uppercase;">Contact</h4>
+            <p style="margin:5px 0; font-size:14px; color:#cbd5e1;">Email: support@smartxpress.com</p>
+            <p style="margin:5px 0; font-size:14px; color:#cbd5e1;">Phone: +234 800 000 0000</p>
+            <p style="margin:5px 0; font-size:14px; color:#cbd5e1;">24/7 Global Support</p>
+        </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div style="margin:40px 0; height:1px; background:rgba(255,255,255,0.1);"></div>
+
+    <!-- BOTTOM -->
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
+
+        <!-- COPYRIGHT -->
+        <p style="margin:0; font-size:13px; color:#94a3b8;">
+            © 2026 SmartXpress. All Rights Reserved.
+        </p>
+
+        <!-- SOCIAL -->
+        <div style="display:flex; gap:15px;">
+            <a href="#" style="color:#fff; font-size:14px; text-decoration:none;">Facebook</a>
+            <a href="#" style="color:#fff; font-size:14px; text-decoration:none;">Twitter</a>
+            <a href="#" style="color:#fff; font-size:14px; text-decoration:none;">LinkedIn</a>
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Track Shipment</a></li>
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Services</a></li>
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">About Us</a></li>
