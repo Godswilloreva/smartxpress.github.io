@@ -135,56 +135,6 @@
         .tag-success { color: var(--success); background: rgba(0,168,89,0.1); border: 1px solid var(--success); }
         .tag-transit { color: var(--primary); background: rgba(0,45,91,0.05); border: 1px solid var(--primary); }
 
-        /* 5. THE 3x6 GRID FOOTER DESIGN */
-        .site-footer { 
-            background: #ffffff; 
-            padding: 60px 10%; 
-            border-top: 8px solid var(--primary);
-            color: var(--text-main);
-        }
-
-        .footer-grid-3x6 { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            grid-template-rows: repeat(6, auto);
-            gap: 20px 40px; 
-            border-bottom: 2px solid #eee;
-            padding-bottom: 40px;
-        }
-
-        .grid-cell { padding: 10px 0; }
-
-        .grid-cell h4 {
-            margin: 0 0 10px 0;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: var(--primary);
-            letter-spacing: 1px;
-            border-left: 4px solid var(--accent);
-            padding-left: 10px;
-        }
-
-        .grid-cell ul { list-style: none; padding: 0; margin: 0; }
-
-        .grid-cell ul li a {
-            text-decoration: none;
-            color: #64748b;
-            font-size: 13px;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .grid-cell ul li a:hover { color: var(--accent); }
-
-        .footer-bottom-solid {
-            padding-top: 30px;
-            text-align: center;
-            font-weight: 800;
-            font-size: 12px;
-            color: var(--primary);
-            text-transform: uppercase;
-        }
-
         /* 6. CHAT HUB */
         .chat-hub-wrapper {
             position: fixed; bottom: 30px; right: 30px; z-index: 10000;
@@ -204,7 +154,6 @@
         .chat-opt img { width: 28px; height: 28px; }
 
         @media (max-width: 768px) {
-            .footer-grid-3x6 { grid-template-columns: 1fr; grid-template-rows: auto; }
             .track-container { flex-direction: column; }
             .track-container input { border-radius: 8px; margin-bottom: 10px; }
             .track-container button { border-radius: 8px; padding: 20px; }
@@ -254,38 +203,6 @@
             </table>
         </div>
     </section>
-
-    <!-- THE 3x6 GRID FOOTER -->
-    <footer class="site-footer">
-        <div class="footer-grid-3x6">
-            <div class="grid-cell"><h4>Global Network</h4><ul><li><a href="#">Europe Terminals</a></li></ul></div>
-            <div class="grid-cell"><h4>Air Freight</h4><ul><li><a href="#">Express Delivery</a></li></ul></div>
-            <div class="grid-cell"><h4>Support</h4><ul><li><a href="#">Help Center</a></li></ul></div>
-
-            <div class="grid-cell"><h4>Asia Hubs</h4><ul><li><a href="#">China Logistics</a></li></ul></div>
-            <div class="grid-cell"><h4>Sea Cargo</h4><ul><li><a href="#">Full Container</a></li></ul></div>
-            <div class="grid-cell"><h4>Tracking</h4><ul><li><a href="#">Live Map</a></li></ul></div>
-
-            <div class="grid-cell"><h4>Americas</h4><ul><li><a href="#">USA Distribution</a></li></ul></div>
-            <div class="grid-cell"><h4>Warehousing</h4><ul><li><a href="#">Cold Storage</a></li></ul></div>
-            <div class="grid-cell"><h4>Security</h4><ul><li><a href="#">Fraud Alert</a></li></ul></div>
-
-            <div class="grid-cell"><h4>Africa Gateway</h4><ul><li><a href="#">Nigeria Office</a></li></ul></div>
-            <div class="grid-cell"><h4>E-Commerce</h4><ul><li><a href="#">Shopify Sync</a></li></ul></div>
-            <div class="grid-cell"><h4>Insurance</h4><ul><li><a href="#">Cargo Cover</a></li></ul></div>
-
-            <div class="grid-cell"><h4>Middle East</h4><ul><li><a href="#">Dubai Port</a></li></ul></div>
-            <div class="grid-cell"><h4>Specialized</h4><ul><li><a href="#">Hazardous Goods</a></li></ul></div>
-            <div class="grid-cell"><h4>Legal</h4><ul><li><a href="#">Terms of Use</a></li></ul></div>
-
-            <div class="grid-cell"><h4>Corporate</h4><ul><li><a href="#">About SmartXpress</a></li></ul></div>
-            <div class="grid-cell"><h4>Careers</h4><ul><li><a href="#">Join the Team</a></li></ul></div>
-            <div class="grid-cell"><h4>Privacy</h4><ul><li><a href="#">Data Protection</a></li></ul></div>
-        </div>
-        <div class="footer-bottom-solid">
-            &copy; 2026 SmartXpress | Solid 3x6 Global Logistics Infrastructure
-        </div>
-    </footer>
 
     <!-- CHAT HUB -->
     <div class="chat-hub-wrapper">
