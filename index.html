@@ -685,6 +685,134 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
 
+
+
+
+<script>
+const translations = {
+    en: {
+        heroMsg: "GLOBAL FREIGHT COMMAND",
+        trackPlaceholder: "Enter Airway Bill or Tracking ID",
+        fleetTitle: "Last-Mile Fleet Velocity",
+        opsManifest: "ACTIVE MANIFEST STREAM",
+        systemOnline: "● SYSTEM ONLINE"
+    },
+    it: {
+        heroMsg: "COMANDO GLOBALE MERCI",
+        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
+        fleetTitle: "Velocità della Flotta Ultimo Miglio",
+        opsManifest: "FLUSSO MANIFESTO ATTIVO",
+        systemOnline: "● SISTEMA ONLINE"
+    },
+    fr: {
+        heroMsg: "COMMANDE DE FRET MONDIALE",
+        trackPlaceholder: "Entrez le bordereau d'expédition",
+        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
+        opsManifest: "FLUX DE MANIFESTE ACTIF",
+        systemOnline: "● SYSTÈME EN LIGNE"
+    }
+};
+
+function changeLanguage(lang) {
+    // 1. Update all static elements with data-key
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // 2. Update Input Placeholders
+    const trackInput = document.getElementById('trackInput');
+    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
+
+    // 3. Update the Rotating Hero Messages (Optional)
+    if(lang === 'it') {
+        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
+    } else if (lang === 'en') {
+        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
+    }
+    
+    // Save preference to browser so it stays if they refresh
+    localStorage.setItem('preferredLang', lang);
+}
+
+// Auto-load saved language on page start
+window.onload = () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    document.getElementById('langSelect').value = savedLang;
+    changeLanguage(savedLang);
+};
+</script>
+
+
+
+<!-- SMARTXPRESS CLIENT SHOWCASE (EDITORIAL DESIGN) -->
+<section style="padding: 100px 5%; background: #001a35; color: #ffffff; overflow: hidden;">
+    <div style="max-width: 1200px; margin: auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
+        
+        <!-- LEFT SIDE: DYNAMIC IMAGE STACK -->
+        <div style="flex: 1; min-width: 320px; position: relative; height: 500px;">
+            <!-- Background Decorative Square -->
+            <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; border: 2px solid rgba(0, 212, 255, 0.2); border-radius: 20px; z-index: 1;"></div>
+            
+            <!-- Photo 1: Air Logistics Partner -->
+            <img src="c1.jpg" 
+                 style="position: absolute; top: 0; left: 0; width: 220px; height: 300px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 4; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" 
+                 alt="Client 1">
+            
+            <!-- Photo 2: Global Supply Manager -->
+            <img src="c2.jpg" 
+                 style="position: absolute; top: 150px; left: 180px; width: 260px; height: 320px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 3; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" 
+                 alt="Client 2">
+
+            <!-- Photo 3: Operations Specialist -->
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" 
+                 style="position: absolute; top: 40px; right: 0; width: 180px; height: 220px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 2; opacity: 0.7;" 
+                 alt="Client 3">
+        </div>
+
+        <!-- RIGHT SIDE: MESSAGES -->
+        <div style="flex: 1.2; min-width: 320px;">
+            <h4 style="color: #00d4ff; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 10px; font-weight: 800;">Success Intelligence</h4>
+            <h2 style="font-size: 42px; font-weight: 900; margin: 0 0 40px 0; line-height: 1; text-transform: uppercase;">Voices of <br><span style="color: #00d4ff;">Global Efficiency</span></h2>
+            
+            <!-- Message 1 -->
+            <div style="margin-bottom: 30px; border-left: 3px solid #00d4ff; padding-left: 25px;">
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">
+                    "SmartXpress isn't just a carrier; they are a data partner. Our shipping costs dropped 14% after integrating their tracking API."
+                </p>
+                <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Alessandro G. <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Ferrari Logistics Group</span></h5>
+            </div>
+
+            <!-- Message 2 -->
+            <div style="margin-bottom: 30px; border-left: 3px solid #00a859; padding-left: 25px;">
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">
+                    "The fastest customs clearance in the industry. We moved 40 tons of medical supplies through Dubai in record time."
+                </p>
+                <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Sarah Jenkins <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Global Health Initiative</span></h5>
+            </div>
+
+            <!-- Message 3 -->
+            <div style="border-left: 3px solid #ffffff; padding-left: 25px;">
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">
+                    "Their last-mile fleet velocity is unmatched. Real-time updates every 10 seconds kept our clients informed and happy."
+                </p>
+                <h5 style="margin: 0; font-size: 14px; font-weight: 900;">David Okonjo <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ West-African Commerce</span></h5>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+</body>
+</html>
+
 <!-- SMARTXPRESS CONSOLIDATED HORIZONTAL GRID FOOTER -->
 <footer style="background:#001a35; color:#ffffff; padding:70px 5% 80px 5%; font-family:'Segoe UI', Roboto, sans-serif; border-top: 4px solid #00d4ff;">
     
@@ -754,80 +882,6 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 </footer>
 
-
-<script>
-const translations = {
-    en: {
-        heroMsg: "GLOBAL FREIGHT COMMAND",
-        trackPlaceholder: "Enter Airway Bill or Tracking ID",
-        fleetTitle: "Last-Mile Fleet Velocity",
-        opsManifest: "ACTIVE MANIFEST STREAM",
-        systemOnline: "● SYSTEM ONLINE"
-    },
-    it: {
-        heroMsg: "COMANDO GLOBALE MERCI",
-        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
-        fleetTitle: "Velocità della Flotta Ultimo Miglio",
-        opsManifest: "FLUSSO MANIFESTO ATTIVO",
-        systemOnline: "● SISTEMA ONLINE"
-    },
-    fr: {
-        heroMsg: "COMMANDE DE FRET MONDIALE",
-        trackPlaceholder: "Entrez le bordereau d'expédition",
-        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
-        opsManifest: "FLUX DE MANIFESTE ACTIF",
-        systemOnline: "● SYSTÈME EN LIGNE"
-    }
-};
-
-function changeLanguage(lang) {
-    // 1. Update all static elements with data-key
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translations[lang][key]) {
-            element.innerHTML = translations[lang][key];
-        }
-    });
-
-    // 2. Update Input Placeholders
-    const trackInput = document.getElementById('trackInput');
-    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
-
-    // 3. Update the Rotating Hero Messages (Optional)
-    if(lang === 'it') {
-        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
-    } else if (lang === 'en') {
-        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
-    }
-    
-    // Save preference to browser so it stays if they refresh
-    localStorage.setItem('preferredLang', lang);
-}
-
-// Auto-load saved language on page start
-window.onload = () => {
-    const savedLang = localStorage.getItem('preferredLang') || 'en';
-    document.getElementById('langSelect').value = savedLang;
-    changeLanguage(savedLang);
-};
-</script>
-
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en', 
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
-</body>
-</html>
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Track Shipment</a></li>
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">Services</a></li>
                 <li style="margin-bottom:10px;"><a href="#" style="color:#cbd5e1; text-decoration:none;">About Us</a></li>
