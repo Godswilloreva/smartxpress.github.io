@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartXpress | Global Logistics Command</title>
     <style>
-        /* 1. GLOBAL SETTINGS */
+        /* 1. GLOBAL SETTINGS - BRIGHT & SOLID */
         :root {
-            --primary: #002d5b;
-            --accent: #00d4ff;
-            --dark: #020408;
-            --surface: #0b0f17;
-            --success: #00ff88;
+            --primary: #002d5b; /* Solid Navy */
+            --accent: #00d4ff; /* Electric Blue */
+            --bg-light: #f4f7f9; /* Clean White-Grey */
+            --surface: #ffffff; /* Pure White */
+            --text-main: #1a2233;
+            --success: #00a859; /* Solid Green */
         }
 
         body { 
-            margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: var(--dark); color: #e0e6ed; overflow-x: hidden;
+            margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background: var(--bg-light); color: var(--text-main); overflow-x: hidden;
         }
 
         /* 2. CINEMATIC VIDEO HEADER */
@@ -24,12 +25,12 @@
             position: relative;
             width: 100%;
             height: 70vh;
-            background: #000;
+            background: var(--primary);
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 3px solid var(--accent);
+            border-bottom: 5px solid var(--accent);
         }
 
         .header-video {
@@ -40,27 +41,45 @@
             min-height: 100%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            opacity: 0.5;
+            opacity: 0.4;
             object-fit: cover;
         }
 
         .nav-glass {
             position: absolute;
             top: 0; width: 100%; padding: 20px 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
             z-index: 20; display: flex; justify-content: space-around; align-items: center;
+        }
+
+        /* BLINKING GREEN INDICATOR CSS */
+        .status-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            box-shadow: 0 0 8px #00ff00;
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0; }
         }
 
         .header-overlay { position: relative; z-index: 10; text-align: center; width: 90%; }
 
         .fade-text {
-            font-size: clamp(22px, 5vw, 45px);
+            font-size: clamp(24px, 5vw, 48px);
             font-weight: 900;
             color: #ffffff;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
             opacity: 0;
-            animation: textSequence 8s infinite; /* Change text fade speed here */
+            animation: textSequence 8s infinite;
         }
 
         @keyframes textSequence {
@@ -69,161 +88,139 @@
             90%, 100% { opacity: 0; transform: translateY(-10px); }
         }
 
-        /* 3. TRACKING BOX (Placed right under header) */
+        /* 3. TRACKING BAR - SOLID NAVY */
         .track-bar {
-            background: var(--surface);
-            padding: 30px 5%;
+            background: var(--primary);
+            padding: 40px 5%;
             display: flex;
             justify-content: center;
-            border-bottom: 1px solid #1a2233;
+            box-shadow: 0 10px 30px rgba(0,45,91,0.2);
+            position: relative;
+            z-index: 30;
         }
         .track-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             display: flex;
-            gap: 10px;
+            gap: 0;
         }
         .track-container input {
-            flex: 2; padding: 15px; background: #000; border: 1px solid #1e293b;
-            color: var(--success); border-radius: 5px; font-weight: bold; outline: none;
+            flex: 2; padding: 20px; background: #fff; border: none;
+            color: #000; border-radius: 8px 0 0 8px; font-weight: bold; font-size: 16px; outline: none;
         }
         .track-container button {
             flex: 1; background: var(--accent); color: #000; border: none;
-            font-weight: 900; border-radius: 5px; cursor: pointer; text-transform: uppercase;
+            font-weight: 900; border-radius: 0 8px 8px 0; cursor: pointer; text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .track-container button:hover { background: #fff; color: var(--primary); }
+
+        /* 4. GLOBAL LIVE LOG - CLEAN WHITE CARD */
+        .activity-section { padding: 50px 5%; }
+        .activity-section h3 { color: var(--primary); font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
+        
+        .log-container { 
+            width: 100%; 
+            background: var(--surface); 
+            border-radius: 12px; 
+            border: none; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 18px; background: #f8fafc; color: var(--primary); font-size: 12px; text-transform: uppercase; border-bottom: 2px solid #edf2f7; }
+        td { padding: 18px; border-bottom: 1px solid #f1f5f9; font-size: 14px; color: #334155; font-weight: 500; }
+
+        .tag { padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; }
+        .tag-success { color: var(--success); background: rgba(0,168,89,0.1); border: 1px solid var(--success); }
+        .tag-transit { color: var(--primary); background: rgba(0,45,91,0.05); border: 1px solid var(--primary); }
+
+        /* 5. THE 3x6 GRID FOOTER DESIGN */
+        .site-footer { 
+            background: #ffffff; 
+            padding: 60px 10%; 
+            border-top: 8px solid var(--primary);
+            color: var(--text-main);
         }
 
-        /* 4. GLOBAL LIVE LOG (MOBILE RESPONSIVE) */
-        .activity-section { padding: 40px 5%; }
-        .log-container { width: 100%; background: var(--surface); border-radius: 8px; border: 1px solid #1a2233; }
-        table { width: 100%; border-collapse: collapse; }
-        th { text-align: left; padding: 15px; background: #0d1117; color: #4a5568; font-size: 11px; text-transform: uppercase; }
-        td { padding: 15px; border-bottom: 1px solid #1a2233; font-size: 13px; }
+        .footer-grid-3x6 { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(6, auto);
+            gap: 20px 40px; 
+            border-bottom: 2px solid #eee;
+            padding-bottom: 40px;
+        }
 
-        .tag { padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; }
-        .tag-success { color: var(--success); border: 1px solid var(--success); background: rgba(0,255,136,0.1); }
-        .tag-transit { color: var(--accent); border: 1px solid var(--accent); background: rgba(0,212,255,0.1); }
+        .grid-cell { padding: 10px 0; }
 
-        /* 5. GRID FOOTER */
-        .site-footer { background: #05070a; padding: 60px 5% 30px; border-top: 2px solid var(--accent); margin-top: 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .footer-col h4 { color: #fff; margin-bottom: 20px; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
-        .footer-col p, .footer-col a { color: #94a3b8; font-size: 13px; text-decoration: none; line-height: 1.8; }
-        .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid #1e293b; text-align: center; font-size: 11px; color: #4a5568; }
+        .grid-cell h4 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 1px;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+        }
 
-         /* 1. FLOATING CONTAINER */
-    .chat-menu-container {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 9999;
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 15px;
-    }
+        .grid-cell ul { list-style: none; padding: 0; margin: 0; }
 
-    /* 2. THE MAIN TRIGGER BUTTON */
-    .main-chat-btn {
-        width: 60px;
-        height: 60px;
-        background: #00d4ff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 15px rgba(0,212,255,0.4);
-        cursor: pointer;
-        transition: 0.3s;
-        border: none;
-        color: #000;
-        font-weight: bold;
-        font-size: 12px;
-    }
+        .grid-cell ul li a {
+            text-decoration: none;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
 
-    /* 3. THE POP-OUT OPTIONS (Hidden by default) */
-    .chat-options {
-        display: none; /* Hidden until clicked */
-        flex-direction: column;
-        gap: 12px;
-        animation: slideUp 0.3s ease-out;
-    }
+        .grid-cell ul li a:hover { color: var(--accent); }
 
-    @keyframes slideUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+        .footer-bottom-solid {
+            padding-top: 30px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 12px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
 
-    /* 4. INDIVIDUAL ICON STYLING */
-    .option-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        transition: 0.2s;
-        position: relative;
-    }
+        /* 6. CHAT HUB */
+        .chat-hub-wrapper {
+            position: fixed; bottom: 30px; right: 30px; z-index: 10000;
+            display: flex; flex-direction: column-reverse; align-items: center; gap: 15px;
+        }
+        .main-trigger-btn {
+            width: 65px; height: 65px; background: var(--primary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,45,91,0.3); cursor: pointer; border: none; transition: 0.3s;
+        }
+        .main-trigger-btn svg { width: 30px; height: 30px; fill: #fff; }
+        .chat-stack { display: none; flex-direction: column; gap: 15px; margin-bottom: 5px; }
+        .stack-active { display: flex; animation: popUp 0.4s forwards; }
+        @keyframes popUp { 0% { opacity: 0; transform: translateY(30px) scale(0.5); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        .chat-opt { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; background: #fff; }
+        .wa-btn { background: #25D366; }
+        .chat-opt img { width: 28px; height: 28px; }
 
-    .option-btn:hover { transform: scale(1.1); }
-
-    /* Official WhatsApp Green */
-    .btn-whatsapp { background: #25D366; }
-    
-    /* Live Chat Blue */
-    .btn-livechat { background: #ffffff; }
-
-    /* Icon Images */
-    .btn-whatsapp img, .btn-livechat img {
-        width: 30px;
-        height: 30px;
-    }
-
-    /* Labels that appear on hover */
-    .option-btn::after {
-        content: attr(data-label);
-        position: absolute;
-        right: 65px;
-        background: rgba(0,0,0,0.8);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 11px;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s;
-    }
-    .option-btn:hover::after { opacity: 1; }
-
-        /* MOBILE FIXES */
         @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid-3x6 { grid-template-columns: 1fr; grid-template-rows: auto; }
             .track-container { flex-direction: column; }
-            table, thead, tbody, th, td, tr { display: block; }
-            thead { display: none; }
-            tr { margin-bottom: 15px; border: 1px solid #1a2233; border-radius: 8px; }
-            td { display: flex; justify-content: space-between; border: none; border-bottom: 1px solid #161b22; }
-            td::before { content: attr(data-label); color: var(--accent); font-weight: bold; font-size: 10px; }
+            .track-container input { border-radius: 8px; margin-bottom: 10px; }
+            .track-container button { border-radius: 8px; padding: 20px; }
         }
     </style>
-
-
-
-
-
 </head>
 <body>
 
     <!-- VIDEO HEADER -->
     <header class="hero-header">
         <div class="nav-glass">
-            <div style="font-weight:900; color:#fff; letter-spacing:2px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
-            <div style="color:var(--success); font-size:10px; border:1px solid var(--success); padding:3px 8px; border-radius:15px;">● SYSTEMS ONLINE</div>
+            <div style="font-weight:900; color:#fff; letter-spacing:2px; font-size: 20px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
+            <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:5px 12px; border-radius:20px; font-weight: bold;">
+                <span class="status-dot"></span> SYSTEM LIVE
+            </div>
         </div>
-        <!-- Replace 'logistics_video.mp4' with your actual video link -->
         <video class="header-video" autoplay muted loop playsinline>
             <source src="v.mp4" type="video/mp4">
         </video>
@@ -235,178 +232,117 @@
     <!-- TRACKING BAR -->
     <section class="track-bar">
         <div class="track-container">
-            <input type="text" id="trackInput" placeholder="ENTER TRACKING ID (e.g. XP-7721)">
-            <button onclick="handleTrack()">SECURE TRACK</button>
+            <input type="text" id="trackInput" placeholder="Enter Airway Bill or Tracking ID">
+            <button onclick="handleTrack()">Track Shipment</button>
         </div>
     </section>
 
     <!-- LIVE LOG -->
     <section class="activity-section">
-        <h3 style="color:#fff; margin-bottom:20px; font-size:14px; letter-spacing:2px;">LIVE OPERATIONS FEED</h3>
+        <h3>Live Operations Feed</h3>
         <div class="log-container">
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Reference ID</th>
                         <th>Client</th>
-                        <th>Destination</th>
+                        <th>Route</th>
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody id="logRows">
-                    <!-- Loaded by JavaScript -->
-                </tbody>
+                <tbody id="logRows"></tbody>
             </table>
         </div>
     </section>
 
-    <!-- GRID FOOTER -->
+    <!-- THE 3x6 GRID FOOTER -->
     <footer class="site-footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>SmartXpress</h4>
-                <p>Licensed International Carrier<br>HQ: Italy.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <a href="#">Air Freight</a><br>
-                <a href="#">Ocean Cargo</a><br>
-                <a href="#">Customs Clear</a>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <a href="#">Track Package</a><br>
-                <a href="#">Contact Us</a><br>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Privacy Policy</a><br>
-                <a href="#">Terms of Service</a>
-            </div>
+        <div class="footer-grid-3x6">
+            <div class="grid-cell"><h4>Global Network</h4><ul><li><a href="#">Europe Terminals</a></li></ul></div>
+            <div class="grid-cell"><h4>Air Freight</h4><ul><li><a href="#">Express Delivery</a></li></ul></div>
+            <div class="grid-cell"><h4>Support</h4><ul><li><a href="#">Help Center</a></li></ul></div>
+
+            <div class="grid-cell"><h4>Asia Hubs</h4><ul><li><a href="#">China Logistics</a></li></ul></div>
+            <div class="grid-cell"><h4>Sea Cargo</h4><ul><li><a href="#">Full Container</a></li></ul></div>
+            <div class="grid-cell"><h4>Tracking</h4><ul><li><a href="#">Live Map</a></li></ul></div>
+
+            <div class="grid-cell"><h4>Americas</h4><ul><li><a href="#">USA Distribution</a></li></ul></div>
+            <div class="grid-cell"><h4>Warehousing</h4><ul><li><a href="#">Cold Storage</a></li></ul></div>
+            <div class="grid-cell"><h4>Security</h4><ul><li><a href="#">Fraud Alert</a></li></ul></div>
+
+            <div class="grid-cell"><h4>Africa Gateway</h4><ul><li><a href="#">Nigeria Office</a></li></ul></div>
+            <div class="grid-cell"><h4>E-Commerce</h4><ul><li><a href="#">Shopify Sync</a></li></ul></div>
+            <div class="grid-cell"><h4>Insurance</h4><ul><li><a href="#">Cargo Cover</a></li></ul></div>
+
+            <div class="grid-cell"><h4>Middle East</h4><ul><li><a href="#">Dubai Port</a></li></ul></div>
+            <div class="grid-cell"><h4>Specialized</h4><ul><li><a href="#">Hazardous Goods</a></li></ul></div>
+            <div class="grid-cell"><h4>Legal</h4><ul><li><a href="#">Terms of Use</a></li></ul></div>
+
+            <div class="grid-cell"><h4>Corporate</h4><ul><li><a href="#">About SmartXpress</a></li></ul></div>
+            <div class="grid-cell"><h4>Careers</h4><ul><li><a href="#">Join the Team</a></li></ul></div>
+            <div class="grid-cell"><h4>Privacy</h4><ul><li><a href="#">Data Protection</a></li></ul></div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 SmartXpress Global Logistics. All Rights Reserved.
+        <div class="footer-bottom-solid">
+            &copy; 2026 SmartXpress | Solid 3x6 Global Logistics Infrastructure
         </div>
     </footer>
 
- <div class="chat-menu-container">
-    <!-- The Main Button -->
-    <button class="main-chat-btn" onclick="toggleChatMenu()" id="menuBtn">HELP/Live Chat</button>
-
-    <!-- The Hidden Options -->
-    <div class="chat-options" id="chatOptions">
-        <!-- WhatsApp Link -->
-        <a href="https://wa.me/529531960361" target="_blank" class="option-btn btn-whatsapp" data-label="WhatsApp Support">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </a>
-
-        <!-- Live Chat Link -->
-        <a href="chat.html" class="option-btn btn-livechat" data-label="Live Web Chat">
-            <img src="https://cdn-icons-png.flaticon.com/512/2040/2040946.png" alt="LiveChat">
-        </a>
+    <!-- CHAT HUB -->
+    <div class="chat-hub-wrapper">
+        <button class="main-trigger-btn" id="hubBtn" onclick="toggleHub()">
+            <svg id="msgIcon" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+            </svg>
+        </button>
+        <div class="chat-stack" id="hubStack">
+            <a href="https://wa.me/529531960361" target="_blank" class="chat-opt wa-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA"></a>
+            <a href="chat.html" class="chat-opt live-btn"><img src="https://cdn-icons-png.flaticon.com/512/2040/2040946.png" alt="Chat"></a>
+        </div>
     </div>
-</div>
 
+    <script>
+        const clients = ["Global Logistics", "Apex Freight", "Trans-Atlantic", "Nexus Supply", "Prime Shipping"];
+        const destinations = ["London, UK", "New York, USA", "Tokyo, Japan", "Dubai, UAE", "Paris, France"];
+        const statuses = ["IN TRANSIT", "PROCESSING", "ARRIVED", "DELIVERED"];
+        const updates = ["Departed Hub", "Customs Clearing", "On-Flight", "Sorting Facility"];
 
+        const logEl = document.getElementById('logRows');
+        const msgEl = document.getElementById('rotateMsg');
+        const messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
+        let msgIdx = 0;
 
-<script>
-    // 1. DATA POOLS FOR RANDOM GENERATION
-    const clients = ["Global Logistics", "Apex Freight", "Trans-Atlantic", "Nexus Supply", "Prime Shipping", "Euro-Express", "Pacific Blue", "Sky-Link", "Atlas Cargo"];
-    const destinations = ["London, UK", "New York, USA", "Tokyo, Japan", "Dubai, UAE", "Paris, France", "Singapore, SG", "Berlin, GER", "Toronto, CAN", "Shanghai, CN"];
-    const statuses = ["IN TRANSIT", "PROCESSING", "ARRIVED", "DELIVERED"];
-    const updates = ["Departed Hub", "Customs Clearing", "On-Flight", "Sorting Facility", "Handover", "Verified"];
-
-    const logEl = document.getElementById('logRows');
-    const msgEl = document.getElementById('rotateMsg');
-    
-    // FADING TEXT MESSAGES
-    const messages = [
-        "GLOBAL FREIGHT COMMAND",
-        "SECURE AIR & SEA CARGO",
-        "REAL-TIME SATELLITE TRACKING",
-        "DIRECT DOOR-TO-DOOR DELIVERY"
-    ];
-    let msgIdx = 0;
-
-    // 2. FUNCTION TO GENERATE A NEW RANDOM SHIPMENT
-    function generateLiveShipment() {
-        const idPrefix = "XP-";
-        const idNum = Math.floor(1000 + Math.random() * 9000);
-        const cityCode = ["LDN", "NYC", "DXB", "TYO", "HKG", "SIN"][Math.floor(Math.random() * 6)];
-        
-        return {
-            id: `${idPrefix}${idNum}-${cityCode}`,
-            name: clients[Math.floor(Math.random() * clients.length)],
-            dest: destinations[Math.floor(Math.random() * destinations.length)],
-            status: statuses[Math.floor(Math.random() * statuses.length)],
-            note: updates[Math.floor(Math.random() * updates.length)]
-        };
-    }
-
-    // 3. FUNCTION TO UPDATE THE TABLE
-    function tickLiveOperations() {
-        // We generate 5 fresh rows every 3 seconds
-        logEl.innerHTML = "";
-        
-        for (let i = 0; i < 5; i++) {
-            const s = generateLiveShipment();
-            const isDone = (s.status === "DELIVERED" || s.status === "ARRIVED");
-            
-            // Adding a flash animation class to show it's new
-            const row = `
-                <tr class="update-flash">
-                    <td data-label="ID" style="color:var(--accent); font-weight:bold;">${s.id}</td>
-                    <td data-label="Client">${s.name}</td>
-                    <td data-label="Dest">${s.dest}</td>
-                    <td data-label="Status">
-                        <span class="tag ${isDone ? 'tag-success' : 'tag-transit'}">${s.status}</span>
-                        <div style="font-size:9px; opacity:0.5; margin-top:2px;">${s.note}</div>
-                    </td>
-                </tr>
-            `;
-            logEl.innerHTML += row;
+        function tickLiveOperations() {
+            logEl.innerHTML = "";
+            for (let i = 0; i < 5; i++) {
+                const idNum = Math.floor(1000 + Math.random() * 9000);
+                const s = {
+                    id: `XP-${idNum}-INT`,
+                    name: clients[Math.floor(Math.random() * clients.length)],
+                    dest: destinations[Math.floor(Math.random() * destinations.length)],
+                    status: statuses[Math.floor(Math.random() * statuses.length)],
+                    note: updates[Math.floor(Math.random() * updates.length)]
+                };
+                const isDone = (s.status === "DELIVERED" || s.status === "ARRIVED");
+                logEl.innerHTML += `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.dest}</td><td><span class="tag ${isDone ? 'tag-success' : 'tag-transit'}">${s.status}</span></td></tr>`;
+            }
         }
-    }
 
-    // 4. HEADER TEXT ROTATION (8 seconds)
-    setInterval(() => {
-        msgIdx = (msgIdx + 1) % messages.length;
-        msgEl.textContent = messages[msgIdx];
-    }, 8000);
+        setInterval(() => {
+            msgIdx = (msgIdx + 1) % messages.length;
+            msgEl.textContent = messages[msgIdx];
+        }, 8000);
 
-    // 5. TRACKING INPUT HANDLER
-    function handleTrack() {
-        const val = document.getElementById('trackInput').value;
-        if(val) {
-            window.location.href = "track.html?id=" + val;
-        } else {
-            alert("Please enter a Tracking ID");
+        function handleTrack() {
+            const val = document.getElementById('trackInput').value;
+            if(val) { window.location.href = "track.html?id=" + val; }
         }
-    }
 
-    // INITIAL START
-    tickLiveOperations();
-    
-    // REFRESH EVERY 3 SECONDS
-    setInterval(tickLiveOperations, 3000)
-
-
-  function toggleChatMenu() {
-        const options = document.getElementById('chatOptions');
-        const btn = document.getElementById('menuBtn');
-        
-        if (options.style.display === "flex") {
-            options.style.display = "none";
-            btn.textContent = "HELP";
-            btn.style.background = "#00d4ff";
-        } else {
-            options.style.display = "flex";
-            btn.textContent = "X";
-            btn.style.background = "#ff4d4d";
+        function toggleHub() {
+            document.getElementById('hubStack').classList.toggle('stack-active');
         }
-    };
-</script>
 
+        tickLiveOperations();
+        setInterval(tickLiveOperations, 3000);
+    </script>
 </body>
 </html>
