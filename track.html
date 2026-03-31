@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartXpress | Digital Airway Bill</title>
+    <style>
+        :root { --ink: #1e293b; --accent: #00d4ff; --paper: #ffffff; --seal: #f1f5f9; }
+        body { margin: 0; font-family: 'Courier New', Courier, monospace; background: #ccd6dd; color: var(--ink); padding: 40px 20px; }
+
+        /* THE "PAPER" DOCUMENT */
+        .awb-document { 
+            max-width: 850px; margin: auto; background: var(--paper); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2); border: 1px solid #94a3b8;
+            position: relative; overflow: hidden;
+        }
+
+        /* WATERMARK */
+        .awb-document::before {
+            content: "ORIGINAL COPY"; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 80px; color: rgba(0,0,0,0.03); font-weight: 900; z-index: 0; pointer-events: none;
+        }
+
+        /* HEADER SECTION */
+        .awb-header { display: flex; border-bottom: 2px solid var(--ink); z-index: 1; position: relative; }
+        .logo-box { padding: 20px; border-right: 2px solid var(--ink); background: var(--ink); color: white; flex: 1; }
+        .tracking-box { padding: 20px; flex: 2; display: flex; flex-direction: column; justify-content: center; }
+
+        /* DATA SECTIONS */
+        .section-row { display: flex; border-bottom: 1px solid var(--ink); z-index: 1; position: relative; }
+        .data-block { flex: 1; padding: 15px; border-right: 1px solid var(--ink); }
+        .data-block:last-child { border-right: none; }
+        
+        .label { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 5px; display: block; }
+        .value { font-size: 14px; font-weight: 700; color: var(--ink); }
+
+        /* STATUS BAR */
+        .status-bar { background: var(--seal); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--ink); }
+        .status-pill { background: var(--ink); color: var(--accent); padding: 5px 15px; font-weight: 900; letter-spacing: 1px; }
+
+        /* SIGNATURE AREA */
+        .footer-sig { padding: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .barcode { font-family: 'Libre Barcode 39', cursive; font-size: 40px; } /* Note: Standard font fallback used */
+    </style>
+</head>
+<body>
+
+<div class="awb-document">
+    
+    <!-- HEADER -->
+    <div class="awb-header">
+        <div class="logo-box">
+            <h2 style="margin:0; font-size: 20px;">SMART<br><span style="color:var(--accent)">XPRESS</span></h2>
+            <small style="font-size: 8px;">GLOBAL LOGISTICS NETWORK</small>
+        </div>
+        <div class="tracking-box">
+            <span class="label">Air Waybill Number</span>
+            <div style="font-size: 24px; font-weight: 900;" id="awb-number">SX-99204-LG7</div>
+            <div style="font-size: 10px; margin-top: 5px; color: #94a3b8;">ELECTRONIC RECORD | VERIFIED STATUS</div>
+        </div>
+    </div>
+
+    <!-- LIVE STATUS -->
+    <div class="status-bar">
+        <div>
+            <span class="label">Current Intelligence</span>
+            <div class="value" style="font-size: 18px;" id="live-loc">DEPARTED ORIGIN: SHANGHAI PORT</div>
+        </div>
+        <div class="status-pill" id="live-stat">IN TRANSIT</div>
+    </div>
+
+    <!-- SENDER & RECEIVER -->
+    <div class="section-row">
+        <div class="data-block">
+            <span class="label">01. Shipper / Sender Details</span>
+            <div class="value">Global Tech Supplies Ltd</div>
+            <div class="value" style="font-weight: 400; font-size: 12px; margin-top:5px;">
+                Building 4, Pudong District<br>
+                Shanghai, China<br>
+                Contact: +86 21 5836 0000
+            </div>
+        </div>
+        <div class="data-block">
+            <span class="label">02. Consignee / Receiver Details</span>
+            <div class="value">Emeka Okafor</div>
+            <div class="value" style="font-weight: 400; font-size: 12px; margin-top:5px;">
+                14 Lekki Phase 1<br>
+                Lagos, Nigeria<br>
+                Contact: +234 803 000 1111<br>
+                Email: e.okafor@email.com
+            </div>
+        </div>
+    </div>
+
+    <!-- SHIPMENT SPECS -->
+    <div class="section-row">
+        <div class="data-block">
+            <span class="label">Gross Weight</span>
+            <div class="value">42.50 KG</div>
+        </div>
+        <div class="data-block">
+            <span class="label">Nature of Goods</span>
+            <div class="value">ELECTRONIC COMPONENTS</div>
+        </div>
+        <div class="data-block">
+            <span class="label">Date of Dispatch</span>
+            <div class="value">MARCH 28, 2026</div>
+        </div>
+    </div>
+
+    <!-- EXTRA INFO -->
+    <div class="section-row" style="height: 100px;">
+        <div class="data-block">
+            <span class="label">Handling Information</span>
+            <div class="value" style="font-size: 11px; font-weight: 400;">FRAGILE. HANDLE WITH CARE. STORE IN COOL DRY PLACE. DO NOT STACK ABOVE 4 UNITS.</div>
+        </div>
+    </div>
+
+    <!-- FOOTER / BARCODE -->
+    <div class="footer-sig">
+        <div>
+            <div style="font-size: 30px; letter-spacing: 5px; color: #94a3b8;">|||| | || ||| || |</div>
+            <small class="label" style="margin-top: 5px;">System Scanned: 31-03-2026</small>
+        </div>
+        <div style="text-align: right;">
+            <div style="border-bottom: 1px solid var(--ink); width: 200px; padding-bottom: 5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Signature_of_Zhu_De.svg" style="height: 30px; opacity: 0.6; filter: grayscale(1);" alt="Sig">
+            </div>
+            <span class="label">Authorized Dispatch Signature</span>
+        </div>
+    </div>
+
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+    <button onclick="window.print()" style="padding: 10px 20px; cursor: pointer; background: #475569; color: white; border: none; border-radius: 4px; font-weight: bold;">Download PDF Version</button>
+</div>
+
+</body>
+</html>
