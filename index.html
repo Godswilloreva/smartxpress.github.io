@@ -181,16 +181,24 @@
 
 
 
-
-    <!-- <!-- TRACKING BAR -->
+<!-- TRACKING BAR -->
 <section class="track-bar">
-    <div class="track-container" style="flex-direction: column; align-items: center;">
-        <div style="display: flex; width: 100%;">
-            <input type="text" id="trackInput" placeholder="Format: XP-0000-INT" style="text-transform: uppercase;">
-            <button id="trackBtn" onclick="handleTrack()">br>Track Shipment</button>
+    <div class="track-container" style="flex-direction: column; align-items: center; background: transparent; box-shadow: none;">
+        <div style="display: flex; width: 100%; gap: 15px;"> <!-- Added 15px gap here -->
+            <input type="text" 
+                   id="trackInput" 
+                   placeholder="Enter Tracking Code" 
+                   style="flex: 2; padding: 20px; background: #fff; border: none; color: #000; border-radius: 8px; font-weight: bold; font-size: 16px; outline: none;">
+            
+            <button id="trackBtn" 
+                    onclick="handleTrack()" 
+                    style="flex: 1; background: var(--accent); color: #000; border: none; font-weight: 900; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; padding: 20px;">
+                Track Shipment
+            </button>
         </div>
+        
         <!-- Error Message Display -->
-        <div id="trackError" style="color: #ff4d4d; font-size: 12px; font-weight: bold; margin-top: 10px; display: none; text-transform: uppercase; letter-spacing: 1px;">
+        <div id="trackError" style="color: #ff4d4d; font-size: 12px; font-weight: bold; margin-top: 15px; display: none; text-transform: uppercase; letter-spacing: 1px;">
             ⚠️ INVALID TRACKING ID: ACCESS DENIED
         </div>
     </div>
@@ -199,8 +207,20 @@
 
 
 
+
+
 <br>
 <br>
+
+
+
+
+
+
+
+
+
+
 
     <!-- SMARTXPRESS COMMAND CENTER (STRICT SCREEN FIT) -->
 <div style="width:100%; height:60vh; overflow:hidden; background:#020617; color:#e2e8f0; font-family: 'Segoe UI', Roboto, sans-serif; display:flex; flex-direction:column; padding:20px; box-sizing:border-box; border: 4px solid #1e293b;">
@@ -227,7 +247,7 @@
     <!-- MAIN DASHBOARD AREA -->
     <div style="display:flex; gap:20px; flex:1; min-height:0;">
         
-        <!-- LEFT COLUMN: LIVE LOGS (60%) -->
+{        <!-- LEFT COLUMN: LIVE LOGS (60%) -->
         <div style="flex:1.5; display:flex; flex-direction:column;">
             <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; flex:1; display:flex; flex-direction:column; overflow:hidden;">
                 <div style="background:#1e293b; padding:10px 15px; font-size:11px; font-weight:900; letter-spacing:1px; color:#38bdf8;">
@@ -903,11 +923,13 @@ function showTrackError(msg) {
 const translations = {
     en: {
         heroMsg: "GLOBAL FREIGHT COMMAND",
-        trackPlaceholder: "Enter Airway Bill or Tracking ID",
+        trackPlaceholder: "Enter Tracking Code", // Ensure this match
         fleetTitle: "Last-Mile Fleet Velocity",
         opsManifest: "ACTIVE MANIFEST STREAM",
         systemOnline: "● SYSTEM ONLINE"
     },
+    // ... rest of your script
+
     it: {
         heroMsg: "COMANDO GLOBALE MERCI",
         trackPlaceholder: "Inserisci Lettera di Vettura o ID",
