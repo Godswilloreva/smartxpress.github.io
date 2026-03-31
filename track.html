@@ -162,32 +162,9 @@
             </div>
         </header>
 
-        <section class="manifest-grid">
-            <div class="info-card">
-                <div class="card-label"><i class="fas fa-user-tie"></i> Consignor (Sender)</div>
-                <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">Apex Global Supplies</span></div>
-                <div class="data-row"><span class="data-label">Address:</span> <span class="data-value">D34 Cargo City, Dubai, UAE</span></div>
-                <div class="data-row"><span class="data-label">Phone:</span> <span class="data-value">+971 4 555 9901</span></div>
-            </div>
 
-            <div class="info-card">
-                <div class="card-label"><i class="fas fa-shipping-fast"></i> Consignee (Receiver)</div>
-                <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">Julian Sterling</span></div>
-                <div class="data-row"><span class="data-label">Address:</span> <span class="data-value">15 Berkeley Sq, London, UK</span></div>
-                <div class="data-row"><span class="data-label">Phone:</span> <span class="data-value">+44 20 7946 0122</span></div>
-                <div class="data-row"><span class="data-label">Email:</span> <span class="data-value">j.sterling@sterling-intl.com</span></div>
-            </div>
 
-            <div class="info-card">
-                <div class="card-label"><i class="fas fa-clipboard-list"></i> Shipment Details</div>
-                <div class="data-row"><span class="data-label">Weight:</span> <span class="data-value">18.25 KG</span></div>
-                <div class="data-row"><span class="data-label">Type:</span> <span class="data-value">Medical Hardware</span></div>
-                <div class="data-row"><span class="data-label">Shipped:</span> <span class="data-value">March 30, 2026</span></div>
-                <div class="data-row"><span class="data-label">Auth:</span> <span class="data-value">SX-VERIFIED</span></div>
-            </div>
-        </section>
-
-            <!-- EXPANDED HISTORY -->
+             <!-- UPDATED TACTICAL HISTORY LOG -->
         <section class="progress-box">
             <div class="card-label" style="margin-bottom: 35px;"><i class="fas fa-history"></i> Tactical History Log</div>
             
@@ -216,6 +193,14 @@
             </div>
 
             <div class="step completed">
+                <div class="step-icon"><i class="fas fa-barcode"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 14px;">SCANNING GOODS COMPLETED</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">MAR 30 - Digital X-Ray & Manifest Sync OK</div>
+                </div>
+            </div>
+
+            <div class="step completed">
                 <div class="step-icon"><i class="fas fa-hand-holding-usd"></i></div>
                 <div>
                     <div style="font-weight: 800; font-size: 14px;">ON HOLD FOR CLEARANCE CHARGES</div>
@@ -231,23 +216,35 @@
                 </div>
             </div>
 
+            <!-- ACTIVE STEP: CUSTOM HOLD -->
             <div class="step active">
                 <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
                 <div>
                     <div style="font-weight: 800; font-size: 14px;">CUSTOM HOLD</div>
-                    <div style="font-size: 11px; color: var(--text-muted);">MAR 31 - Undergoing Border Inspection</div>
+                    <div style="font-size: 11px; color: #ef4444; font-weight: bold;">
+                        <span style="display:inline-block; width:8px; height:8px; background:#ef4444; border-radius:50%; margin-right:5px; animation: pulse-red 1s infinite;"></span>
+                        MAR 31 - Undergoing Physical Inspection
+                    </div>
                 </div>
             </div>
 
-            <div class="step">
-                <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="step" style="opacity: 0.6;">
+                <div class="step-icon"><i class="fas fa-hourglass-half"></i></div>
                 <div>
-                    <div style="font-weight: 800; font-size: 14px;">CLEARED</div>
-                    <div style="font-size: 11px; color: var(--text-muted);">PENDING - Release for Final Delivery</div>
+                    <div style="font-weight: 800; font-size: 14px;">AWAITING CUSTOM HOLD CLEARANCE</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">PENDING - Waiting for Border Agency Release</div>
                 </div>
             </div>
 
-            <div class="step">
+            <div class="step" style="opacity: 0.5;">
+                <div class="step-icon"><i class="fas fa-truck-loading"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 14px;">SUCCESSFULLY CLEARED AND PICKED</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">PENDING - Moving to Final Sorting Grid</div>
+                </div>
+            </div>
+
+            <div class="step" style="opacity: 0.4;">
                 <div class="step-icon"><i class="fas fa-home"></i></div>
                 <div>
                     <div style="font-weight: 800; font-size: 14px;">DELIVERED</div>
@@ -255,6 +252,76 @@
                 </div>
             </div>
         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="manifest-grid">
+            <div class="info-card">
+                <div class="card-label"><i class="fas fa-user-tie"></i> Consignor (Sender)</div>
+                <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">Apex Global Supplies</span></div>
+                <div class="data-row"><span class="data-label">Address:</span> <span class="data-value">D34 Cargo City, Dubai, UAE</span></div>
+                <div class="data-row"><span class="data-label">Phone:</span> <span class="data-value">+971 4 555 9901</span></div>
+            </div>
+
+            <div class="info-card">
+                <div class="card-label"><i class="fas fa-shipping-fast"></i> Consignee (Receiver)</div>
+                <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">Julian Sterling</span></div>
+                <div class="data-row"><span class="data-label">Address:</span> <span class="data-value">15 Berkeley Sq, London, UK</span></div>
+                <div class="data-row"><span class="data-label">Phone:</span> <span class="data-value">+44 20 7946 0122</span></div>
+                <div class="data-row"><span class="data-label">Email:</span> <span class="data-value">j.sterling@sterling-intl.com</span></div>
+            </div>
+
+            <div class="info-card">
+                <div class="card-label"><i class="fas fa-clipboard-list"></i> Shipment Details</div>
+                <div class="data-row"><span class="data-label">Weight:</span> <span class="data-value">18.25 KG</span></div>
+                <div class="data-row"><span class="data-label">Type:</span> <span class="data-value">Medical Hardware</span></div>
+                <div class="data-row"><span class="data-label">Shipped:</span> <span class="data-value">March 30, 2026</span></div>
+                <div class="data-row"><span class="data-label">Auth:</span> <span class="data-value">SX-VERIFIED</span></div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
 
 
         <button class="btn-download" onclick="generateDownload()">
