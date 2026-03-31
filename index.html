@@ -178,13 +178,20 @@
         </div>
     </header>
 
-    <!-- TRACKING BAR -->
-    <section class="track-bar">
-        <div class="track-container">
-            <input type="text" id="trackInput" placeholder="Enter Airway Bill or Tracking ID">
-            <button onclick="handleTrack()">Track Shipment</button>
+    <!-- <!-- TRACKING BAR -->
+<section class="track-bar">
+    <div class="track-container" style="flex-direction: column; align-items: center;">
+        <div style="display: flex; width: 100%;">
+            <input type="text" id="trackInput" placeholder="Format: XP-0000-INT" style="text-transform: uppercase;">
+            <button id="trackBtn" onclick="handleTrack()">Track Shipment</button>
         </div>
-    </section>
+        <!-- Error Message Display -->
+        <div id="trackError" style="color: #ff4d4d; font-size: 12px; font-weight: bold; margin-top: 10px; display: none; text-transform: uppercase; letter-spacing: 1px;">
+            ⚠️ INVALID TRACKING ID: ACCESS DENIED
+        </div>
+    </div>
+</section>
+
 <br>
 <br>
 
@@ -380,10 +387,74 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
             msgEl.textContent = messages[msgIdx];
         }, 8000);
 
-        function handleTrack() {
-            const val = document.getElementById('trackInput').value;
-            if(val) { window.location.href = "track.html?id=" + val; }
+
+
+
+
+
+
+        // 1. DEFINE VALID TRACKING IDS (In a real app, this would be your database)
+const VALID_DATABASE_IDS = ["XP-9920-INT", "XP-4452-INT", "XP-1029-INT", "XP-7731-INT"];
+
+function handleTrack() {
+    const inputField = document.getElementById('trackInput');
+    const btn = document.getElementById('trackBtn');
+    const errorMsg = document.getElementById('trackError');
+    const val = inputField.value.trim().toUpperCase();
+
+    // REGEX PATTERN: Must start with XP-, followed by 4 numbers, ending in -INT
+    const idPattern = /^XP-\d{4}-INT$/;
+
+    // RESET UI
+    errorMsg.style.display = "none";
+    inputField.style.border = "none";
+
+    // SECURITY CHECK 1: Format Validation
+    if (!idPattern.test(val)) {
+        showTrackError("SECURITY ALERT: INVALID FORMAT DETECTED");
+        return;
+    }
+
+    // SECURITY CHECK 2: Database Match
+    // Note: I added a small delay to make it feel like it's "Searching the Global Grid"
+    btn.innerText = "VERIFYING...";
+    btn.disabled = true;
+
+    setTimeout(() => {
+        if (VALID_DATABASE_IDS.includes(val)) {
+            // SUCCESS: Redirect to track.html with the ID
+            window.location.href = `track.html?id=${val}&auth=verified_${Math.random().toString(36).substr(2, 9)}`;
+        } else {
+            // FAIL: ID not found in system
+            showTrackError("ACCESS DENIED: ID NOT FOUND IN MANIFEST");
+            btn.innerText = "TRACK SHIPMENT";
+            btn.disabled = false;
         }
+    }, 1500);
+}
+
+function showTrackError(msg) {
+    const errorMsg = document.getElementById('trackError');
+    const inputField = document.getElementById('trackInput');
+    
+    errorMsg.innerText = "⚠️ " + msg;
+    errorMsg.style.display = "block";
+    inputField.style.border = "2px solid #ff4d4d";
+    
+    // Shake animation effect
+    inputField.style.transform = "translateX(5px)";
+    setTimeout(() => inputField.style.transform = "translateX(-5px)", 50);
+    setTimeout(() => inputField.style.transform = "translateX(0)", 100);
+}
+
+
+
+
+
+
+
+
+
 
         function toggleHub() {
             document.getElementById('hubStack').classList.toggle('stack-active');
