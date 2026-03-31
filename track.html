@@ -187,50 +187,75 @@
             </div>
         </section>
 
-        <!-- EXPANDED HISTORY -->
+            <!-- EXPANDED HISTORY -->
         <section class="progress-box">
             <div class="card-label" style="margin-bottom: 35px;"><i class="fas fa-history"></i> Tactical History Log</div>
             
             <div class="step completed">
-                <div class="step-icon"><i class="fas fa-box"></i></div>
+                <div class="step-icon"><i class="fas fa-check"></i></div>
                 <div>
-                    <div style="font-weight: 800; font-size: 14px;">BOOKING CONFIRMED</div>
-                    <div style="font-size: 11px; color: var(--text-muted);">MAR 29 - Electronic Manifest Received</div>
+                    <div style="font-weight: 800; font-size: 14px;">ORDER CONFIRMED</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">MAR 28 - System Validation Complete</div>
                 </div>
             </div>
 
             <div class="step completed">
-                <div class="step-icon"><i class="fas fa-barcode"></i></div>
+                <div class="step-icon"><i class="fas fa-box"></i></div>
                 <div>
-                    <div style="font-weight: 800; font-size: 14px;">DUBAI HUB - DEPARTED</div>
-                    <div style="font-size: 11px; color: var(--text-muted);">MAR 30 - Export Clearance Approved</div>
+                    <div style="font-weight: 800; font-size: 14px;">PICKED BY COURIER</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">MAR 29 - Shipment Collected from Origin</div>
                 </div>
             </div>
 
             <div class="step completed">
                 <div class="step-icon"><i class="fas fa-plane-arrival"></i></div>
                 <div>
-                    <div style="font-weight: 800; font-size: 14px;">LONDON GATEWAY - ARRIVED</div>
-                    <div style="font-size: 11px; color: var(--text-muted);">MAR 31 - Flight SX-902 Landed</div>
+                    <div style="font-weight: 800; font-size: 14px;">ARRIVED AT COUNTRY OF DESTINATION</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">MAR 30 - Processed at London Gateway</div>
+                </div>
+            </div>
+
+            <div class="step completed">
+                <div class="step-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 14px;">ON HOLD FOR CLEARANCE CHARGES</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">MAR 30 - Awaiting Import Duty Payment</div>
+                </div>
+            </div>
+
+            <div class="step completed">
+                <div class="step-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 14px;">CLEARED CHARGES CONFIRMED</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">MAR 31 - Payment Successfully Processed</div>
                 </div>
             </div>
 
             <div class="step active">
                 <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
                 <div>
-                    <div style="font-weight: 800; font-size: 14px;">CUSTOMS CLEARANCE</div>
+                    <div style="font-weight: 800; font-size: 14px;">CUSTOM HOLD</div>
                     <div style="font-size: 11px; color: var(--text-muted);">MAR 31 - Undergoing Border Inspection</div>
                 </div>
             </div>
 
             <div class="step">
-                <div class="step-icon"><i class="fas fa-truck"></i></div>
+                <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
                 <div>
-                    <div style="font-weight: 800; font-size: 14px;">FINAL MILE DISPATCH</div>
-                    <div style="font-size: 11px; color: var(--text-muted);">PENDING - Destination Courier Assignment</div>
+                    <div style="font-weight: 800; font-size: 14px;">CLEARED</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">PENDING - Release for Final Delivery</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-home"></i></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 14px;">DELIVERED</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">PENDING - Final Signature Required</div>
                 </div>
             </div>
         </section>
+
 
         <button class="btn-download" onclick="generateDownload()">
             <i class="fas fa-file-invoice"></i> DOWNLOAD SMARTXPRESS RECEIPT DETAILS
