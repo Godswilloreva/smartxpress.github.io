@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Global Logistics</title>
+
+<style>
+body {
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#f4f7f9;
+    color:#1a2233;
+}
+
+/* NAV SPACE FIX */
+.top-space {
+    height:60px;
+}
+
+/* HERO */
+.hero {
+    background:#002d5b;
+    color:#fff;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.hero h1 {
+    margin:0;
+    font-size:36px;
+    font-weight:900;
+}
+
+.hero p {
+    margin-top:10px;
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* SECTION */
+.section {
+    max-width:1100px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+/* GRID */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.card {
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    border-bottom:4px solid #002d5b;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-8px);
+    border-bottom-color:#00d4ff;
+}
+
+.card h3 {
+    margin:0 0 10px 0;
+    color:#002d5b;
+}
+
+.card p, .card a {
+    font-size:13px;
+    color:#64748b;
+    text-decoration:none;
+}
+
+/* BUTTON */
+.btn {
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 20px;
+    background:#00d4ff;
+    color:#000;
+    text-decoration:none;
+    font-weight:800;
+    border-radius:5px;
+}
+
+/* FOOTER */
+.footer {
+    background:#001a35;
+    color:#94a3b8;
+    text-align:center;
+    padding:20px;
+    font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="top-space"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Contact Us</h1>
+    <p>We are available 24/7 to support your logistics needs</p>
+</section>
+
+<!-- CONTACT OPTIONS -->
+<div class="section">
+    <h2 style="color:#002d5b; font-size:26px; font-weight:900;">Reach Us Anytime</h2>
+
+    <div class="grid">
+
+        <!-- WHATSAPP -->
+        <div class="card">
+            <h3>WhatsApp Support</h3>
+            <p>Chat instantly with our support team.</p>
+            <a href="https://wa.me/529531960361" class="btn" target="_blank">Chat on WhatsApp</a>
+        </div>
+
+        <!-- LIVE CHAT -->
+        <div class="card">
+            <h3>Live Chat</h3>
+            <p>Connect with our live agent directly on the website.</p>
+            <button onclick="openLiveChat()" class="btn">Start Live Chat</button>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="card">
+            <h3>Email Support</h3>
+            <p>Send us a message anytime.</p>
+            <a href="mailto:smartxpressdelivery247@gmail.com" class="btn">Send Email</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- CONTACT DETAILS -->
+<div class="section">
+    <h2 style="color:#002d5b; font-size:26px; font-weight:900;">Contact Hub</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Global Line</h3>
+            <p>+52 953 196 0361</p>
+        </div>
+
+        <div class="card">
+            <h3>Operations Email</h3>
+            <p>support@smartxpress.com</p>
+        </div>
+
+        <div class="card">
+            <h3>Service Availability</h3>
+            <p>24/7 Priority Response</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- EXTRA LINKS -->
+<div class="section">
+    <h2 style="color:#002d5b; font-size:26px; font-weight:900;">Tools</h2>
+
+    <div class="card" style="text-align:center;">
+        <h3>Rate Calculator</h3>
+        <p>Estimate shipping costs instantly.</p>
+        <a href="https://smartxpress.vercel.app/" class="btn" target="_blank">Open Calculator</a>
+    </div>
+</div>
+
+<!-- ADDRESS -->
+<div class="section">
+    <h2 style="color:#002d5b; font-size:26px; font-weight:900;">Our Address</h2>
+
+    <div class="card">
+        <p>
+            SmartXpress Logistics Hub<br>
+            Via Roma 125,<br>
+            Milan, 20121<br>
+            Italy
+        </p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 Global Logistics Network. All rights reserved.
+</div>
+
+<!-- LIVE CHAT FUNCTION -->
+<script>
+function openLiveChat() {
+    if (window.Tawk_API && Tawk_API.maximize) {
+        Tawk_API.maximize();
+    } else {
+        alert("Live chat is loading...");
+    }
+}
+</script>
+
+</body>
+</html>
