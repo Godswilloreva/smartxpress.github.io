@@ -371,93 +371,6 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 <br>
 
 
-  <div class="chat-hub-wrapper" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-    <style>
-        /* Main Floating Button */
-        .main-trigger-btn {
-            width: 65px; height: 65px; background: #002d5b; border: none; border-radius: 50%;
-            cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); display: flex;
-            align-items: center; justify-content: center; transition: 0.3s;
-        }
-        .main-trigger-btn:hover { transform: scale(1.1); background: #00d4ff; }
-        .main-trigger-btn svg { width: 30px; fill: white; }
-
-        /* The Stack of Options (Hidden by default) */
-        .chat-stack {
-            position: absolute; bottom: 80px; right: 0; display: none;
-            flex-direction: column; gap: 15px; animation: slideUp 0.3s ease-out;
-        }
-
-        .chat-opt {
-            display: flex; align-items: center; gap: 12px; padding: 12px 20px;
-            border-radius: 50px; text-decoration: none; font-family: 'Inter', sans-serif;
-            font-size: 13px; font-weight: 800; color: white; white-space: nowrap;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; border: none; cursor: pointer;
-        }
-
-        .wa-btn { background: #25d366; }
-        .tawk-btn { background: #002d5b; border: 1px solid #00d4ff; }
-        
-        .chat-opt img { width: 20px; height: 20px; }
-        .chat-opt:hover { transform: translateX(-10px); }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-
-    <div class="chat-stack" id="hubStack">
-        <a href="https://wa.me/529531960361" target="_blank" class="chat-opt wa-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
-            CONTACT VIA WHATSAPP
-        </a>
-
-        <button onclick="openLiveChat()" class="chat-opt tawk-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="filter: brightness(0) invert(1);" alt="Live">
-            LIVE AGENT (OFFICER SARAH)
-        </button>
-    </div>
-
-    <button class="main-trigger-btn" id="hubBtn" onclick="toggleHub()">
-        <svg id="msgIcon" viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-        </svg>
-    </button>
-</div>
-
-<script type="text/javascript">
-    // 1. Toggle the Hub View
-    function toggleHub() {
-        const stack = document.getElementById('hubStack');
-        stack.style.display = (stack.style.display === 'flex') ? 'none' : 'flex';
-    }
-
-    // 2. Open Tawk.to window and hide the hub
-    function openLiveChat() {
-        if (typeof Tawk_API !== "undefined") {
-            Tawk_API.maximize(); // Opens the chat window
-            toggleHub(); // Closes the Hub menu
-        }
-    }
-
-    // 3. Tawk.to Script with "Hide Default Bubble" logic
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    
-    // This part hides the original small bubble so it doesn't show twice
-    Tawk_API.onLoad = function(){
-        Tawk_API.hideWidget();
-    };
-
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/69cc8eb03b7f611c3916951f/1jl3gqp7q';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
 
 
 
@@ -1058,6 +971,123 @@ window.onload = () => {
 };
 </script>
 </footer>
+
+
+
+
+
+
+
+
+
+<div class="chat-hub-wrapper" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: sans-serif;">
+    <style>
+        /* Main Trigger Button */
+        .main-trigger-btn {
+            width: 60px; height: 60px; background: #002d5b; border: none; border-radius: 50%;
+            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex;
+            align-items: center; justify-content: center; transition: 0.4s;
+        }
+        .main-trigger-btn svg { width: 28px; fill: white; transition: 0.3s; }
+        .active-btn { transform: rotate(90deg); background: #64748b; }
+
+        /* The Stack for Official Buttons */
+        #hubStack {
+            position: absolute; bottom: 80px; right: 5px; 
+            display: none; flex-direction: column; gap: 15px; 
+            align-items: center;
+        }
+
+        /* Official WhatsApp Design */
+        .wa-official {
+            width: 50px; height: 50px; background: #25D366; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s;
+        }
+        .wa-official img { width: 30px; }
+
+        /* Official Tawk.to Design (Bird Icon) */
+        .tawk-official {
+            width: 50px; height: 50px; background: #00b44a; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; border: none; cursor: pointer;
+        }
+        .tawk-official img { width: 30px; }
+
+        .chat-label {
+            position: absolute; right: 65px; background: white; color: #333;
+            padding: 5px 12px; border-radius: 5px; font-size: 11px; font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); white-space: nowrap; pointer-events: none;
+        }
+
+        .chat-item { position: relative; display: flex; align-items: center; transition: 0.3s; }
+        .chat-item:hover { transform: scale(1.1); }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.5) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .pop { animation: popIn 0.3s ease-out; }
+    </style>
+
+    <div id="hubStack">
+        <div class="chat-item pop">
+            <span class="chat-label">WhatsApp</span>
+            <a href="https://wa.me/529531960361" target="_blank" class="wa-official">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+        </div>
+
+        <div class="chat-item pop" style="animation-delay: 0.1s;">
+            <span class="chat-label">Live Chat</span>
+            <button onclick="openLiveChat()" class="tawk-official">
+                <img src="https://vignette.wikia.nocookie.net/logopedia/images/e/e0/Tawk.to_2017.png/revision/latest?cb=20181126131805" alt="Tawk.to">
+            </button>
+        </div>
+    </div>
+
+    <button class="main-trigger-btn" id="hubBtn" onclick="toggleHub()">
+        <svg id="msgIcon" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+        </svg>
+    </button>
+</div>
+
+<script type="text/javascript">
+    function toggleHub() {
+        const stack = document.getElementById('hubStack');
+        const btn = document.getElementById('hubBtn');
+        if (stack.style.display === "flex") {
+            stack.style.display = "none";
+            btn.classList.remove('active-btn');
+        } else {
+            stack.style.display = "flex";
+            btn.classList.add('active-btn');
+        }
+    }
+
+    function openLiveChat() {
+        if (window.Tawk_API && Tawk_API.maximize) {
+            Tawk_API.maximize();
+            toggleHub(); // Hide buttons after opening chat
+        }
+    }
+
+    // Tawk.to Logic
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    Tawk_API.onLoad = function(){
+        Tawk_API.hideWidget(); // Hide the default floating bubble
+    };
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69cc8eb03b7f611c3916951f/1jl3gqp7q';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+
 
 
 
