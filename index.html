@@ -149,8 +149,73 @@
 <!-- Google Translate Dropdown Container -->
 <div id="google_translate_element" style="padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
 
-
 </head>
+
+
+
+
+
+<!-- TOP NAV BAR (CENTERED + CLEAN) -->
+<div style="width:100%; background:#002d5b; padding:12px 5%; display:flex; justify-content:center; align-items:center; position:fixed; top:0; left:0; z-index:9999;">
+
+    <!-- CENTER NAV LINKS -->
+    <div style="display:flex; gap:50px; align-items:center;">
+        <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">About Us</a>
+        
+        <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Our Services</a>
+        
+        <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Contact Us</a>
+
+        <!-- TRANSLATE DROPDOWN -->
+        <div id="google_translate_element"></div>
+    </div>
+
+</div>
+
+<!-- REMOVE GOOGLE TOP BAR + STYLE -->
+<style>
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0px !important; }
+
+/* Hide "Powered by Google" */
+.goog-logo-link { display:none !important; }
+.goog-te-gadget { color: transparent !important; font-size: 0 !important; }
+
+/* Style dropdown */
+.goog-te-combo {
+    background: transparent !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Remove extra spacing */
+.goog-te-gadget span { display: none !important; }
+</style>
+
+<!-- GOOGLE TRANSLATE (IN-PAGE, NO REDIRECT) -->
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false,
+        includedLanguages: 'en,fr,es,it,de,pt,ar,zh,ru',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+
+
+
 <body>
 
     <!-- VIDEO HEADER -->
