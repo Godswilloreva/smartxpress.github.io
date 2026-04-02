@@ -640,24 +640,47 @@ const VALID_DATABASE_IDS = [
 
 
 
-function handleTrack() {
+async function handleTrack() {
     const inputField = document.getElementById('trackInput');
     const btn = document.getElementById('trackBtn');
     const errorMsg = document.getElementById('trackError');
     const val = inputField.value.trim().toUpperCase();
 
-    // REGEX PATTERN: Must start with XP-, followed by 4 numbers, ending in -INT
     const idPattern = /^XP-\d{4}-INT$/;
 
-    // RESET UI
     errorMsg.style.display = "none";
     inputField.style.border = "none";
 
-    // SECURITY CHECK 1: Format Validation
     if (!idPattern.test(val)) {
-        showTrackError("SECURITY ALERT: INVALID FORMAT DETECTED");
+        showTrackError("INVALID FORMAT");
         return;
     }
+
+    btn.innerText = "VERIFYING...";
+    btn.disabled = true;
+
+    try {
+        const docRef = db.collection("tracking").doc(val);
+        const docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+            window.location.href = `track.html?id=${val}`;
+        } else {
+            showTrackError("TRACKING ID NOT FOUND");
+        }
+
+    } catch (error) {
+        console.error(error);
+        showTrackError("SYSTEM ERROR");
+    }
+
+    btn.innerText = "TRACK SHIPMENT";
+    btn.disabled = false;
+}
+
+
+
+
 
     // SECURITY CHECK 2: Database Match
     // Note: I added a small delay to make it feel like it's "Searching the Global Grid"
@@ -1131,6 +1154,12 @@ function showTrackError(msg) {
 </html>
 
 
+
+
+
+
+
+
 <script>
 const translations = {
     en: {
@@ -1230,7 +1259,7 @@ window.onload = () => {
             width: 50px; height: 50px; background: #00b44a; 
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; border: none; cursor: pointer;
-        }
+""        }
         .tawk-official img { width: 30px; }
 
         .chat-label {
@@ -1261,7 +1290,40 @@ window.onload = () => {
         <div class="chat-item pop" style="animation-delay: 0.1s;">
             <span class="chat-label">Live Agent (Sarah)</span>
             <button onclick="openLiveChat()" class="tawk-official">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="filter: brightness(0) invert(1);" alt="Live">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="f{ilter: brightness(0) invert(1);" alt="Live">
+
+
+
+
+
+
+
+
+
+<!-- FIREBASE (COMPAT VERSION FOR HTML) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAxWZrlC-cwuoGXR_8g9V1xez3Vs1Vhgfs",
+    authDomain: "smartxpress-tracking.firebaseapp.com",
+    projectId: "smartxpress-tracking",
+    storageBucket: "smartxpress-tracking.firebasestorage.app",
+    messagingSenderId: "680803370811",
+    appId: "1:680803370811:web:c6c372dae17c891fb8991e"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Initialize Firestore
+  const db = firebase.firestore();
+</script>
+
+
+
+
             </button>
         </div>
     </div>
