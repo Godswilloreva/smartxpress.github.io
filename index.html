@@ -255,12 +255,15 @@ function googleTranslateElementInit() {
                    id="trackInput" 
                    placeholder="Enter Tracking Code" 
                    style="flex: 2; min-width: 280px; padding: 20px; background: #fff; border: none; color: #000; border-radius: 8px; font-weight: bold; font-size: 16px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
             
             <button id="trackBtn" 
                     onclick="handleTrack()" 
                     style="flex: 1; min-width: 200px; background: var(--accent); color: #000; border: none; font-weight: 900; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                 Track Shipment
             </button>
+
+
         </div>
         
         <!-- Error Message Display -->
@@ -372,6 +375,11 @@ function googleTranslateElementInit() {
     </div>
 
 </div>
+
+
+
+
+
 
 <script>
 const clients2 = ["Apex Global", "Nexus Ltd", "Prime Freight", "Transit King", "Oceanic Co", "SkyLink Hub"];
@@ -641,20 +649,18 @@ const VALID_DATABASE_IDS = [
 
 
 async function handleTrack() {
+    alert("Button Clicked"); // 🔥 TEST
+
     const inputField = document.getElementById('trackInput');
-    const btn = document.getElementById('trackBtn');
-    const errorMsg = document.getElementById('trackError');
     const val = inputField.value.trim().toUpperCase();
 
-    const idPattern = /^XP-\d{4}-INT$/;
+    console.log("Tracking ID:", val); // 🔥 CHECK CONSOLE
 
-    errorMsg.style.display = "none";
-    inputField.style.border = "none";
+    window.location.href = `track.html?id=${val}`;
+}
 
-    if (!idPattern.test(val)) {
-        showTrackError("INVALID FORMAT");
-        return;
-    }
+
+
 
     btn.innerText = "VERIFYING...";
     btn.disabled = true;
