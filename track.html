@@ -407,15 +407,81 @@
         </div>
     </div>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const trackingID = params.get('id') || 'XP-7731-INT';
-        document.getElementById('display-id').innerText = trackingID;
 
-        function generateDownload() {
-            // Simply trigger the browser's print dialog
-            window.print();
+
+
+    <script>
+const params = new URLSearchParams(window.location.search);
+const trackingID = params.get('id');
+
+if (trackingID) {
+    document.getElementById('display-id').innerText = trackingID;
+
+    // 🔥 Fetch from Firebase
+    db.collection("tracking").doc(trackingID).get()
+    .then(doc => {
+        if (doc.exists) {
+            const data = doc.data();
+
+            // ✅ Update UI dynamically
+            document.getElementById("live-loc").innerText = data.location || "N/A";
+
+            // CONSIGNEE (Receiver)
+            document.querySelectorAll(".info-card")[1].innerHTML = `
+                <div class="card-label"><i class="fas fa-shipping-fast"></i> Consignee (Receiver)</div>
+                <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">${data.name}</span></div>
+                <div class="data-row"><span class="data-label">Address:</span> <span class="data-value">${data.address}</span></div>
+                <div class="data-row"><span class="data-label">Phone:</span> <span class="data-value">${data.phone}</span></div>
+                <div class="data-row"><span class="data-label">Email:</span> <span class="data-value">${data.email}</span></div>
+            `;
+
+            // SHIPMENT DETAILS
+            document.querySelectorAll(".info-card")[2].innerHTML = `
+                <div class="card-label"><i class="fas fa-clipboard-list"></i> Shipment Details</div>
+                <div class="data-row"><span class="data-label">Weight:</span> <span class="data-value">${data.weight}</span></div>
+                <div class="data-row"><span class="data-label">Type:</span> <span class="data-value">${data.type}</span></div>
+                <div class="data-row"><span class="data-label">Shipped:</span> <span class="data-value">${data.date}</span></div>
+                <div class="data-row"><span class="data-label">Status:</span> <span class="data-value">${data.status}</span></div>
+            `;
+
+        } else {
+            alert("Tracking ID not found");
         }
-    </script>
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Error loading tracking data");
+    });
+}
+</script>
+
+
+
+
+
+
+
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAxWZrlC-cwuoGXR_8g9V1xez3Vs1Vhgfs",
+  authDomain: "smartxpress-tracking.firebaseapp.com",
+  projectId: "smartxpress-tracking",
+  storageBucket: "smartxpress-tracking.firebasestorage.app",
+  messagingSenderId: "680803370811",
+  appId: "1:680803370811:web:c6c372dae17c891fb8991e"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+</script>
+
+
+
+
 </body>
 </html>
