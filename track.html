@@ -462,11 +462,11 @@ if (trackingID) {
 
 
 
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-<script>
+//  YOUR FIREBASE CONFIG
 const firebaseConfig = {
   apiKey: "AIzaSyAxWZrlC-cwuoGXR_8g9V1xez3Vs1Vhgfs",
   authDomain: "smartxpress-tracking.firebaseapp.com",
@@ -476,9 +476,47 @@ const firebaseConfig = {
   appId: "1:680803370811:web:c6c372dae17c891fb8991e"
 };
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-</script>
+// INIT FIREBASE
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// GET TRACKING ID FROM URL
+const params = new URLSearchParams(window.location.search);
+const trackingID = params.get('id');
+
+if (!trackingID) {
+  alert("No Tracking ID provided!");
+}
+
+// FETCH DATA FROM FIRESTORE
+async function loadShipment() {
+  const docRef = doc(db, "shipments", trackingID);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    const data = docSnap.data();
+
+    // DISPLAY TRACKING ID
+    document.getElementById("display-id").innerText = data.trackingID;
+
+    // LOCATION
+    document.getElementById("live-loc").innerText = data.currentLocation;
+
+    // RECEIVER
+    document.querySelectorAll(".info-card")[1].innerHTML = `
+      <div class="card-label"><i class="fas fa-shipping-fast"></i> Consignee (Receiver)</div>
+      <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">${data.receiverName}</span></div>
+      <div class="data-row"><span class="data-label">Address:</span> <span class="data-value">${data.receiverAddress}</span></div>
+      <div class="data-row"><span class="data-label">Phone:</span> <span class="data-value">${data.receiverPhone}</span></div>
+      <div class="data-row"><span class="data-label">Email:</span> <span class="data-value">${data.receiverEmail}</span></div>
+    `;
+
+    // SENDER
+    document.querySelectorAll(".info-card")[0].innerHTML = `
+      <div class="card-label"><i class="fas fa-user-tie"></i> Consignor (Sender)</div>
+      <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">${data.senderName}</span></div>
+      <div class="data-row"><span class="data-label">Address:</span> <span class="data-value">${data.senderAddress}</span></div>
+      <div class="data-row"><span class="data-label">Phone:</span> <span class="data-value">${data.senderPhone
 
 
 

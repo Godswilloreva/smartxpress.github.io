@@ -646,18 +646,29 @@ const VALID_DATABASE_IDS = [
 
 
 
-
-
 async function handleTrack() {
-    alert("Button Clicked"); // 🔥 TEST
-
     const inputField = document.getElementById('trackInput');
     const val = inputField.value.trim().toUpperCase();
 
-    console.log("Tracking ID:", val); // 🔥 CHECK CONSOLE
+    // ❌ If empty
+    if (!val) {
+        alert("Please enter a Tracking ID");
+        inputField.focus();
+        return;
+    }
 
-    window.location.href = `track.html?id=${val}`;
+    // ❌ Optional: basic format check (XP-XXXX-INT)
+    const pattern = /^XP-\d{4}-INT$/;
+    if (!pattern.test(val)) {
+        alert("Invalid Tracking ID format\nExample: XP-7731-INT");
+        return;
+    }
+
+    // ✅ Redirect to tracking page
+    window.location.href = `track.html?id=${encodeURIComponent(val)}`;
 }
+
+
 
 
 
