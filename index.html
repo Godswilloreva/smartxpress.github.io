@@ -626,8 +626,19 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
 
-        // 1. DEFINE VALID TRACKING IDS (In a real app, this would be your database)
-const VALID_DATABASE_IDS = ["XP-9920-INT", "XP-4452-INT", "XP-1029-INT", "XP-7731-INT"];
+        // Updated Valid IDs list (Example of 20 IDs)
+const VALID_DATABASE_IDS = [
+    "XP-9920-INT", "XP-4452-INT", "XP-1029-INT", "XP-7731-INT", 
+    "XP-2021-INT", "XP-3032-INT", "XP-4043-INT", "XP-5054-INT",
+    "XP-6065-INT", "XP-7076-INT", "XP-8087-INT", "XP-9098-INT",
+    "XP-1111-INT", "XP-2222-INT", "XP-3333-INT", "XP-4444-INT",
+    "XP-5555-INT", "XP-6666-INT", "XP-7777-INT", "XP-8888-INT"
+];
+
+
+
+
+
 
 function handleTrack() {
     const inputField = document.getElementById('trackInput');
