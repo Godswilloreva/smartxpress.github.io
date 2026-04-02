@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -407,15 +409,117 @@
         </div>
     </div>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const trackingID = params.get('id') || 'XP-7731-INT';
-        document.getElementById('display-id').innerText = trackingID;
 
-        function generateDownload() {
-            // Simply trigger the browser's print dialog
-            window.print();
+
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+<script>
+    // Your actual Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAxWZrlC-cwuoGXR_8g9V1xez3Vs1Vhgfs",
+        authDomain: "smartxpress-tracking.firebaseapp.com",
+        projectId: "smartxpress-tracking",
+        storageBucket: "smartxpress-tracking.firebasestorage.app",
+        messagingSenderId: "680803370811",
+        appId: "1:680803370811:web:c6c372dae17c891fb8991e"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // DYNAMIC ID PICKER: It looks at the URL for "?id=XXXX"
+    const params = new URLSearchParams(window.location.search);
+    const trackingID = params.get('id'); 
+
+    async function fetchShipment() {
+        // If the user just opens "track.html" without an ID, show an error or default
+        if (!trackingID) {
+            document.body.innerHTML = "<h2 style='text-align:center; margin-top:50px;'>Error: No Tracking ID Provided.</h2>";
+            return;
         }
-    </script>
+
+        try {
+            // This line fetches WHATEVER ID is in the URL from your 20+ Firebase entries
+            const doc = await db.collection("shipments").doc(trackingID).get();
+
+            if (doc.exists) {
+                const data = doc.data();
+
+                // 1. Update Header & ID
+                document.getElementById('display-id').innerText = trackingID;
+                document.getElementById('live-loc').innerText = data.location || "SEARCHING...";
+
+                // 2. Update Consignee Card (Receiver)
+                const infoCards = document.querySelectorAll('.info-card');
+                const receiverCard = infoCards[1]; 
+                receiverCard.querySelector('.data-row:nth-child(2) .data-value').innerText = data.consigneeName || "---";
+                receiverCard.querySelector('.data-row:nth-child(3) .data-value').innerText = data.consigneeAddress || "---";
+                receiverCard.querySelector('.data-row:nth-child(4) .data-value').innerText = data.consigneePhone || "---";
+
+                // 3. Update Shipment Details Card
+                const detailsCard = infoCards[2];
+                detailsCard.querySelector('.data-row:nth-child(2) .data-value').innerText = data.weight || "0.00 KG";
+                detailsCard.querySelector('.data-row:nth-child(3) .data-value').innerText = data.packageType || "Parcel";
+                detailsCard.querySelector('.data-row:nth-child(4) .data-value').innerText = data.shippedDate || "---";
+
+                // 4. Build the Tactical History Log Dynamically
+                const historyBox = document.querySelector('.progress-box');
+                const label = historyBox.querySelector('.card-label').outerHTML;
+                historyBox.innerHTML = label; 
+
+                if (data.history && Array.isArray(data.history)) {
+                    data.history.forEach((step, index) => {
+                        const stepDiv = document.createElement('div');
+                        stepDiv.className = `step ${step.status}`; 
+                        stepDiv.style.animationDelay = `${0.8 + (index * 0.2)}s`;
+                        
+                        const pulseDot = step.status === 'active' ? 
+                            `<span style="display:inline-block; width:8px; height:8px; background:#ef4444; border-radius:50%; margin-right:5px; animation: pulse-red 1s infinite;"></span>` : '';
+
+                        stepDiv.innerHTML = `
+                            <div class="step-icon"><i class="fas ${step.icon || 'fa-check'}"></i></div>
+                            <div>
+                                <div style="font-weight: 800; font-size: 14px;">${step.title}</div>
+                                <div style="font-size: 11px; color: ${step.status === 'active' ? '#ef4444' : 'var(--text-muted)'};">
+                                    ${pulseDot}${step.desc}
+                                </div>
+                            </div>
+                        `;
+                        historyBox.appendChild(stepDiv);
+                    });
+                }
+
+                // 5. Update Payment Summary (For Printing)
+                const shipping = parseFloat(data.shippingCost || 0);
+                const clearance = parseFloat(data.clearanceCost || 0);
+                const total = shipping + clearance;
+                
+                // Update the hidden print receipt and visible summary
+                const sumRows = document.querySelectorAll('.summary-row span:last-child');
+                if(sumRows.length >= 2) {
+                    sumRows[0].innerText = "USD " + shipping.toFixed(2);
+                    sumRows[1].innerText = "USD " + clearance.toFixed(2);
+                }
+                document.querySelector('.total-row span:last-child').innerText = "USD " + total.toFixed(2);
+
+            } else {
+                document.getElementById('display-id').innerText = "INVALID ID";
+                alert("Tracking ID: " + trackingID + " not found in SmartXpress database.");
+            }
+        } catch (error) {
+            console.error("Database Connection Error:", error);
+        }
+    }
+
+    window.onload = fetchShipment;
+
+    function generateDownload() {
+        window.print();
+    }
+</script>
+
+
 </body>
 </html>
