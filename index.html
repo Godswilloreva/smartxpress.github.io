@@ -247,22 +247,28 @@ function googleTranslateElementInit() {
 
 
 <!-- REPLACE YOUR OLD TRACK-BAR SECTION WITH THIS -->
-<input type="text" id="trackInput" placeholder="Enter Tracking ID...">
-
-<button onclick="handleTrack()">Track Shipment</button>
-
-<script>
-function handleTrack() {
-    const id = document.getElementById('trackInput').value.trim().toUpperCase();
-    if (id) {
-        // This sends the user to track.html?id=XP-7731-INT
-        window.location.href = "track.html?id=" + id;
-    } else {
-        alert("Please enter a valid Tracking ID");
-    }
-}
-</script>
-
+<section class="track-bar">
+    <div class="track-container" style="display: flex; flex-direction: column; align-items: center; background: transparent; padding: 0 20px;">
+        <!-- Input and Button Wrapper -->
+        <div style="display: flex; width: 100%; max-width: 700px; gap: 15px; flex-wrap: wrap; justify-content: center;"> 
+            <input type="text" 
+                   id="trackInput" 
+                   placeholder="Enter Tracking Code" 
+                   style="flex: 2; min-width: 280px; padding: 20px; background: #fff; border: none; color: #000; border-radius: 8px; font-weight: bold; font-size: 16px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            
+            <button id="trackBtn" 
+                    onclick="handleTrack()" 
+                    style="flex: 1; min-width: 200px; background: var(--accent); color: #000; border: none; font-weight: 900; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                Track Shipment
+            </button>
+        </div>
+        
+        <!-- Error Message Display -->
+        <div id="trackError" style="color: #ff4d4d; font-size: 12px; font-weight: bold; margin-top: 15px; display: none; text-transform: uppercase; letter-spacing: 1px; text-align: center;">
+            ⚠️ INVALID TRACKING ID: ACCESS DENIED
+        </div>
+    </div>
+</section>
 
 
 
