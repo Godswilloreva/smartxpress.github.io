@@ -407,15 +407,66 @@
         </div>
     </div>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const trackingID = params.get('id') || 'XP-7731-INT';
-        document.getElementById('display-id').innerText = trackingID;
 
-        function generateDownload() {
-            // Simply trigger the browser's print dialog
-            window.print();
+
+
+
+    // 1. Your Firebase Config (Keep your original API keys here)
+const firebaseConfig = {
+    apiKey: "AIzaSyAxWZrlC-cwuoGXR_8g9V1xez3Vs1Vhgfs",
+    authDomain: "smartxpress-tracking.firebaseapp.com",
+    projectId: "smartxpress-tracking",
+    storageBucket: "smartxpress-tracking.firebasestorage.app",
+    messagingSenderId: "680803370811",
+    appId: "1:680803370811:web:c6c372dae17c891fb8991e"
+};
+
+// 2. Initialize
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// 3. Get the ID from the URL
+const params = new URLSearchParams(window.location.search);
+const trackingID = params.get('id');
+
+async function fetchShipment() {
+    if (!trackingID) return;
+
+    try {
+        const doc = await db.collection("shipments").doc(trackingID).get();
+
+        if (doc.exists) {
+            const data = doc.data();
+            
+            // Fill the ID and Location
+            document.getElementById('display-id').innerText = trackingID;
+            document.getElementById('live-loc').innerText = data.location;
+
+            // Fill the Receiver Card (The second .info-card)
+            const cards = document.querySelectorAll('.info-card');
+            cards[1].querySelector('.data-row:nth-child(2) .data-value').innerText = data.consigneeName;
+            cards[1].querySelector('.data-row:nth-child(3) .data-value').innerText = data.consigneeAddress;
+            
+            // Fill the Costs (Doing the math)
+            const ship = parseFloat(data.shippingCost || 0);
+            const clear = parseFloat(data.clearanceCost || 0);
+            document.querySelector('.total-row span:last-child').innerText = "USD " + (ship + clear).toFixed(2);
+
+        } else {
+            alert("No shipment found with ID: " + trackingID);
         }
-    </script>
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+window.onload = fetchShipment;
+
+
+
+
+
+
+
 </body>
 </html>
