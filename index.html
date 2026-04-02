@@ -626,31 +626,18 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
     function handleTrack() {
-    const inputField = document.getElementById('trackInput');
-    const btn = document.getElementById('trackBtn');
-    const errorMsg = document.getElementById('trackError');
+    const inputField = document.getElementById('trackInput'); // Ensure ID matches your <input>
     const val = inputField.value.trim().toUpperCase();
 
-    // Reset UI
-    errorMsg.style.display = "none";
-    inputField.style.border = "none";
-
     if (val === "") {
-        showTrackError("PLEASE ENTER A TRACKING ID");
+        alert("PLEASE ENTER A TRACKING ID");
         return;
     }
 
-    // TACTICAL ANIMATION: Make it feel like it's connecting to the grid
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> CONNECTING...';
-    btn.style.opacity = "0.7";
-    btn.disabled = true;
-
-    // Small delay for "system feel" then redirect
-    setTimeout(() => {
-        // This sends the ID to your track.html page
-        window.location.href = `track.html?id=${val}`;
-    }, 800);
+    // Redirect to the tracking page with the ID in the URL
+    window.location.href = `track.html?id=${val}`;
 }
+
 
 function showTrackError(msg) {
     const errorMsg = document.getElementById('trackError');
