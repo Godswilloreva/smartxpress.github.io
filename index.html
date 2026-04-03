@@ -373,6 +373,9 @@ function googleTranslateElementInit() {
 
 </div>
 
+
+
+
 <script>
 const clients2 = ["Apex Global", "Nexus Ltd", "Prime Freight", "Transit King", "Oceanic Co", "SkyLink Hub"];
 const locations2 = ["London → DXB", "NYC → Tokyo", "Paris → Lagos", "Berlin → SIN", "Sydney → LAX"];
@@ -586,110 +589,85 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 <br>
 
 
-    <script>
-        const clients = ["Global Logistics", "Apex Freight", "Trans-Atlantic", "Nexus Supply", "Prime Shipping"];
-        const destinations = ["London, UK", "New York, USA", "Tokyo, Japan", "Dubai, UAE", "Paris, France"];
-        const statuses = ["IN TRANSIT", "PROCESSING", "ARRIVED", "DELIVERED"];
-        const updates = ["Departed Hub", "Customs Clearing", "On-Flight", "Sorting Facility"];
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-        const logEl = document.getElementById('logRows');
-        const msgEl = document.getElementById('rotateMsg');
-        const messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
-        let msgIdx = 0;
+  // Your Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAVWCMfo0QkAF5F1xux744Tbxbh1fAPzGI",
+    authDomain: "smartxpress-tracking-c5b90.firebaseapp.com",
+    projectId: "smartxpress-tracking-c5b90",
+    storageBucket: "smartxpress-tracking-c5b90.firebasestorage.app",
+    messagingSenderId: "1000246633647",
+    appId: "1:1000246633647:web:ecb0f8a50d0e877388205a"
+  };
 
-        function tickLiveOperations() {
-            logEl.innerHTML = "";
-            for (let i = 0; i < 5; i++) {
-                const idNum = Math.floor(1000 + Math.random() * 9000);
-                const s = {
-                    id: `XP-${idNum}-INT`,
-                    name: clients[Math.floor(Math.random() * clients.length)],
-                    dest: destinations[Math.floor(Math.random() * destinations.length)],
-                    status: statuses[Math.floor(Math.random() * statuses.length)],
-                    note: updates[Math.floor(Math.random() * updates.length)]
-                };
-                const isDone = (s.status === "DELIVERED" || s.status === "ARRIVED");
-                logEl.innerHTML += `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.dest}</td><td><span class="tag ${isDone ? 'tag-success' : 'tag-transit'}">${s.status}</span></td></tr>`;
-            }
-        }
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-        setInterval(() => {
-            msgIdx = (msgIdx + 1) % messages.length;
-            msgEl.textContent = messages[msgIdx];
-        }, 8000);
-
-
-
-
-
-
-
-
-
-        // Updated Valid IDs list (Example of 20 IDs)
-const VALID_DATABASE_IDS = [
-    "XP-9920-INT", "XP-4452-INT", "XP-1029-INT", "XP-7731-INT", 
-    "XP-2021-INT", "XP-3032-INT", "XP-4043-INT", "XP-5054-INT",
-    "XP-6065-INT", "XP-7076-INT", "XP-8087-INT", "XP-9098-INT",
-    "XP-1111-INT", "XP-2222-INT", "XP-3333-INT", "XP-4444-INT",
-    "XP-5555-INT", "XP-6666-INT", "XP-7777-INT", "XP-8888-INT"
-];
-
-
-
-
-
-
-function handleTrack() {
+  // The New handleTrack Function
+  async function handleTrack() {
     const inputField = document.getElementById('trackInput');
     const btn = document.getElementById('trackBtn');
     const errorMsg = document.getElementById('trackError');
     const val = inputField.value.trim().toUpperCase();
 
-    // REGEX PATTERN: Must start with XP-, followed by 4 numbers, ending in -INT
+    // 1. Basic Format Validation (Must start with XP-)
     const idPattern = /^XP-\d{4}-INT$/;
 
-    // RESET UI
     errorMsg.style.display = "none";
     inputField.style.border = "none";
 
-    // SECURITY CHECK 1: Format Validation
     if (!idPattern.test(val)) {
-        showTrackError("SECURITY ALERT: INVALID FORMAT DETECTED");
+        showTrackError("SECURITY ALERT: INVALID FORMAT");
         return;
     }
 
-    // SECURITY CHECK 2: Database Match
-    // Note: I added a small delay to make it feel like it's "Searching the Global Grid"
-    btn.innerText = "VERIFYING...";
+    // 2. Visual Feedback
+    btn.innerText = "VERIFYING SATELLITE LINK...";
     btn.disabled = true;
 
-    setTimeout(() => {
-        if (VALID_DATABASE_IDS.includes(val)) {
-            // SUCCESS: Redirect to track.html with the ID
-            window.location.href = `track.html?id=${val}&auth=verified_${Math.random().toString(36).substr(2, 9)}`;
+    try {
+        // 3. THE FIREBASE SEARCH: Look for the ID in the 'deliveries' collection
+        const docRef = doc(db, "deliveries", val);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            // SUCCESS: Found in Database! Redirect to track.html
+            const authKey = Math.random().toString(36).substr(2, 9);
+            window.location.href = `track.html?id=${val}&auth=${authKey}`;
         } else {
-            // FAIL: ID not found in system
-            showTrackError("ACCESS DENIED: ID NOT FOUND IN MANIFEST");
+            // FAIL: ID not in your Firebase
+            showTrackError("ACCESS DENIED: ID NOT FOUND IN GLOBAL MANIFEST");
             btn.innerText = "TRACK SHIPMENT";
             btn.disabled = false;
         }
-    }, 1500);
-}
+    } catch (error) {
+        console.error("Database Error:", error);
+        showTrackError("SYSTEM ERROR: CONNECTION TIMEOUT");
+        btn.innerText = "TRACK SHIPMENT";
+        btn.disabled = false;
+    }
+  }
 
-function showTrackError(msg) {
+  // Helper function for the error animation
+  function showTrackError(msg) {
     const errorMsg = document.getElementById('trackError');
     const inputField = document.getElementById('trackInput');
-    
     errorMsg.innerText = "⚠️ " + msg;
     errorMsg.style.display = "block";
     inputField.style.border = "2px solid #ff4d4d";
     
-    // Shake animation effect
     inputField.style.transform = "translateX(5px)";
     setTimeout(() => inputField.style.transform = "translateX(-5px)", 50);
     setTimeout(() => inputField.style.transform = "translateX(0)", 100);
-}
+  }
+
+  // Make the function global so the HTML button 'onclick' can find it
+  window.handleTrack = handleTrack;
+</script>
 
 
 
@@ -697,16 +675,6 @@ function showTrackError(msg) {
 
 
 
-
-
-
-        function toggleHub() {
-            document.getElementById('hubStack').classList.toggle('stack-active');
-        }
-
-        tickLiveOperations();
-        setInterval(tickLiveOperations, 3000);
-    </script><br>
 
 
 

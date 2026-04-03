@@ -417,5 +417,50 @@
             window.print();
         }
     </script>
+
+
+
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAVWCMfo0QkAF5F1xux744Tbxbh1fAPzGI",
+    authDomain: "smartxpress-tracking-c5b90.firebaseapp.com",
+    projectId: "smartxpress-tracking-c5b90",
+    storageBucket: "smartxpress-tracking-c5b90.firebasestorage.app",
+    messagingSenderId: "1000246633647",
+    appId: "1:1000246633647:web:ecb0f8a50d0e877388205a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Auto-run when page loads
+  async function loadTrackingData() {
+      const params = new URLSearchParams(window.location.search);
+      const trackingID = params.get('id');
+
+      if (trackingID) {
+          const docRef = doc(db, "deliveries", trackingID);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+              const data = docSnap.data();
+              // Update your UI elements with real Firebase data
+              document.getElementById('display-id').innerText = trackingID;
+              // Example: if you add an ID to the 'Consignee Name' span
+              // document.getElementById('consignee-name').innerText = data.receiverName;
+          } else {
+              console.log("No such shipment in Firebase!");
+          }
+      }
+  }
+
+  loadTrackingData();
+</script>
+
 </body>
 </html>
