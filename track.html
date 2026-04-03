@@ -408,7 +408,6 @@
 
 
 
-
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
   import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
@@ -461,40 +460,23 @@
               document.getElementById('ship-date').innerText = data.shippedDate || '--';
               document.getElementById('ship-auth').innerText = data.authCode || 'SX-VERIFIED';
 
-
-
-
-
               // --- 2. FILLING THE PRINT RECEIPT DYNAMICALLY ---
               if (document.getElementById('receipt-type')) {
                   document.getElementById('receipt-type').innerText = data.type || 'Parcel';
                   document.getElementById('receipt-desc').innerText = (data.type || 'Package') + " (" + trackingID + ")";
                   document.getElementById('receipt-receiver').innerText = data.receiverName || '--';
                   document.getElementById('receipt-weight').innerText = data.weight || '--';
-
-
-
-// DYNAMIC AMOUNTS & CUSTOMS FROM FIREBASE
-if (document.getElementById('receipt-shipping')) {
-    document.getElementById('receipt-shipping').innerText = data.shippingCost || 'USD 0.00';
-}
-if (document.getElementById('receipt-total')) {
-    document.getElementById('receipt-total').innerText = data.totalCost || 'USD 0.00';
-}
-if (document.getElementById('receipt-final-total')) {
-    document.getElementById('receipt-final-total').innerText = data.totalCost || 'USD 0.00';
-}
-if (document.getElementById('receipt-customs')) {
-    document.getElementById('receipt-customs').innerText = data.customsStatus || 'PENDING';
-}
-
-
-
-
-
-
-
-
+                  
+                  // DYNAMIC AMOUNTS & CUSTOMS FROM FIREBASE
+                  document.getElementById('receipt-shipping').innerText = data.shippingCost || 'USD 0.00';
+                  document.getElementById('receipt-total').innerText = data.totalCost || 'USD 0.00';
+                  document.getElementById('receipt-final-total').innerText = data.totalCost || 'USD 0.00';
+                  
+                  // ADDING CUSTOM CLEARANCE STATUS/FEE
+                  if(document.getElementById('receipt-customs')) {
+                      document.getElementById('receipt-customs').innerText = data.customsStatus || 'PENDING';
+                  }
+              }
 
               // --- 3. BUILDING THE HISTORY LOG DYNAMICALLY ---
               const historyList = document.getElementById('history-list');
