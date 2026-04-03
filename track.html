@@ -148,6 +148,17 @@
 </head>
 <body>
 
+
+
+
+
+
+
+
+
+
+
+
     <div class="track-wrapper">
     <header class="status-header">
         <div>
@@ -162,10 +173,97 @@
         </div>
     </header>
 
-    <section class="progress-box" id="history-container">
-        <div class="card-label" style="margin-bottom: 35px;"><i class="fas fa-history"></i> Tactical History Log</div>
-        <div id="history-list"></div> 
-    </section>
+
+
+
+
+
+
+    <section class="progress-box">
+    <div class="card-label" style="margin-bottom: 35px;">
+        <i class="fas fa-history"></i> Tactical History Log
+    </div>
+
+    <div class="step completed">
+        <div class="step-icon"><i class="fas fa-check"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">ORDER CONFIRMED</div>
+            <div style="font-size: 11px; color: var(--text-muted);">System Validation Complete</div>
+        </div>
+    </div>
+
+    <div class="step completed">
+        <div class="step-icon"><i class="fas fa-box"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">PICKED BY COURIER</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Shipment Collected from Origin</div>
+        </div>
+    </div>
+
+    <div class="step completed">
+        <div class="step-icon"><i class="fas fa-plane-arrival"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">ARRIVED AT COUNTRY OF DESTINATION</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Processed at London Gateway</div>
+        </div>
+    </div>
+
+    <div class="step completed">
+        <div class="step-icon"><i class="fas fa-barcode"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">SCANNING GOODS COMPLETED</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Digital X-Ray & Manifest Sync OK</div>
+        </div>
+    </div>
+
+    <div class="step completed">
+        <div class="step-icon"><i class="fas fa-hand-holding-usd"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">ON HOLD FOR CLEARANCE CHARGES</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Awaiting Import Duty Payment</div>
+        </div>
+    </div>
+
+    <div class="step active">
+        <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">CUSTOM HOLD</div>
+            <div style="font-size: 11px; color: #ef4444; font-weight: bold;">
+                <span class="dot-red"></span>
+                Undergoing Physical Inspection
+            </div>
+        </div>
+    </div>
+
+    <div class="step" style="opacity: 0.6;">
+        <div class="step-icon"><i class="fas fa-hourglass-half"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">AWAITING CUSTOM HOLD CLEARANCE</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Waiting for Border Agency Release</div>
+        </div>
+    </div>
+
+    <div class="step" style="opacity: 0.5;">
+        <div class="step-icon"><i class="fas fa-truck-loading"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">SUCCESSFULLY CLEARED AND PICKED</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Moving to Final Sorting Grid</div>
+        </div>
+    </div>
+
+    <div class="step" style="opacity: 0.4;">
+        <div class="step-icon"><i class="fas fa-home"></i></div>
+        <div>
+            <div style="font-weight: 800; font-size: 14px;">DELIVERED</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Final Signature Required</div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
 
     <section class="manifest-grid">
         <div class="info-card">
