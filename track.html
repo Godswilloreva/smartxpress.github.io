@@ -34,6 +34,7 @@
         }
 
         /* DATA GRID */
+
         .manifest-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1px; background: var(--border); border: 1px solid var(--border);
@@ -333,6 +334,10 @@
 
 
 
+
+
+
+
 <div id="print-receipt">
     <div class="receipt-section">
         <div class="receipt-title"><i class="fas fa-box"></i> SMARTXPRESS Parcel Details & Costs</div>
@@ -345,17 +350,17 @@
                     <th>DESCRIPTION</th>
                     <th>SHIPPING COST</th>
                     <th>TOTAL COST</th>
+                    <th>NOT CLEARED YET</th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>1</td>
                     <td id="receipt-type">Parcel</td>
-                    <td><span class="badge">CLEARED</span></td>
+                    <td><span class="badge"> NOT CLEARED</span></td>
                     <td id="receipt-desc">--</td>
-                    <td id="receipt-shipping">USD 100.00</td>
-                    <td><strong id="receipt-total">USD 104.98</strong></td>
-                </tr>
+                    <td id="receipt-shipping">--</td> <td><strong id="receipt-total">--</strong></td> </tr>
             </tbody>
         </table>
     </div>
@@ -382,6 +387,14 @@
         <div class="summary-row total-row"><span>Total Amount:</span> <span id="receipt-final-total">--</span></div>
     </div>
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -434,31 +447,54 @@
               document.getElementById('display-id').innerText = trackingID;
               document.getElementById('live-loc').innerText = data.currentLocation || 'AWAITING CUSTOM CLEARANCE';
               
-              // Consignor (Sender)
               document.getElementById('sender-name').innerText = data.senderName || '--';
               document.getElementById('sender-addr').innerText = data.senderAddr || '--';
               document.getElementById('sender-phone').innerText = data.senderPhone || '--';
               
-              // Consignee (Receiver)
               document.getElementById('receiver-name').innerText = data.receiverName || '--';
               document.getElementById('receiver-addr').innerText = data.receiverAddr || '--';
               document.getElementById('receiver-phone').innerText = data.receiverPhone || '--';
               document.getElementById('receiver-email').innerText = data.receiverEmail || '--';
               
-              // Shipment Specifics
               document.getElementById('ship-weight').innerText = data.weight || '--';
               document.getElementById('ship-type').innerText = data.type || '--';
               document.getElementById('ship-date').innerText = data.shippedDate || '--';
               document.getElementById('ship-auth').innerText = data.authCode || 'SX-VERIFIED';
 
-              // --- 2. FILLING THE PRINT RECEIPT (THE DOWNLOADABLE STUFF) ---
+
+
+
+
+              // --- 2. FILLING THE PRINT RECEIPT DYNAMICALLY ---
               if (document.getElementById('receipt-type')) {
                   document.getElementById('receipt-type').innerText = data.type || 'Parcel';
                   document.getElementById('receipt-desc').innerText = (data.type || 'Package') + " (" + trackingID + ")";
                   document.getElementById('receipt-receiver').innerText = data.receiverName || '--';
                   document.getElementById('receipt-weight').innerText = data.weight || '--';
-                  document.getElementById('receipt-final-total').innerText = data.totalCost || 'USD 104.98';
-              }
+
+
+
+// DYNAMIC AMOUNTS & CUSTOMS FROM FIREBASE
+if (document.getElementById('receipt-shipping')) {
+    document.getElementById('receipt-shipping').innerText = data.shippingCost || 'USD 0.00';
+}
+if (document.getElementById('receipt-total')) {
+    document.getElementById('receipt-total').innerText = data.totalCost || 'USD 0.00';
+}
+if (document.getElementById('receipt-final-total')) {
+    document.getElementById('receipt-final-total').innerText = data.totalCost || 'USD 0.00';
+}
+if (document.getElementById('receipt-customs')) {
+    document.getElementById('receipt-customs').innerText = data.customsStatus || 'PENDING';
+}
+
+
+
+
+
+
+
+
 
               // --- 3. BUILDING THE HISTORY LOG DYNAMICALLY ---
               const historyList = document.getElementById('history-list');
@@ -496,6 +532,7 @@
 
   loadTrackingData();
 </script>
+
 
 
 
