@@ -94,7 +94,7 @@
         .blink-text { animation: blinker 1.5s linear infinite; color: #ef4444; font-weight: bold; }
         @keyframes blinker { 50% { opacity: 0; } }
 
-        /* --- PROFESSIONAL GRID RECEIPT PRINT STYLING --- */
+        /* --- PRINT RECEIPT --- */
         #print-receipt { display: none; }
 
         @media print {
@@ -104,107 +104,52 @@
             
             .receipt-body {
                 background: #ffffff !important;
-                border-radius: 4px;
-                padding: 30px;
-                position: relative;
-                border-top: 20px solid #00d4ff;
-                min-height: 1050px;
-                overflow: hidden;
+                border-radius: 4px; padding: 30px; position: relative;
+                border-top: 20px solid #00d4ff; min-height: 1050px; overflow: hidden;
             }
 
             .r-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1px;
-                background: #002d5b;
-                border: 1px solid #002d5b;
-                margin-top: 20px;
-                position: relative;
-                z-index: 2;
+                display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+                background: #002d5b; border: 1px solid #002d5b; margin-top: 20px;
+                position: relative; z-index: 2;
             }
 
             .r-item { background: #f8fafc !important; padding: 12px; font-size: 13px; }
             .r-head {
-                background: #002d5b !important;
-                color: white !important;
-                font-size: 10px;
-                font-weight: 800;
-                text-transform: uppercase;
-                padding: 8px 12px;
-                grid-column: span 2;
+                background: #002d5b !important; color: white !important; font-size: 10px;
+                font-weight: 800; text-transform: uppercase; padding: 8px 12px; grid-column: span 2;
             }
 
             .full { grid-column: span 2; }
 
             /* Watermarks */
             .paid-stamp {
-                position: absolute;
-                top: 35%; left: 50%;
+                position: absolute; top: 35%; left: 50%;
                 transform: translate(-50%, -50%) rotate(-15deg);
-                border: 10px double #22c55e !important;
-                color: #22c55e !important;
-                padding: 10px 50px;
-                font-size: 90px;
-                font-weight: 900;
-                border-radius: 20px;
-                opacity: 0.12;
-                z-index: 1;
+                border: 10px double #22c55e !important; color: #22c55e !important;
+                padding: 10px 50px; font-size: 90px; font-weight: 900; border-radius: 20px; opacity: 0.12; z-index: 1;
             }
 
             .brand-watermark {
-                position: absolute;
-                bottom: 15%; left: 50%;
+                position: absolute; bottom: 15%; left: 50%;
                 transform: translate(-50%, -50%) rotate(-10deg);
-                color: #002d5b !important;
-                font-size: 100px;
-                font-weight: 900;
-                opacity: 0.05;
-                white-space: nowrap;
-                z-index: 1;
+                color: #002d5b !important; font-size: 100px; font-weight: 900; opacity: 0.05; white-space: nowrap; z-index: 1;
             }
 
-            /* Stamp Style */
+            /* SmartXpress Stamp */
             .smart-stamp {
-                width: 100px; height: 100px;
-                border: 4px solid #00a859;
-                border-radius: 50%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                color: #00a859;
-                text-align: center;
-                font-weight: 900;
-                line-height: 1;
-                transform: rotate(-10deg);
-                background: rgba(0, 168, 89, 0.05) !important;
+                width: 110px; height: 110px; border: 5px solid #00a859; border-radius: 50%;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                color: #00a859; text-align: center; font-weight: 900; line-height: 1.1;
+                transform: rotate(-8deg); background: rgba(0, 168, 89, 0.05) !important;
             }
 
-            .barcode-area {
-                margin-top: 40px;
-                text-align: center;
-                border-top: 2px dashed #cbd5e1;
-                padding-top: 25px;
-            }
-
-            .barcode-font {
-                font-family: 'Libre Barcode 39', cursive;
-                font-size: 80px;
-                color: #000;
-                line-height: 1;
-            }
+            .barcode-area { margin-top: 40px; text-align: center; border-top: 2px dashed #cbd5e1; padding-top: 25px; }
+            .barcode-font { font-family: 'Libre Barcode 39', cursive; font-size: 80px; color: #000; line-height: 1; }
         }
 
-        .dot-red {
-            display: inline-block; width: 8px; height: 8px; background: #ef4444;
-            border-radius: 50%; margin-right: 5px; animation: pulse-red 1s infinite;
-        }
-
-        @keyframes pulse-red {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-        }
+        .dot-red { display: inline-block; width: 8px; height: 8px; background: #ef4444; border-radius: 50%; margin-right: 5px; animation: pulse-red 1s infinite; }
+        @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap" rel="stylesheet">
 </head>
@@ -213,9 +158,7 @@
     <div class="track-wrapper">
         <header class="status-header">
             <div>
-                <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; letter-spacing: 1px;">
-                    SECURE NODE ACCESS: ACTIVE
-                </div>
+                <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; letter-spacing: 1px;">SECURE NODE ACCESS: ACTIVE</div>
                 <h1 id="display-id" style="margin: 10px 0 0 0; font-size: 30px; font-weight: 900; letter-spacing: 2px;">LOADING...</h1>
             </div>
             <div style="text-align: right;">
@@ -298,16 +241,14 @@
             <div style="margin-top: 30px; display: flex; align-items: center; justify-content: space-between;">
                 <div style="display: flex; align-items: center; gap: 20px;">
                     <div class="smart-stamp">
-                        <span style="font-size: 8px;">ORIGINAL</span>
-                        <span style="font-size: 11px;">SMART</span>
-                        <span style="font-size: 11px;">XPRESS</span>
-                        <span style="font-size: 8px;">VERIFIED</span>
+                        <span style="font-size: 8px; opacity: 0.8;">OFFICIAL</span>
+                        <span style="font-size: 13px; letter-spacing: 1px;">SMART</span>
+                        <span style="font-size: 13px; letter-spacing: 1px;">XPRESS</span>
+                        <span style="font-size: 8px; opacity: 0.8;">STAMP</span>
                     </div>
                     <div><strong style="color: #00a859;">OFFICIALLY CLEARED</strong><br><small style="color: #64748b;">Digitally verified by Michael Abrian <br>(Logistics Node Commander).</small></div>
                 </div>
-                <div style="text-align: right;">
-                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700;">MANIFEST GENERATED AT:<br><span id="r-gen-time">--</span></p>
-                </div>
+                <div style="text-align: right;"><p style="font-size: 10px; color: #94a3b8; font-weight: 700;">MANIFEST GENERATED AT:<br><span id="r-gen-time">--</span></p></div>
             </div>
 
             <div class="barcode-area">
@@ -358,7 +299,7 @@
                     document.getElementById('ship-date').innerText = data.shippedDate || '--';
                     document.getElementById('ship-auth').innerText = data.auth || 'STANDARD';
 
-                    // RECEIPT DATA MAPPING
+                    // RECEIPT MAPPING (Includes Custom Fee)
                     document.getElementById('r-top-id').innerText = trackingID;
                     document.getElementById('r-s-name').innerText = data.senderName || '--';
                     document.getElementById('r-s-phone').innerText = data.senderPhone || '--';
@@ -373,51 +314,42 @@
                     document.getElementById('r-auth').innerText = data.auth || 'VERIFIED';
                     document.getElementById('r-ship-cost').innerText = data.shippingCost || 'USD 0.00';
                     document.getElementById('r-door').innerText = data.doorDeliveryPayment || 'PENDING';
+                    
+                    // --- THE CUSTOM FEE LOGIC ---
                     document.getElementById('r-custom-fee').innerText = data.customHoldFee || 'USD 0.00';
+                    
                     document.getElementById('r-total').innerText = data.totalCost || 'USD 0.00';
                     document.getElementById('r-barcode').innerText = trackingID;
                     document.getElementById('r-barcode-txt').innerText = trackingID;
                     document.getElementById('r-gen-time').innerText = new Date().toLocaleString();
 
-                    // TIMING LOGIC
+                    // TIMELINE
                     const shipTime = data.shippedDate ? new Date(data.shippedDate).getTime() : Date.now();
                     const now = Date.now();
                     const elapsedMs = now - shipTime;
-                    const hours24 = 86400000;
-                    const hour1 = 3600000;
-                    const mins30 = 1800000;
+                    const h24 = 86400000;
+                    const h1 = 3600000;
+                    const m30 = 1800000;
 
                     showStep('step-confirmed', 'completed');
                     showStep('step-picked', 'completed');
-
-                    if (elapsedMs >= hours24) {
+                    if (elapsedMs >= h24) {
                         showStep('step-arrived', 'completed');
-                        if (elapsedMs >= (hours24 + hour1)) {
+                        if (elapsedMs >= (h24 + h1)) {
                             showStep('step-onhold', 'completed');
-                            if (elapsedMs >= (hours24 + hour1 + mins30)) {
+                            if (elapsedMs >= (h24 + h1 + m30)) {
                                 showStep('step-customhold', 'completed');
                                 showStep('step-awaiting', 'active');
                                 document.getElementById('live-loc').innerText = "CUSTOMS HOLD - TERMINAL B";
                             } else { activateLast('step-onhold'); }
                         } else { activateLast('step-arrived'); }
-                    } else {
-                        activateLast('step-picked');
-                        document.getElementById('live-loc').innerText = "IN TRANSIT - AIRSPACE";
-                    }
+                    } else { activateLast('step-picked'); document.getElementById('live-loc').innerText = "IN TRANSIT"; }
                 }
             } catch (e) { console.error(e); }
         }
 
-        function showStep(id, status) {
-            const el = document.getElementById(id);
-            if(el) { el.style.display = 'flex'; el.classList.add(status); }
-        }
-
-        function activateLast(id) {
-            const el = document.getElementById(id);
-            if(el) { el.classList.remove('completed'); el.classList.add('active'); }
-        }
-
+        function showStep(id, s) { const el = document.getElementById(id); if(el){ el.style.display = 'flex'; el.classList.add(s); } }
+        function activateLast(id) { const el = document.getElementById(id); if(el){ el.classList.remove('completed'); el.classList.add('active'); } }
         loadTrackingData();
     </script>
 </body>
