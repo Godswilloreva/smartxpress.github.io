@@ -226,80 +226,79 @@
 
 
 
-    <div id="print-receipt" style="background: #f4f7f6; padding: 40px; font-family: 'Inter', sans-serif; color: #1a2233;">
-    <div style="border: 2px solid #002d5b; background: #ffffff; padding: 30px; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px;">
+   <div id="print-receipt" style="background: #1a2233; padding: 40px; font-family: sans-serif; min-height: 800px;">
+    
+    <div style="background: #f8fafc; border-radius: 4px; padding: 40px; position: relative; border-top: 15px solid #002d5b; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
         
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid #002d5b; padding-bottom: 20px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px;">
             <div>
-                <h1 style="margin: 0; color: #002d5b; font-size: 24px; font-weight: 900; letter-spacing: 2px;">SMARTXPRESS GLOBAL</h1>
-                <p style="margin: 5px 0; font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">International Freight & Tactical Logistics</p>
+                <h1 style="margin: 0; color: #002d5b; font-size: 35px; font-weight: 900; letter-spacing: -1px;">PAYMENT RECEIPT</h1>
+                <p style="margin: 5px 0; font-weight: 700; color: #00d4ff; font-size: 14px;">SmartXpress Global Logistics & Freight</p>
             </div>
             <div style="text-align: right;">
-                <div id="print-barcode" style="font-family: 'Libre Barcode 39', cursive; font-size: 50px; line-height: 1; margin-bottom: 5px;">XP-1995-INT</div>
-                <div style="font-size: 10px; font-weight: 800; color: #002d5b;">MANIFEST ID: <span id="receipt-id-field">XP-1995-INT</span></div>
+                <div style="background: #002d5b; color: #fff; padding: 8px 15px; font-weight: 900; font-size: 12px; border-radius: 4px;">OFFICIAL DOCUMENT</div>
+                <p style="margin: 10px 0 0 0; font-size: 12px; font-weight: 700;">DATE: <span id="receipt-date-field">--</span></p>
             </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
-            <div style="background: #f8fafc; padding: 15px; border-left: 4px solid #002d5b;">
-                <h4 style="margin: 0 0 10px 0; font-size: 11px; color: #002d5b; text-transform: uppercase;">Consignee Information</h4>
-                <p style="margin: 3px 0; font-size: 13px;"><strong>Name:</strong> <span id="receipt-receiver">--</span></p>
-                <p style="margin: 3px 0; font-size: 13px;"><strong>Weight:</strong> <span id="receipt-weight">--</span></p>
-                <p style="margin: 3px 0; font-size: 13px;"><strong>Type:</strong> <span id="receipt-type">--</span></p>
+        <hr style="border: 0; border-top: 2px solid #e2e8f0; margin-bottom: 30px;">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+            <div>
+                <p style="text-transform: uppercase; font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 5px;">Consignee / Receiver</p>
+                <p style="margin: 0; font-size: 18px; font-weight: 800; color: #1a2233;" id="receipt-receiver">--</p>
+                <p style="margin: 5px 0; font-size: 13px; color: #475569;" id="receipt-receiver-address">--</p>
             </div>
-            <div style="background: #f8fafc; padding: 15px; border-left: 4px solid #00d4ff;">
-                <h4 style="margin: 0 0 10px 0; font-size: 11px; color: #002d5b; text-transform: uppercase;">Payment & Duty Status</h4>
-                <p style="margin: 3px 0; font-size: 13px;"><strong>Shipping Fee:</strong> <span id="receipt-shipping">--</span></p>
-                <p style="margin: 3px 0; font-size: 13px;"><strong>Door Delivery:</strong> <span id="receipt-door-pay" style="color: #ef4444; font-weight: 900;">PENDING</span></p>
-                <p style="margin: 3px 0; font-size: 13px;"><strong>Total Amount:</strong> <span id="receipt-total" style="font-size: 16px; color: #002d5b; font-weight: 900;">--</span></p>
+            <div style="text-align: right;">
+                <p style="text-transform: uppercase; font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 5px;">Tracking ID</p>
+                <p style="margin: 0; font-size: 18px; font-weight: 800; color: #1a2233;" id="print-barcode">--</p>
             </div>
         </div>
 
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
             <thead>
-                <tr style="background: #002d5b; color: #ffffff;">
-                    <th style="padding: 12px; text-align: left; font-size: 11px; text-transform: uppercase;">Description</th>
-                    <th style="padding: 12px; text-align: center; font-size: 11px; text-transform: uppercase;">Status</th>
-                    <th style="padding: 12px; text-align: right; font-size: 11px; text-transform: uppercase;">Valuation</th>
+                <tr style="background: #00d4ff; color: #002d5b;">
+                    <th style="padding: 15px; text-align: left; font-size: 13px; font-weight: 800;">Description</th>
+                    <th style="padding: 15px; text-align: right; font-size: 13px; font-weight: 800;">Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 15px; font-size: 13px;" id="receipt-desc">International Freight Shipment</td>
-                    <td style="padding: 15px; text-align: center;">
-                        <span style="background: #fee2e2; color: #991b1b; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 800; border: 1px solid #f87171;">NOT CLEARED</span>
-                    </td>
-                    <td style="padding: 15px; text-align: right; font-weight: 700;" id="receipt-final-total">--</td>
+                    <td style="padding: 20px; font-size: 14px; font-weight: 600;">International Freight & Customs Clearance Charge</td>
+                    <td style="padding: 20px; text-align: right; font-size: 14px; font-weight: 800;" id="receipt-shipping">--</td>
+                </tr>
+                <tr>
+                    <td style="padding: 20px; font-size: 14px; font-weight: 600;">Door Step Delivery & Insurance Sync</td>
+                    <td style="padding: 20px; text-align: right; font-size: 14px; font-weight: 800;" id="receipt-door-pay">--</td>
                 </tr>
             </tbody>
         </table>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; position: relative;">
-            
-            <div style="border: 3px double #ef4444; color: #ef4444; padding: 10px 20px; font-weight: 900; font-size: 14px; transform: rotate(-15deg); text-align: center; border-radius: 8px; font-family: 'Courier New', monospace;">
-                SMARTXPRESS <br> CUSTOMS APPROVED <br> <span style="font-size: 10px;">OFFICE 042-LOS</span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+            <div style="max-width: 300px; font-size: 11px; color: #64748b; line-height: 1.6;">
+                <strong>NOTICE:</strong> This transaction is verified by the SmartXpress Global node. Any delay in customs clearance payment will result in local storage fees.
             </div>
-
-            <div style="text-align: center;">
-                <div style="width: 60px; height: 60px; border: 4px solid #00a859; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: #00a859; font-size: 24px; box-shadow: 0 0 15px rgba(0,168,89,0.3);">
-                    <i class="fas fa-check-double"></i>
+            <div style="width: 250px;">
+                <div style="display: flex; justify-content: space-between; padding: 15px 10px; background: #002d5b; color: #fff; margin-top: 10px; border-radius: 4px;">
+                    <span style="font-weight: 800;">TOTAL DUE</span>
+                    <span style="font-weight: 800; font-size: 18px;" id="receipt-total">--</span>
                 </div>
-                <div style="font-size: 10px; font-weight: 800; color: #00a859;">VERIFIED DIGITAL ASSET</div>
-            </div>
-
-            <div style="text-align: right;">
-                <p style="font-family: 'Dancing Script', cursive; font-size: 20px; margin: 0; color: #002d5b;">Michael Abrian</p>
-                <div style="width: 150px; border-top: 1px solid #1a2233; margin-top: 5px;"></div>
-                <p style="font-size: 10px; font-weight: 800; color: #64748b; margin-top: 5px;">AUTHORIZED OFFICER IN CHARGE</p>
             </div>
         </div>
 
-        <div style="margin-top: 30px; padding-top: 15px; border-top: 1px dashed #cbd5e1; font-size: 9px; color: #94a3b8; text-align: center;">
-            This is an automated tactical manifest generated by the SmartXpress Network. 
-            Verification Code: <span id="security-code">SX-449102-VX</span>. Will be delivered by Michael Abrian upon customs release.
+        <div style="position: absolute; top: 60%; left: 35%; border: 5px solid #22c55e; color: #22c55e; padding: 10px 30px; font-size: 40px; font-weight: 900; text-transform: uppercase; border-radius: 10px; transform: rotate(-20deg); opacity: 0.8;">
+            PAID
+            <div style="font-size: 10px; text-align: center; margin-top: -5px;">SMARTXPRESS VERIFIED</div>
         </div>
+
+        <div style="margin-top: 60px; text-align: right; border-top: 1px dashed #cbd5e1; padding-top: 20px;">
+            <p style="margin: 0; font-size: 12px; font-weight: 800; color: #64748b;">AUTHORIZED SIGNATORY</p>
+            <p style="margin: 5px 0 0 0; font-family: cursive; font-size: 20px; font-weight: 700; color: #002d5b;">Michael Abrian</p>
+        </div>
+
     </div>
 </div>
+
 
 
 
