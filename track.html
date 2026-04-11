@@ -219,94 +219,39 @@
         </button>
     </div>
 
-
-
-
-
-
-
-
-   <div id="print-receipt" style="background: #1a2233; padding: 40px; font-family: sans-serif; min-height: 800px;">
-    
-    <div style="background: #f8fafc; border-radius: 4px; padding: 40px; position: relative; border-top: 15px solid #002d5b; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+    <div id="print-receipt">
+        <div style="text-align:center;">
+            <h2>SMARTXPRESS GLOBAL LOGISTICS</h2>
+            <p>Official Digital Airway Bill / Receipt</p>
+        </div>
+        <div class="barcode" id="print-barcode">XP-7731-INT</div>
         
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px;">
-            <div>
-                <h1 style="margin: 0; color: #002d5b; font-size: 35px; font-weight: 900; letter-spacing: -1px;">PAYMENT RECEIPT</h1>
-                <p style="margin: 5px 0; font-weight: 700; color: #00d4ff; font-size: 14px;">SmartXpress Global Logistics & Freight</p>
-            </div>
-            <div style="text-align: right;">
-                <div style="background: #002d5b; color: #fff; padding: 8px 15px; font-weight: 900; font-size: 12px; border-radius: 4px;">OFFICIAL DOCUMENT</div>
-                <p style="margin: 10px 0 0 0; font-size: 12px; font-weight: 700;">DATE: <span id="receipt-date-field">--</span></p>
-            </div>
-        </div>
-
-        <hr style="border: 0; border-top: 2px solid #e2e8f0; margin-bottom: 30px;">
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
-            <div>
-                <p style="text-transform: uppercase; font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 5px;">Consignee / Receiver</p>
-                <p style="margin: 0; font-size: 18px; font-weight: 800; color: #1a2233;" id="receipt-receiver">--</p>
-                <p style="margin: 5px 0; font-size: 13px; color: #475569;" id="receipt-receiver-address">--</p>
-            </div>
-            <div style="text-align: right;">
-                <p style="text-transform: uppercase; font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 5px;">Tracking ID</p>
-                <p style="margin: 0; font-size: 18px; font-weight: 800; color: #1a2233;" id="print-barcode">--</p>
-            </div>
-        </div>
-
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
-            <thead>
-                <tr style="background: #00d4ff; color: #002d5b;">
-                    <th style="padding: 15px; text-align: left; font-size: 13px; font-weight: 800;">Description</th>
-                    <th style="padding: 15px; text-align: right; font-size: 13px; font-weight: 800;">Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 20px; font-size: 14px; font-weight: 600;">International Freight & Customs Clearance Charge</td>
-                    <td style="padding: 20px; text-align: right; font-size: 14px; font-weight: 800;" id="receipt-shipping">--</td>
-                </tr>
+        <div class="receipt-section">
+            <table id="receipt-table">
+                <tr><th>QTY</th><th>PRODUCT</th><th>STATUS</th><th>DESCRIPTION</th><th>SHIP COST</th><th>TOTAL</th></tr>
                 <tr>
-                    <td style="padding: 20px; font-size: 14px; font-weight: 600;">Door Step Delivery & Insurance Sync</td>
-                    <td style="padding: 20px; text-align: right; font-size: 14px; font-weight: 800;" id="receipt-door-pay">--</td>
+                    <td>1</td>
+                    <td id="receipt-type">Parcel</td>
+                    <td><span style="border:1px solid #000; padding:2px;">NOT CLEARED</span></td>
+                    <td id="receipt-desc">--</td>
+                    <td id="receipt-shipping">--</td>
+                    <td id="receipt-total">--</td>
                 </tr>
-            </tbody>
-        </table>
-
-        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-            <div style="max-width: 300px; font-size: 11px; color: #64748b; line-height: 1.6;">
-                <strong>NOTICE:</strong> This transaction is verified by the SmartXpress Global node. Any delay in customs clearance payment will result in local storage fees.
-            </div>
-            <div style="width: 250px;">
-                <div style="display: flex; justify-content: space-between; padding: 15px 10px; background: #002d5b; color: #fff; margin-top: 10px; border-radius: 4px;">
-                    <span style="font-weight: 800;">TOTAL DUE</span>
-                    <span style="font-weight: 800; font-size: 18px;" id="receipt-total">--</span>
-                </div>
-            </div>
+            </table>
         </div>
 
-        <div style="position: absolute; top: 60%; left: 35%; border: 5px solid #22c55e; color: #22c55e; padding: 10px 30px; font-size: 40px; font-weight: 900; text-transform: uppercase; border-radius: 10px; transform: rotate(-20deg); opacity: 0.8;">
-            PAID
-            <div style="font-size: 10px; text-align: center; margin-top: -5px;">SMARTXPRESS VERIFIED</div>
+        <div class="receipt-section">
+            <p><strong>Receiver:</strong> <span id="receipt-receiver">--</span></p>
+            <p><strong>Weight:</strong> <span id="receipt-weight">--</span></p>
+            <p><strong>Door Delivery Payment:</strong> <span id="receipt-door-pay">PENDING</span></p>
         </div>
 
-        <div style="margin-top: 60px; text-align: right; border-top: 1px dashed #cbd5e1; padding-top: 20px;">
-            <p style="margin: 0; font-size: 12px; font-weight: 800; color: #64748b;">AUTHORIZED SIGNATORY</p>
-            <p style="margin: 5px 0 0 0; font-family: cursive; font-size: 20px; font-weight: 700; color: #002d5b;">Michael Abrian</p>
+        <div class="official-footer">
+            <p><strong>Officer in Charge:</strong> Michael Abrian (SmartXpress Logistics)</p>
+            <p><strong>Delivery Status:</strong> Will be Delivered by SmartXpress- Michael Abrian</p>
+            <p style="font-size:10px; margin-top:10px;">Security Verification: SX-${Math.floor(Math.random()*900000)}</p>
         </div>
-
     </div>
-</div>
-
-
-
-
-
-
-
-
-
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
