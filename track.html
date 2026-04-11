@@ -24,7 +24,6 @@
 
         .track-wrapper { max-width: 1000px; margin: 40px auto; padding: 20px; }
 
-        /* HEADER ANIMATION */
         .status-header {
             background: var(--primary); color: white;
             padding: 30px; border-radius: 12px 12px 0 0;
@@ -52,7 +51,6 @@
         .data-label { color: var(--text-muted); font-weight: 600; }
         .data-value { color: var(--text-dark); font-weight: 700; text-align: right; }
 
-        /* DETAILED TRACKING HISTORY */
         .progress-box {
             background: var(--surface); border: 1px solid var(--border); border-top: none;
             padding: 40px; margin-bottom: 30px; border-radius: 0 0 12px 12px;
@@ -78,7 +76,6 @@
 
         .step.completed .step-icon { background: white; color: var(--success); border-color: var(--success); }
 
-        /* DOWNLOAD BUTTON */
         .btn-download {
             background: var(--success); color: white; width: 100%; padding: 22px;
             border: none; border-radius: 12px; font-weight: 900; cursor: pointer;
@@ -89,7 +86,6 @@
 
         .btn-download:hover { transform: scale(1.02); background: var(--primary); }
 
-        /* ANIMATIONS */
         @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideRight { from { transform: translateX(-30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -112,7 +108,8 @@
                 padding: 30px;
                 position: relative;
                 border-top: 20px solid #00d4ff;
-                min-height: 950px;
+                min-height: 1050px;
+                overflow: hidden;
             }
 
             .r-grid {
@@ -122,6 +119,8 @@
                 background: #002d5b;
                 border: 1px solid #002d5b;
                 margin-top: 20px;
+                position: relative;
+                z-index: 2;
             }
 
             .r-item { background: #f8fafc !important; padding: 12px; font-size: 13px; }
@@ -137,18 +136,48 @@
 
             .full { grid-column: span 2; }
 
+            /* Watermarks */
             .paid-stamp {
                 position: absolute;
-                top: 45%; left: 50%;
+                top: 35%; left: 50%;
                 transform: translate(-50%, -50%) rotate(-15deg);
-                border: 8px double #22c55e !important;
+                border: 10px double #22c55e !important;
                 color: #22c55e !important;
-                padding: 15px 40px;
-                font-size: 70px;
+                padding: 10px 50px;
+                font-size: 90px;
                 font-weight: 900;
-                border-radius: 15px;
-                opacity: 0.15;
+                border-radius: 20px;
+                opacity: 0.12;
                 z-index: 1;
+            }
+
+            .brand-watermark {
+                position: absolute;
+                bottom: 15%; left: 50%;
+                transform: translate(-50%, -50%) rotate(-10deg);
+                color: #002d5b !important;
+                font-size: 100px;
+                font-weight: 900;
+                opacity: 0.05;
+                white-space: nowrap;
+                z-index: 1;
+            }
+
+            /* Stamp Style */
+            .smart-stamp {
+                width: 100px; height: 100px;
+                border: 4px solid #00a859;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: #00a859;
+                text-align: center;
+                font-weight: 900;
+                line-height: 1;
+                transform: rotate(-10deg);
+                background: rgba(0, 168, 89, 0.05) !important;
             }
 
             .barcode-area {
@@ -203,9 +232,6 @@
             <div class="step" id="step-onhold"><div class="step-icon"><i class="fas fa-hand-holding-usd"></i></div><div><div style="font-weight: 800;">ON HOLD FOR CUSTOM CLEARANCE CHARGES</div><div style="font-size: 11px; color: var(--text-muted);">Awaiting Duty Payment</div></div></div>
             <div class="step" id="step-customhold"><div class="step-icon"><i class="fas fa-shield-alt"></i></div><div><div style="font-weight: 800;">CUSTOM HOLD</div><div style="font-size: 11px; color: #ef4444;"><span class="dot-red"></span>Physical Inspection Entry</div></div></div>
             <div class="step" id="step-awaiting"><div class="step-icon"><i class="fas fa-hourglass-half"></i></div><div><div style="font-weight: 800;">AWAITING CUSTOM HOLD CLEARANCE</div><div class="blink-text" style="font-size: 11px;">PENDING BORDER RELEASE</div></div></div>
-            <div class="step" id="step-cleared"><div class="step-icon"><i class="fas fa-truck-loading"></i></div><div><div style="font-weight: 800;">SUCCESSFULLY CLEARED</div><div style="font-size: 11px; color: var(--text-muted);">Released to Delivery Grid</div></div></div>
-            <div class="step" id="step-transit"><div class="step-icon"><i class="fas fa-road"></i></div><div><div style="font-weight: 800;">IN TRANSIT</div><div style="font-size: 11px; color: var(--text-muted);">On Route to Destination</div></div></div>
-            <div class="step" id="step-delivered"><div class="step-icon"><i class="fas fa-home"></i></div><div><div style="font-weight: 800;">DELIVERED</div><div style="font-size: 11px; color: var(--text-muted);">Final Handover Complete</div></div></div>
         </section>
 
         <section class="manifest-grid">
@@ -237,6 +263,8 @@
     <div id="print-receipt">
         <div class="receipt-body">
             <div class="paid-stamp">PAID</div>
+            <div class="brand-watermark">SMARTXPRESS</div>
+
             <div style="display: flex; justify-content: space-between; align-items: flex-end;">
                 <div><h1 style="margin: 0; color: #002d5b; font-size: 35px; font-weight: 900;">OFFICIAL MANIFEST</h1><p style="margin: 5px 0; font-weight: 800; color: #00d4ff; letter-spacing: 2px;">SMARTXPRESS GLOBAL LOGISTICS</p></div>
                 <div style="text-align: right; color: #64748b; font-size: 11px; font-weight: 700;">DOCUMENT ID: <br><span style="color: #002d5b; font-size: 16px;" id="r-top-id">--</span></div>
@@ -263,12 +291,23 @@
                 <div class="r-head">04. Financial Statement</div>
                 <div class="r-item"><small>Freight Cost</small><br><strong id="r-ship-cost">--</strong></div>
                 <div class="r-item"><small>Door Delivery Duty</small><br><strong id="r-door">--</strong></div>
+                <div class="r-item full"><small>Custom Hold / Clearance Fee</small><br><strong id="r-custom-fee" style="color: #ef4444;">--</strong></div>
                 <div class="r-item full" style="background: #002d5b !important; color: white; text-align: center; padding: 15px;"><small>TOTAL VALUATION DUE</small><br><span style="font-size: 26px; font-weight: 900;" id="r-total">--</span></div>
             </div>
 
-            <div style="margin-top: 30px; display: flex; align-items: center; gap: 20px;">
-                <div style="width: 70px; height: 70px; border: 4px solid #00a859; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #00a859; font-size: 28px;"><i class="fas fa-shield-check"></i></div>
-                <div><strong style="color: #00a859;">SYSTEM VERIFIED</strong><br><small style="color: #64748b;">Cleared for local distribution by Michael Abrian (Head of Ops).</small></div>
+            <div style="margin-top: 30px; display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div class="smart-stamp">
+                        <span style="font-size: 8px;">ORIGINAL</span>
+                        <span style="font-size: 11px;">SMART</span>
+                        <span style="font-size: 11px;">XPRESS</span>
+                        <span style="font-size: 8px;">VERIFIED</span>
+                    </div>
+                    <div><strong style="color: #00a859;">OFFICIALLY CLEARED</strong><br><small style="color: #64748b;">Digitally verified by Michael Abrian <br>(Logistics Node Commander).</small></div>
+                </div>
+                <div style="text-align: right;">
+                    <p style="font-size: 10px; color: #94a3b8; font-weight: 700;">MANIFEST GENERATED AT:<br><span id="r-gen-time">--</span></p>
+                </div>
             </div>
 
             <div class="barcode-area">
@@ -306,7 +345,6 @@
                 if (docSnap.exists()) {
                     const data = docSnap.data();
                     
-                    // UI DATA MAPPING
                     document.getElementById('display-id').innerText = trackingID;
                     document.getElementById('sender-name').innerText = data.senderName || '--';
                     document.getElementById('sender-addr').innerText = data.senderAddr || '--';
@@ -335,9 +373,11 @@
                     document.getElementById('r-auth').innerText = data.auth || 'VERIFIED';
                     document.getElementById('r-ship-cost').innerText = data.shippingCost || 'USD 0.00';
                     document.getElementById('r-door').innerText = data.doorDeliveryPayment || 'PENDING';
+                    document.getElementById('r-custom-fee').innerText = data.customHoldFee || 'USD 0.00';
                     document.getElementById('r-total').innerText = data.totalCost || 'USD 0.00';
                     document.getElementById('r-barcode').innerText = trackingID;
                     document.getElementById('r-barcode-txt').innerText = trackingID;
+                    document.getElementById('r-gen-time').innerText = new Date().toLocaleString();
 
                     // TIMING LOGIC
                     const shipTime = data.shippedDate ? new Date(data.shippedDate).getTime() : Date.now();
@@ -370,14 +410,12 @@
 
         function showStep(id, status) {
             const el = document.getElementById(id);
-            el.style.display = 'flex';
-            el.classList.add(status);
+            if(el) { el.style.display = 'flex'; el.classList.add(status); }
         }
 
         function activateLast(id) {
             const el = document.getElementById(id);
-            el.classList.remove('completed');
-            el.classList.add('active');
+            if(el) { el.classList.remove('completed'); el.classList.add('active'); }
         }
 
         loadTrackingData();
