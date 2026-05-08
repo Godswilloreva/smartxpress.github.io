@@ -1112,8 +1112,10 @@ const translations = {
 };
 
 
+
+
 function changeLanguage(lang) {
-    // 1. UPDATE YOUR MANUAL TEXT (Your existing logic)
+    // 1. Update manual text elements (those with data-key)
     document.querySelectorAll('[data-key]').forEach(element => {
         const key = element.getAttribute('data-key');
         if (translations[lang] && translations[lang][key]) {
@@ -1121,23 +1123,55 @@ function changeLanguage(lang) {
         }
     });
 
-    // 2. UPDATE THE GOOGLE TRANSLATOR (The missing link)
-    // This looks for the hidden Google dropdown and forces it to switch
+    // 2. Trigger Google Translate
     const googleCombo = document.querySelector('.goog-te-combo');
     if (googleCombo) {
         googleCombo.value = lang;
         googleCombo.dispatchEvent(new Event('change'));
     }
 
-    // 3. Update Input Placeholders (For your tracking bar)
+    // 3. Update Input Placeholders
     const trackInput = document.getElementById('trackInput');
     if(trackInput && translations[lang]) {
         trackInput.placeholder = translations[lang].trackPlaceholder;
     }
 
-    // 4. Save preference
+    // 4. Update Hero Messages based on language
+    if(lang === 'it') {
+        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
+    } else if (lang === 'fr') {
+        messages = ["COMMANDE DE FRET MONDIALE", "CARGAISON AIR ET MER SÉCURISÉE", "SUIVI SATELLITE"];
+    } else {
+        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
+    }
+    
     localStorage.setItem('preferredLang', lang);
 }
+
+// Ensure the page loads the correct language on refresh
+window.addEventListener('load', () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    const langSelect = document.getElementById('langSelect');
+    if(langSelect) langSelect.value = savedLang;
+    
+    // Small delay to let Google Translate load before triggering it
+    setTimeout(() => changeLanguage(savedLang), 1000);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
