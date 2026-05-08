@@ -146,6 +146,9 @@
 
 
 
+<!-- Google Translate Dropdown Container -->
+<div id="google_translate_element" style="padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+
 </head>
 
 
@@ -193,7 +196,19 @@ body { top: 0px !important; }
 .goog-te-gadget span { display: none !important; }
 </style>
 
+<!-- GOOGLE TRANSLATE (IN-PAGE, NO REDIRECT) -->
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false,
+        includedLanguages: 'en,fr,es,it,de,pt,ar,zh,ru',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+</script>
 
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 
@@ -1111,74 +1126,14 @@ const translations = {
     }
 };
 
-
-
-
 function changeLanguage(lang) {
-    // 1. Update manual text elements (those with data-key)
+    // 1. Update all static elements with data-key
     document.querySelectorAll('[data-key]').forEach(element => {
         const key = element.getAttribute('data-key');
-        if (translations[lang] && translations[lang][key]) {
+        if (translations[lang][key]) {
             element.innerHTML = translations[lang][key];
         }
     });
-
-    // 2. Trigger Google Translate
-    const googleCombo = document.querySelector('.goog-te-combo');
-    if (googleCombo) {
-        googleCombo.value = lang;
-        googleCombo.dispatchEvent(new Event('change'));
-    }
-
-    // 3. Update Input Placeholders
-    const trackInput = document.getElementById('trackInput');
-    if(trackInput && translations[lang]) {
-        trackInput.placeholder = translations[lang].trackPlaceholder;
-    }
-
-    // 4. Update Hero Messages based on language
-    if(lang === 'it') {
-        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
-    } else if (lang === 'fr') {
-        messages = ["COMMANDE DE FRET MONDIALE", "CARGAISON AIR ET MER SÉCURISÉE", "SUIVI SATELLITE"];
-    } else {
-        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
-    }
-    
-    localStorage.setItem('preferredLang', lang);
-}
-
-// Ensure the page loads the correct language on refresh
-window.addEventListener('load', () => {
-    const savedLang = localStorage.getItem('preferredLang') || 'en';
-    const langSelect = document.getElementById('langSelect');
-    if(langSelect) langSelect.value = savedLang;
-    
-    // Small delay to let Google Translate load before triggering it
-    setTimeout(() => changeLanguage(savedLang), 1000);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // 2. Update Input Placeholders
     const trackInput = document.getElementById('trackInput');
@@ -1328,18 +1283,7 @@ window.onload = () => {
 
 
 
-    <script>
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            autoDisplay: false,
-            includedLanguages: 'en,fr,es,it,de,pt,ar,zh,ru',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-    }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 </body>
 </html>
-
