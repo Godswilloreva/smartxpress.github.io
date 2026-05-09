@@ -140,44 +140,14 @@
             .track-container input { border-radius: 8px; margin-bottom: 10px; }
             .track-container button { border-radius: 8px; padding: 20px; }
         }
-
-
-
-.goog-te-banner-frame.skiptranslate {
-    display: none !important;
-}
-
-body {
-    top: 0px !important;
-}
-
-/* Hide Google branding text */
-.goog-logo-link,
-.goog-te-gadget span {
-    display: none !important;
-}
-
-.goog-te-gadget {
-    color: transparent !important;
-    font-size: 0px !important;
-}
-
-/* Beautiful dropdown */
-.goog-te-combo {
-    background: rgba(255,255,255,0.1) !important;
-    color: #fff !important;
-    border: 1px solid #fff !important;
-    padding: 8px 12px !important;
-    border-radius: 6px !important;
-    font-size: 12px !important;
-    outline: none !important;
-    cursor: pointer;
-}
     </style>
 
 
 
 
+
+<!-- Google Translate Dropdown Container -->
+<div id="google_translate_element" style="padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
 
 </head>
 
@@ -189,25 +159,18 @@ body {
 <div style="width:100%; background:#002d5b; padding:12px 5%; display:flex; justify-content:center; align-items:center; position:fixed; top:0; left:0; z-index:9999;">
 
     <!-- CENTER NAV LINKS -->
-    <div style="display:flex; gap:30px; align-items:center;">
-        <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:0.5px;">About Us</a>
+    <div style="display:flex; gap:50px; align-items:center;">
+        <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">About Us</a>
         
-        <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:0.5px;">Our Services</a>
+        <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Our Services</a>
         
-        <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:0.5px;">Contact Us</a>
+        <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Contact Us</a>
 
-   
-
-</div><br><br>
-
-
-
-     <!-- TRANSLATE DROPDOWN -->
-        <!-- GOOGLE TRANSLATE -->
-<div id="google_translate_element"></div>
+        <!-- TRANSLATE DROPDOWN -->
+        <div id="google_translate_element"></div>
     </div>
-<br><br>
 
+</div>
 
 <!-- REMOVE GOOGLE TOP BAR + STYLE -->
 <style>
@@ -258,14 +221,19 @@ function googleTranslateElementInit() {
     <!-- VIDEO HEADER -->
     <header class="hero-header">
         <div class="nav-glass">
-<div style="display:flex; align-items:center; gap:10px;"><br><br><br><br>
+<div style="display:flex; align-items:center; gap:10px;">
             <div style="font-weight:900; color:#fff; letter-spacing:2px; font-size: 20px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
             <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:5px 12px; border-radius:20px; font-weight: bold;">
 
                 <span class="status-dot"></span> SYSTEM LIVE
             </div>
         </div>
-
+<select id="langSelect" onchange="changeLanguage(this.value)" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid #fff; border-radius:4px; padding:2px 5px; font-size:10px; cursor:pointer; outline:none;">
+        <option value="en" style="color:#000;">EN (English)</option>
+        <option value="it" style="color:#000;">IT (Italiano)</option>
+        <option value="fr" style="color:#000;">FR (Français)</option>
+        <option value="es" style="color:#000;">ES (Español)</option>
+    </select>
 </div>
         <video class="header-video" autoplay muted loop playsinline>
             <source src="v.mp4" type="video/mp4">
@@ -1132,11 +1100,58 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
 <script>
+const translations = {
+    en: {
+        heroMsg: "GLOBAL FREIGHT COMMAND",
+        trackPlaceholder: "Enter Tracking Code", // Ensure this match
+        fleetTitle: "Last-Mile Fleet Velocity",
+        opsManifest: "ACTIVE MANIFEST STREAM",
+        systemOnline: "● SYSTEM ONLINE"
+    },
+    // ... rest of your script
 
+    it: {
+        heroMsg: "COMANDO GLOBALE MERCI",
+        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
+        fleetTitle: "Velocità della Flotta Ultimo Miglio",
+        opsManifest: "FLUSSO MANIFESTO ATTIVO",
+        systemOnline: "● SISTEMA ONLINE"
+    },
+    fr: {
+        heroMsg: "COMMANDE DE FRET MONDIALE",
+        trackPlaceholder: "Entrez le bordereau d'expédition",
+        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
+        opsManifest: "FLUX DE MANIFESTE ACTIF",
+        systemOnline: "● SYSTÈME EN LIGNE"
+    }
+};
+
+function changeLanguage(lang) {
+    // 1. Update all static elements with data-key
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // 2. Update Input Placeholders
+    const trackInput = document.getElementById('trackInput');
+    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
+
+    // 3. Update the Rotating Hero Messages (Optional)
+    if(lang === 'it') {
+        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
+    } else if (lang === 'en') {
+        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
+    }
     
+    // Save preference to browser so it stays if they refresh
+    localStorage.setItem('preferredLang', lang);
+}
 
-  
-
+// Auto-load saved language on page start
+window.onload = () => {
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     document.getElementById('langSelect').value = savedLang;
     changeLanguage(savedLang);
@@ -1187,7 +1202,7 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
         .tawk-official img { width: 30px; }
 
         .chat-label {
-            position: background: #0f172a; color: white;
+            position: absolute; right: 65px; background: #0f172a; color: white;
             padding: 5px 12px; border-radius: 5px; font-size: 10px; font-weight: 800;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); white-space: nowrap; pointer-events: none;
             text-transform: uppercase; letter-spacing: 1px;
@@ -1267,18 +1282,7 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
 
-<script>
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 
-        'af,ar,bg,bn,ca,cs,da,de,el,en,es,et,fa,fi,fr,gu,hi,hr,hu,id,it,ja,ko,lt,lv,mr,ms,nl,no,pl,pt,ro,ru,sk,sl,sq,sr,sv,sw,ta,te,th,tr,uk,ur,vi,zh-CN',
-        autoDisplay: false
-    }, 'google_translate_element');
-}
-</script>
 
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 </body>
