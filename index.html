@@ -146,6 +146,9 @@
 
 
 
+<!-- Google Translate Dropdown Container -->
+<div id="google_translate_element" style="padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+
 </head>
 
 
@@ -194,7 +197,18 @@ body { top: 0px !important; }
 </style>
 
 <!-- GOOGLE TRANSLATE (IN-PAGE, NO REDIRECT) -->
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false,
+        includedLanguages: 'en,fr,es,it,de,pt,ar,zh,ru',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+</script>
 
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 
@@ -214,7 +228,12 @@ body { top: 0px !important; }
                 <span class="status-dot"></span> SYSTEM LIVE
             </div>
         </div>
-
+<select id="langSelect" onchange="changeLanguage(this.value)" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid #fff; border-radius:4px; padding:2px 5px; font-size:10px; cursor:pointer; outline:none;">
+        <option value="en" style="color:#000;">EN (English)</option>
+        <option value="it" style="color:#000;">IT (Italiano)</option>
+        <option value="fr" style="color:#000;">FR (Français)</option>
+        <option value="es" style="color:#000;">ES (Español)</option>
+    </select>
 </div>
         <video class="header-video" autoplay muted loop playsinline>
             <source src="v.mp4" type="video/mp4">
@@ -1080,7 +1099,64 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 </html>
 
 
-<
+<script>
+const translations = {
+    en: {
+        heroMsg: "GLOBAL FREIGHT COMMAND",
+        trackPlaceholder: "Enter Tracking Code", // Ensure this match
+        fleetTitle: "Last-Mile Fleet Velocity",
+        opsManifest: "ACTIVE MANIFEST STREAM",
+        systemOnline: "● SYSTEM ONLINE"
+    },
+    // ... rest of your script
+
+    it: {
+        heroMsg: "COMANDO GLOBALE MERCI",
+        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
+        fleetTitle: "Velocità della Flotta Ultimo Miglio",
+        opsManifest: "FLUSSO MANIFESTO ATTIVO",
+        systemOnline: "● SISTEMA ONLINE"
+    },
+    fr: {
+        heroMsg: "COMMANDE DE FRET MONDIALE",
+        trackPlaceholder: "Entrez le bordereau d'expédition",
+        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
+        opsManifest: "FLUX DE MANIFESTE ACTIF",
+        systemOnline: "● SYSTÈME EN LIGNE"
+    }
+};
+
+function changeLanguage(lang) {
+    // 1. Update all static elements with data-key
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+
+    // 2. Update Input Placeholders
+    const trackInput = document.getElementById('trackInput');
+    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
+
+    // 3. Update the Rotating Hero Messages (Optional)
+    if(lang === 'it') {
+        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
+    } else if (lang === 'en') {
+        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
+    }
+    
+    // Save preference to browser so it stays if they refresh
+    localStorage.setItem('preferredLang', lang);
+}
+
+// Auto-load saved language on page start
+window.onload = () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    document.getElementById('langSelect').value = savedLang;
+    changeLanguage(savedLang);
+};
+</script>
 </footer>
 
 
@@ -1206,7 +1282,7 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 
 
 
->
+
 
 
 </body>
