@@ -146,9 +146,6 @@
 
 
 
-<!-- Google Translate Dropdown Container -->
-<div id="google_translate_element" style="padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
-
 </head>
 
 
@@ -196,19 +193,7 @@ body { top: 0px !important; }
 .goog-te-gadget span { display: none !important; }
 </style>
 
-<!-- GOOGLE TRANSLATE (IN-PAGE, NO REDIRECT) -->
-<script>
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        autoDisplay: false,
-        includedLanguages: 'en,fr,es,it,de,pt,ar,zh,ru',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-}
-</script>
-
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<
 
 
 
@@ -221,19 +206,14 @@ function googleTranslateElementInit() {
     <!-- VIDEO HEADER -->
     <header class="hero-header">
         <div class="nav-glass">
-<div style="display:flex; align-items:center; gap:10px;">
-            <div style="font-weight:900; color:#fff; letter-spacing:2px; font-size: 20px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
-            <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:5px 12px; border-radius:20px; font-weight: bold;">
+<div style="display:flex; align-items:center; gap:10px;"><br><br>
+            <div style="font-weight:900; color:#fff; letter-spacing:5px; font-size: 20px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
+            <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:2px 12px; border-radius:1px; font-weight: bold;">
 
                 <span class="status-dot"></span> SYSTEM LIVE
             </div>
         </div>
-<select id="langSelect" onchange="changeLanguage(this.value)" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid #fff; border-radius:4px; padding:2px 5px; font-size:10px; cursor:pointer; outline:none;">
-        <option value="en" style="color:#000;">EN (English)</option>
-        <option value="it" style="color:#000;">IT (Italiano)</option>
-        <option value="fr" style="color:#000;">FR (Français)</option>
-        <option value="es" style="color:#000;">ES (Español)</option>
-    </select>
+
 </div>
         <video class="header-video" autoplay muted loop playsinline>
             <source src="v.mp4" type="video/mp4">
@@ -348,7 +328,7 @@ function googleTranslateElementInit() {
                     <div style="width:84%; height:100%; background:linear-gradient(90deg, #38bdf8, #22c55e);"></div>
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:14px; font-weight:900;">
-                    <span>84.2%</span>
+                    <span>95.2%</span>
                     <span style="color:#22c55e;">OPTIMAL</span>
                 </div>
             </div>
@@ -367,7 +347,7 @@ function googleTranslateElementInit() {
 
     <!-- FOOTER STATUS -->
     <div style="margin-top:15px; border-top:1px solid #1e293b; padding-top:10px; display:flex; justify-content:space-between; font-size:10px; color:#64748b; font-weight:bold;">
-        <span>SECURE TERMINAL: SMX-A09</span>
+        <span>SECURE SMARTXPRESS TERMINAL: SMX-A09</span>
         <span style="color:#38bdf8;">SYNCING DATA...</span>
     </div>
 
