@@ -146,6 +146,9 @@
 
 
 
+<!-- Google Translate Dropdown Container -->
+<div id="google_translate_element" style="padding: 5px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+
 </head>
 
 
@@ -214,15 +217,6 @@ function googleTranslateElementInit() {
 
 
 <body>
-
-<body>
-
-<div id="google_translate_element"></div>
-
-...
-
-
-
 
     <!-- VIDEO HEADER -->
     <header class="hero-header">
@@ -1287,19 +1281,7 @@ window.onload = () => {
 </script>
 
 
-<div id="google_translate_element"></div>
 
-<script>
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,fr,es,it,de,pt,ar,zh-CN,ru',
-        autoDisplay: false
-    }, 'google_translate_element');
-}
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 
