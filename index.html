@@ -1091,64 +1091,7 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
 </html>
 
 
-<script>
-const translations = {
-    en: {
-        heroMsg: "GLOBAL FREIGHT COMMAND",
-        trackPlaceholder: "Enter Tracking Code", // Ensure this match
-        fleetTitle: "Last-Mile Fleet Velocity",
-        opsManifest: "ACTIVE MANIFEST STREAM",
-        systemOnline: "● SYSTEM ONLINE"
-    },
-    // ... rest of your script
-
-    it: {
-        heroMsg: "COMANDO GLOBALE MERCI",
-        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
-        fleetTitle: "Velocità della Flotta Ultimo Miglio",
-        opsManifest: "FLUSSO MANIFESTO ATTIVO",
-        systemOnline: "● SISTEMA ONLINE"
-    },
-    fr: {
-        heroMsg: "COMMANDE DE FRET MONDIALE",
-        trackPlaceholder: "Entrez le bordereau d'expédition",
-        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
-        opsManifest: "FLUX DE MANIFESTE ACTIF",
-        systemOnline: "● SYSTÈME EN LIGNE"
-    }
-};
-
-function changeLanguage(lang) {
-    // 1. Update all static elements with data-key
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translations[lang][key]) {
-            element.innerHTML = translations[lang][key];
-        }
-    });
-
-    // 2. Update Input Placeholders
-    const trackInput = document.getElementById('trackInput');
-    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
-
-    // 3. Update the Rotating Hero Messages (Optional)
-    if(lang === 'it') {
-        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
-    } else if (lang === 'en') {
-        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
-    }
-    
-    // Save preference to browser so it stays if they refresh
-    localStorage.setItem('preferredLang', lang);
-}
-
-// Auto-load saved language on page start
-window.onload = () => {
-    const savedLang = localStorage.getItem('preferredLang') || 'en';
-    document.getElementById('langSelect').value = savedLang;
-    changeLanguage(savedLang);
-};
-</script>
+<
 </footer>
 
 
@@ -1275,6 +1218,18 @@ window.onload = () => {
 
 
 
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 
+        'af,ar,bg,bn,ca,cs,da,de,el,en,es,et,fa,fi,fr,gu,hi,hr,hu,id,it,ja,ko,lt,lv,mr,ms,nl,no,pl,pt,ro,ru,sk,sl,sq,sr,sv,sw,ta,te,th,tr,uk,ur,vi,zh-CN',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 </body>
