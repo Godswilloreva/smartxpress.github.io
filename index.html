@@ -115,8 +115,6 @@
         }
         .track-container button:hover { background: #fff; color: var(--primary); }
 
-       
-
         /* 6. CHAT HUB */
         .chat-hub-wrapper {
             position: fixed; bottom: 30px; right: 30px; z-index: 10000;
@@ -141,80 +139,30 @@
             .track-container button { border-radius: 8px; padding: 20px; }
         }
     </style>
-
-
-
-
-
 </head>
 
-
-
-
+<body>
 
 <!-- TOP NAV BAR (CENTERED + CLEAN) -->
 <div style="width:100%; background:#002d5b; padding:12px 5%; display:flex; justify-content:center; align-items:center; position:fixed; top:0; left:0; z-index:9999;">
-
     <!-- CENTER NAV LINKS -->
     <div style="display:flex; gap:50px; align-items:center;">
         <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">About Us</a>
-        
         <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Our Services</a>
-        
         <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Contact Us</a>
-
-        <!-- TRANSLATE DROPDOWN -->
-        <div id="google_translate_element"></div>
     </div>
-
 </div>
-
-<!-- REMOVE GOOGLE TOP BAR + STYLE -->
-<style>
-.goog-te-banner-frame.skiptranslate { display: none !important; }
-body { top: 0px !important; }
-
-/* Hide "Powered by Google" */
-.goog-logo-link { display:none !important; }
-.goog-te-gadget { color: transparent !important; font-size: 0 !important; }
-
-/* Style dropdown */
-.goog-te-combo {
-    background: transparent !important;
-    color: #fff !important;
-    border: 1px solid #fff !important;
-    padding: 5px 8px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Remove extra spacing */
-.goog-te-gadget span { display: none !important; }
-</style>
-
-<
-
-
-
-
-
-
-
-<body>
 
     <!-- VIDEO HEADER -->
     <header class="hero-header">
         <div class="nav-glass">
-<div style="display:flex; align-items:center; gap:10px;"><br><br>
-            <div style="font-weight:900; color:#fff; letter-spacing:5px; font-size: 20px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
-            <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:2px 12px; border-radius:1px; font-weight: bold;">
-
-                <span class="status-dot"></span> SYSTEM LIVE
+            <div style="display:flex; align-items:center; gap:10px;"><br><br>
+                <div style="font-weight:900; color:#fff; letter-spacing:5px; font-size: 20px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
+                <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:2px 12px; border-radius:1px; font-weight: bold;">
+                    <span class="status-dot"></span> SYSTEM LIVE
+                </div>
             </div>
         </div>
-
-</div>
         <video class="header-video" autoplay muted loop playsinline>
             <source src="v.mp4" type="video/mp4">
         </video>
@@ -223,13 +171,9 @@ body { top: 0px !important; }
         </div>
     </header>
 
-
-
-
-<!-- REPLACE YOUR OLD TRACK-BAR SECTION WITH THIS -->
+<!-- TRACK-BAR SECTION -->
 <section class="track-bar">
     <div class="track-container" style="display: flex; flex-direction: column; align-items: center; background: transparent; padding: 0 20px;">
-        <!-- Input and Button Wrapper -->
         <div style="display: flex; width: 100%; max-width: 700px; gap: 15px; flex-wrap: wrap; justify-content: center;"> 
             <input type="text" 
                    id="trackInput" 
@@ -242,37 +186,16 @@ body { top: 0px !important; }
                 Track Shipment
             </button>
         </div>
-        
-        <!-- Error Message Display -->
         <div id="trackError" style="color: #ff4d4d; font-size: 12px; font-weight: bold; margin-top: 15px; display: none; text-transform: uppercase; letter-spacing: 1px; text-align: center;">
             ⚠️ INVALID TRACKING ID: ACCESS DENIED
         </div>
     </div>
 </section>
 
+<br><br>
 
-
-
-
-
-
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-    <!-- SMARTXPRESS COMMAND CENTER (STRICT SCREEN FIT) -->
+<!-- SMARTXPRESS COMMAND CENTER -->
 <div style="width:100%; height:60vh; overflow:hidden; background:#020617; color:#e2e8f0; font-family: 'Segoe UI', Roboto, sans-serif; display:flex; flex-direction:column; padding:20px; box-sizing:border-box; border: 4px solid #1e293b;">
-
-    <!-- TOP BAR: SYSTEM METRICS -->
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; border-bottom:1px solid #1e293b; padding-bottom:15px;">
         <div>
             <h2 style="margin:0; font-size:18px; font-weight:900; letter-spacing:3px; color:#38bdf8;">
@@ -284,23 +207,17 @@ body { top: 0px !important; }
                 <span style="font-size:10px; color:#38bdf8;">LATENCY: 24ms</span>
             </div>
         </div>
-        
         <div style="text-align:right;">
             <div id="sysDate" style="font-size:12px; color:#94a3b8; font-weight:bold;"></div>
             <div id="sysTime2" style="font-size:24px; font-weight:900; color:#ffffff; font-family:monospace;"></div>
         </div>
     </div>
-
-    <!-- MAIN DASHBOARD AREA -->
     <div style="display:flex; gap:20px; flex:1; min-height:0;">
-        
-        <!-- LEFT COLUMN: LIVE LOGS (60%) -->
         <div style="flex:1.5; display:flex; flex-direction:column;">
             <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; flex:1; display:flex; flex-direction:column; overflow:hidden;">
                 <div style="background:#1e293b; padding:10px 15px; font-size:11px; font-weight:900; letter-spacing:1px; color:#38bdf8;">
                     ACTIVE MANIFEST STREAM
                 </div>
-                
                 <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
                     <thead style="background:rgba(56, 189, 248, 0.05); color:#94a3b8; font-size:10px;">
                         <tr>
@@ -311,17 +228,11 @@ body { top: 0px !important; }
                             <th style="padding:12px; text-align:right;">TIMESTAMP</th>
                         </tr>
                     </thead>
-                    <tbody id="liveLogBody2">
-                        <!-- JS injected rows (Optimized for 5-6 rows to fit screen) -->
-                    </tbody>
+                    <tbody id="liveLogBody2"></tbody>
                 </table>
             </div>
         </div>
-
-        <!-- RIGHT COLUMN: STATS & MAP (40%) -->
         <div style="flex:1; display:flex; flex-direction:column; gap:20px;">
-            
-            <!-- GLOBAL UPTIME CARD -->
             <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:15px;">
                 <div style="font-size:10px; color:#94a3b8; margin-bottom:10px; font-weight:bold;">GLOBAL NETWORK CAPACITY</div>
                 <div style="height:8px; background:#1e293b; border-radius:10px; overflow:hidden;">
@@ -332,8 +243,6 @@ body { top: 0px !important; }
                     <span style="color:#22c55e;">OPTIMAL</span>
                 </div>
             </div>
-
-            <!-- MINI RADAR/MAP PLACEHOLDER -->
             <div style="flex:1; background:#0f172a; border:1px solid #1e293b; border-radius:8px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                 <div style="position:absolute; inset:0; opacity:0.1; background: repeating-linear-gradient(0deg, #38bdf8, #38bdf8 1px, transparent 1px, transparent 20px);"></div>
                 <div style="text-align:center; z-index:1;">
@@ -344,17 +253,11 @@ body { top: 0px !important; }
             </div>
         </div>
     </div>
-
-    <!-- FOOTER STATUS -->
     <div style="margin-top:15px; border-top:1px solid #1e293b; padding-top:10px; display:flex; justify-content:space-between; font-size:10px; color:#64748b; font-weight:bold;">
         <span>SECURE SMARTXPRESS TERMINAL: SMX-A09</span>
         <span style="color:#38bdf8;">SYNCING DATA...</span>
     </div>
-
 </div>
-
-
-
 
 <script>
 const clients2 = ["Apex Global", "Nexus Ltd", "Prime Freight", "Transit King", "Oceanic Co", "SkyLink Hub"];
@@ -365,7 +268,6 @@ const logBody2 = document.getElementById("liveLogBody2");
 const sysTime2 = document.getElementById("sysTime2");
 const sysDate = document.getElementById("sysDate");
 
-// CLOCK
 function updateClock() {
     const now = new Date();
     sysTime2.textContent = now.toLocaleTimeString();
@@ -374,15 +276,11 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// GENERATE ROWS
 function generateLog2() {
     logBody2.innerHTML = "";
-
-    // Using 6 rows ensures it fills space without triggering a scrollbar on standard screens
     for (let i = 0; i < 6; i++) {
         let status = statusFlow2[Math.floor(Math.random() * statusFlow2.length)];
-        let color = "#38bdf8"; // Default blue
-        
+        let color = "#38bdf8"; 
         if (status === "DELIVERED") color = "#22c55e";
         if (status === "PROCESSING") color = "#f97316";
         if (status === "ARRIVED") color = "#a855f7";
@@ -402,178 +300,47 @@ function generateLog2() {
         `;
     }
 }
-
 generateLog2();
-setInterval(generateLog2, 5000); // Slower refresh for professional readability
+setInterval(generateLog2, 5000);
 </script>
+
 <br>
-
-
-
 
 <div class="trust-gauge-container">
     <style>
-        .trust-gauge-container {
-            padding: 30px 10px;
-            text-align: center;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            max-width: 450px;
-            margin: 10px auto;
-            background: transparent; /* Removed black background */
-        }
-
-        .gauge-wrapper {
-            position: relative;
-            width: 280px;
-            height: 140px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        /* Gray Background Track */
-        .gauge-track {
-            width: 280px;
-            height: 280px;
-            border: 12px solid #e2e8f0;
-            border-radius: 50%;
-            border-bottom-color: transparent;
-            border-left-color: transparent;
-            transform: rotate(-45deg);
-            position: absolute;
-            top: 0;
-            left: 0;
-            box-sizing: border-box;
-        }
-
-        /* Blue Progress Fill - Calibrated to 89% */
-        .gauge-fill {
-            width: 280px;
-            height: 280px;
-            border: 12px solid #002d5b;
-            border-radius: 50%;
-            border-bottom-color: transparent;
-            border-left-color: transparent;
-            position: absolute;
-            top: 0;
-            left: 0;
-            box-sizing: border-box;
-            transform: rotate(-45deg);
-            /* Calculation for 89%: 180 degrees * 0.89 = 160.2 - 45 = 115deg approx */
-            animation: fill89 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        /* The Needle - Calibrated to 89% */
-        .gauge-needle {
-            width: 3px;
-            height: 120px;
-            background: #0f172a;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform-origin: bottom center;
-            transform: translateX(-50%) rotate(-90deg);
-            border-radius: 2px;
-            z-index: 5;
-            animation: needle89 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .needle-center {
-            width: 14px;
-            height: 14px;
-            background: #002d5b;
-            border-radius: 50%;
-            position: absolute;
-            bottom: -7px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 6;
-        }
-
-        /* Numbers & Labels */
-        .trust-score {
-            margin-top: 10px;
-            font-size: 42px;
-            font-weight: 900;
-            color: #002d5b;
-            letter-spacing: -1px;
-        }
-
-        .trust-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #64748b;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        /* Animations for 89% Scale */
-        @keyframes fill89 {
-            0% { transform: rotate(-45deg); }
-            100% { transform: rotate(115deg); } 
-        }
-
-        @keyframes needle89 {
-            0% { transform: translateX(-50%) rotate(-90deg); }
-            100% { transform: translateX(-50%) rotate(70.2deg); }
-        }
-
-        /* Stats Row */
-        .gauge-footer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 15px;
-        }
-
+        .trust-gauge-container { padding: 30px 10px; text-align: center; font-family: 'Inter', 'Segoe UI', sans-serif; max-width: 450px; margin: 10px auto; }
+        .gauge-wrapper { position: relative; width: 280px; height: 140px; margin: 0 auto; overflow: hidden; }
+        .gauge-track { width: 280px; height: 280px; border: 12px solid #e2e8f0; border-radius: 50%; border-bottom-color: transparent; border-left-color: transparent; transform: rotate(-45deg); position: absolute; top: 0; left: 0; box-sizing: border-box; }
+        .gauge-fill { width: 280px; height: 280px; border: 12px solid #002d5b; border-radius: 50%; border-bottom-color: transparent; border-left-color: transparent; position: absolute; top: 0; left: 0; box-sizing: border-box; transform: rotate(-45deg); animation: fill89 2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .gauge-needle { width: 3px; height: 120px; background: #0f172a; position: absolute; bottom: 0; left: 50%; transform-origin: bottom center; transform: translateX(-50%) rotate(-90deg); border-radius: 2px; z-index: 5; animation: needle89 2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .needle-center { width: 14px; height: 14px; background: #002d5b; border-radius: 50%; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); z-index: 6; }
+        .trust-score { margin-top: 10px; font-size: 42px; font-weight: 900; color: #002d5b; letter-spacing: -1px; }
+        .trust-label { font-size: 11px; text-transform: uppercase; color: #64748b; letter-spacing: 2px; font-weight: 700; margin-bottom: 5px; }
+        @keyframes fill89 { 0% { transform: rotate(-45deg); } 100% { transform: rotate(115deg); } }
+        @keyframes needle89 { 0% { transform: translateX(-50%) rotate(-90deg); } 100% { transform: translateX(-50%) rotate(70.2deg); } }
+        .gauge-footer { display: flex; justify-content: center; gap: 20px; margin-top: 20px; border-top: 1px solid #e2e8f0; padding-top: 15px; }
         .stat-box { font-size: 12px; color: #475569; font-weight: 600; }
         .stat-box i { color: #22c55e; margin-right: 5px; }
-
     </style>
-
     <div class="trust-label">System Integrity Check</div>
-    
     <div class="gauge-wrapper">
         <div class="gauge-track"></div>
         <div class="gauge-fill"></div>
         <div class="gauge-needle"></div>
         <div class="needle-center"></div>
     </div>
-
     <div class="trust-score">89<span style="font-size: 20px; vertical-align: top;">%</span></div>
-    
     <div class="gauge-footer">
-        <div class="stat-box"><i class="fas fa-check-circle"></i> Operational</div>
-        <div class="stat-box"><i class="fas fa-shield-alt"></i> Encrypted</div>
-        <div class="stat-box"><i class="fas fa-user-check"></i> Verified</div>
+        <div class="stat-box"> Operational</div>
+        <div class="stat-box"> Encrypted</div>
+        <div class="stat-box"> Verified</div>
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-
-
-    <script type="module">
+<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
   import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-  // Your Firebase Configuration
   const firebaseConfig = {
     apiKey: "AIzaSyAVWCMfo0QkAF5F1xux744Tbxbh1fAPzGI",
     authDomain: "smartxpress-tracking-c5b90.firebaseapp.com",
@@ -583,18 +350,14 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
     appId: "1:1000246633647:web:ecb0f8a50d0e877388205a"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // The New handleTrack Function
   async function handleTrack() {
     const inputField = document.getElementById('trackInput');
     const btn = document.getElementById('trackBtn');
     const errorMsg = document.getElementById('trackError');
     const val = inputField.value.trim().toUpperCase();
-
-    // 1. Basic Format Validation (Must start with XP-)
     const idPattern = /^XP-\d{4}-INT$/;
 
     errorMsg.style.display = "none";
@@ -605,620 +368,201 @@ setInterval(generateLog2, 5000); // Slower refresh for professional readability
         return;
     }
 
-    // 2. Visual Feedback
     btn.innerText = "VERIFYING SATELLITE LINK...";
     btn.disabled = true;
 
     try {
-        // 3. THE FIREBASE SEARCH: Look for the ID in the 'deliveries' collection
         const docRef = doc(db, "deliveries", val);
         const docSnap = await getDoc(docRef);
-
         if (docSnap.exists()) {
-            // SUCCESS: Found in Database! Redirect to track.html
             const authKey = Math.random().toString(36).substr(2, 9);
             window.location.href = `track.html?id=${val}&auth=${authKey}`;
         } else {
-            // FAIL: ID not in your Firebase
             showTrackError("ACCESS DENIED: ID NOT FOUND IN GLOBAL MANIFEST");
             btn.innerText = "TRACK SHIPMENT";
             btn.disabled = false;
         }
     } catch (error) {
-        console.error("Database Error:", error);
         showTrackError("SYSTEM ERROR: CONNECTION TIMEOUT");
         btn.innerText = "TRACK SHIPMENT";
         btn.disabled = false;
     }
   }
 
-  // Helper function for the error animation
   function showTrackError(msg) {
     const errorMsg = document.getElementById('trackError');
     const inputField = document.getElementById('trackInput');
     errorMsg.innerText = "⚠️ " + msg;
     errorMsg.style.display = "block";
     inputField.style.border = "2px solid #ff4d4d";
-    
     inputField.style.transform = "translateX(5px)";
     setTimeout(() => inputField.style.transform = "translateX(-5px)", 50);
     setTimeout(() => inputField.style.transform = "translateX(0)", 100);
   }
 
-  // Make the function global so the HTML button 'onclick' can find it
   window.handleTrack = handleTrack;
 </script>
 
-
-
-
-
-
-
-
-
-
-
 <div style="width:100%; overflow:hidden; padding:60px 0; background:#f4f7f9; border-top: 1px solid #ddd;">
-    
     <div style="text-align:center; margin-bottom:40px;">
         <h3 style="color:#002d5b; font-weight:900; text-transform:uppercase; letter-spacing:2px; margin:0;">
             Smart<span style="color:#00d4ff;">Xpress</span> Global Solutions
         </h3>
         <div style="width:50px; height:4px; background:#00d4ff; margin:10px auto;"></div>
     </div>
-
     <div style="width:100%; overflow:hidden; position:relative;">
-        
         <div class="smart-xpress-track">
-            
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air">
-                <div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div>
-            </div>
-
-
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea">
-                <div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div>
-            </div>
-
-
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse">
-                <div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div>
-            </div>
-
-
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs">
-                <div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div>
-            </div>
-
-
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road">
-                <div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div>
-            </div>
-
-
-
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail">
-                <div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div>
-            </div>
-
-
-
-
-            
-
-
-
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove">
-                <div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div>
-            </div>
-
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air">
-                <div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea">
-                <div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse">
-                <div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs">
-                <div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road">
-                <div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail">
-                <div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove">
-                <div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div>
-            </div>
+            <!-- Service Cards -->
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div></div>
+            <!-- Duplicate for Loop -->
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div></div>
         </div>
     </div>
 </div>
 
 <style>
-    .smart-xpress-track {
-        display: flex;
-        width: calc(300px * 16); /* cardWidth * totalItems */
-        animation: scrollInfinite 40s linear infinite;
-        padding: 20px 0;
-    }
-
-    /* Pause animation on hover */
-    .smart-xpress-track:hover {
-        animation-play-state: paused;
-    }
-
-    .service-card {
-        min-width: 280px;
-        margin: 0 10px;
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        border-bottom: 4px solid #002d5b;
-        transition: 0.3s;
-    }
-
-    .service-card:hover {
-        transform: translateY(-10px);
-        border-bottom-color: #00d4ff;
-    }
-
-    .service-card img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-    }
-
-    .card-content {
-        padding: 15px;
-    }
-
-    .card-content h4 {
-        margin: 0;
-        color: #002d5b;
-        text-transform: uppercase;
-        font-size: 14px;
-        font-weight: 800;
-    }
-
-    .card-content p {
-        font-size: 12px;
-        color: #64748b;
-        margin-top: 5px;
-        line-height: 1.4;
-    }
-
-    @keyframes scrollInfinite {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-300px * 8)); } /* Scroll exactly half (the original list) */
-    }
+    .smart-xpress-track { display: flex; width: calc(300px * 14); animation: scrollInfinite 40s linear infinite; padding: 20px 0; }
+    .smart-xpress-track:hover { animation-play-state: paused; }
+    .service-card { min-width: 280px; margin: 0 10px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-bottom: 4px solid #002d5b; transition: 0.3s; }
+    .service-card:hover { transform: translateY(-10px); border-bottom-color: #00d4ff; }
+    .service-card img { width: 100%; height: 160px; object-fit: cover; }
+    .card-content { padding: 15px; }
+    .card-content h4 { margin: 0; color: #002d5b; text-transform: uppercase; font-size: 14px; font-weight: 800; }
+    .card-content p { font-size: 12px; color: #64748b; margin-top: 5px; line-height: 1.4; }
+    @keyframes scrollInfinite { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 7)); } }
 </style>
 
-
 <br>
 
-
-
-
-
-
-<!-- SMOOTH LOADING FEATURE SECTION -->
 <div style="width:100%; padding:80px 0; background:#ffffff;">
     <div style="max-width:1100px; margin:auto; padding:0 20px; display:flex; align-items:center; gap:50px; flex-wrap:wrap;">
-        
-        <!-- IMAGE SIDE -->
         <div style="flex:1; min-width:320px; position:relative;">
-            <!-- Decorative Background Element -->
             <div style="position:absolute; top:-20px; left:-20px; width:100px; height:100px; border-top:5px solid #00d4ff; border-left:5px solid #00d4ff; z-index:1;"></div>
-            
-            <img src="pic1.jpg" 
-                 alt="Logistics Loading" 
-                 style="width:100%; border-radius:4px; box-shadow: 20px 20px 0px #002d5b; position:relative; z-index:2; display:block;">
-            
-            <!-- Floating Badge -->
-            <div style="position:absolute; bottom:20px; right:-10px; background:#00a859; color:#fff; padding:10px 20px; border-radius:4px; font-weight:900; font-size:12px; z-index:3; box-shadow:0 10px 20px rgba(0,0,0,0.2);">
-                SECURE LOAD VERIFIED
-            </div>
+            <img src="pic1.jpg" alt="Logistics Loading" style="width:100%; border-radius:4px; box-shadow: 20px 20px 0px #002d5b; position:relative; z-index:2; display:block;">
+            <div style="position:absolute; bottom:20px; right:-10px; background:#00a859; color:#fff; padding:10px 20px; border-radius:4px; font-weight:900; font-size:12px; z-index:3; box-shadow:0 10px 20px rgba(0,0,0,0.2);">SECURE LOAD VERIFIED</div>
         </div>
-
-        <!-- TEXT SIDE -->
         <div style="flex:1; min-width:320px;">
-            <div style="display:inline-block; background:rgba(0,45,91,0.05); color:#002d5b; padding:5px 15px; border-radius:20px; font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:15px; border:1px solid #002d5b;">
-                Precision Operations
-            </div>
-            
-            <h2 style="color:#002d5b; font-size:36px; font-weight:900; margin:0 0 20px 0; line-height:1.1; text-transform:uppercase;">
-                Seamless Cargo <span style="color:#00d4ff;">Integration</span>
-            </h2>
-            
-            <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:25px;">
-                Our synchronized loading protocols ensure that every piece of freight is handled with surgical precision. By utilizing automated weight distribution sensors and real-time transit-ready staging, SmartXpress eliminates delays at the dock, guaranteeing your goods move from warehouse to wing in record time.
-            </p>
-
+            <div style="display:inline-block; background:rgba(0,45,91,0.05); color:#002d5b; padding:5px 15px; border-radius:20px; font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:15px; border:1px solid #002d5b;">Precision Operations</div>
+            <h2 style="color:#002d5b; font-size:36px; font-weight:900; margin:0 0 20px 0; line-height:1.1; text-transform:uppercase;">Seamless Cargo <span style="color:#00d4ff;">Integration</span></h2>
+            <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:25px;">Our synchronized loading protocols ensure that every piece of freight is handled with surgical precision. By utilizing automated weight distribution sensors and real-time transit-ready staging, SmartXpress eliminates delays at the dock, guaranteeing your goods move from warehouse to wing in record time.</p>
             <ul style="list-style:none; padding:0; margin:0 0 30px 0;">
-                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;">
-                    <span style="color:#00a859; margin-right:10px;">✔</span> Zero-G Damage Prevention Loading
-                </li>
-                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;">
-                    <span style="color:#00a859; margin-right:10px;">✔</span> Rapid-Scan Digital Manifest Sync
-                </li>
-                <li style="display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;">
-                    <span style="color:#00a859; margin-right:10px;">✔</span> Optimized Weight-Balance Distribution
-                </li>
+                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Zero-G Damage Prevention Loading</li>
+                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Rapid-Scan Digital Manifest Sync</li>
+                <li style="display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Optimized Weight-Balance Distribution</li>
             </ul>
-
-            <a href="#" style="text-decoration:none; display:inline-block; background:#002d5b; color:#fff; padding:15px 35px; border-radius:4px; font-weight:800; font-size:13px; text-transform:uppercase; transition:0.3s; letter-spacing:1px;">
-                View Loading Specs
-            </a>
+            <a href="#" style="text-decoration:none; display:inline-block; background:#002d5b; color:#fff; padding:15px 35px; border-radius:4px; font-weight:800; font-size:13px; text-transform:uppercase; transition:0.3s; letter-spacing:1px;">View Loading Specs</a>
         </div>
-
     </div>
 </div>
+
 <br>
 
-
-
-<!-- SMARTXPRESS FLEET SECTION -->
 <div style="width:100%; padding:100px 0; background:#002d5b; color:#ffffff; overflow:hidden; position:relative;">
-    <!-- Subtle Background Pattern -->
     <div style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.05; background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
-
     <div style="max-width:1200px; margin:auto; padding:0 20px; display:flex; align-items:center; gap:60px; flex-wrap:wrap; position:relative; z-index:2;">
-        
-        <!-- TEXT CONTENT -->
         <div style="flex:1; min-width:320px;">
             <h4 style="color:#00d4ff; text-transform:uppercase; letter-spacing:4px; font-size:12px; margin-bottom:10px; font-weight:900;">Mobile Command Unit</h4>
             <h2 style="font-size:42px; font-weight:900; margin:0 0 25px 0; line-height:1; text-transform:uppercase;">Last-Mile <br><span style="color:#00d4ff;">Fleet Velocity</span></h2>
-            
             <div style="background:rgba(255,255,255,0.1); border-left:4px solid #00d4ff; padding:20px; margin-bottom:30px;">
-                <p style="margin:0; font-size:15px; line-height:1.6; color:#cbd5e1;">
-                    Our specialized cargo vans are equipped with <strong>Real-Time GPS Telemetry</strong> and climate-controlled interiors. Every SmartXpress vehicle acts as a localized data hub, ensuring your delivery is never "off the grid."
-                </p>
+                <p style="margin:0; font-size:15px; line-height:1.6; color:#cbd5e1;">Our specialized cargo vans are equipped with <strong>Real-Time GPS Telemetry</strong> and climate-controlled interiors. Every SmartXpress vehicle acts as a localized data hub, ensuring your delivery is never "off the grid."</p>
             </div>
-
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-                <div>
-                    <span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">99.8%</span>
-                    <span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">On-Time Reliability</span>
-                </div>
-                <div>
-                    <span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">EV-READY</span>
-                    <span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">Zero Emission Option</span>
-                </div>
+                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">99.8%</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">On-Time Reliability</span></div>
+                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">EV-READY</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">Zero Emission Option</span></div>
             </div>
         </div>
-
-        <!-- IMAGE CONTENT -->
         <div style="flex:1.2; min-width:320px;">
             <div style="position:relative;">
-                <!-- Tech Overlay Frame -->
                 <div style="position:absolute; inset: -15px; border: 1px solid rgba(0,212,255,0.3); border-radius: 8px;"></div>
-                
-                <img src="pic2.jpg" 
-                     alt="SmartXpress Delivery Van" 
-                     style="width:100%; border-radius:4px; display:block; filter: contrast(1.1) brightness(0.9);">
-              
+                <img src="pic2.jpg" alt="SmartXpress Delivery Van" style="width:100%; border-radius:4px; display:block; filter: contrast(1.1) brightness(0.9);">
             </div>
         </div>
-
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- SMARTXPRESS CLIENT SHOWCASE (EDITORIAL DESIGN) -->
 <section style="padding: 100px 5%; background: #001a35; color: #ffffff; overflow: hidden;">
     <div style="max-width: 1200px; margin: auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
-        
-        <!-- LEFT SIDE: DYNAMIC IMAGE STACK -->
         <div style="flex: 1; min-width: 320px; position: relative; height: 500px;">
-            <!-- Background Decorative Square -->
             <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; border: 2px solid rgba(0, 212, 255, 0.2); border-radius: 20px; z-index: 1;"></div>
-            
-            <!-- Photo 1: Air Logistics Partner -->
-            <img src="c1.jpg" 
-                 style="position: absolute; top: 0; left: 0; width: 220px; height: 300px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 4; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" 
-                 alt="Client 1">
-            
-            <!-- Photo 2: Global Supply Manager -->
-            <img src="c2.jpg" 
-                 style="position: absolute; top: 150px; left: 180px; width: 260px; height: 320px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 3; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" 
-                 alt="Client 2">
-
-            <!-- Photo 3: Operations Specialist -->
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" 
-                 style="position: absolute; top: 40px; right: 0; width: 180px; height: 220px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 2; opacity: 0.7;" 
-                 alt="Client 3">
+            <img src="c1.jpg" style="position: absolute; top: 0; left: 0; width: 220px; height: 300px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 4; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" alt="Client 1">
+            <img src="c2.jpg" style="position: absolute; top: 150px; left: 180px; width: 260px; height: 320px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 3; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" alt="Client 2">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" style="position: absolute; top: 40px; right: 0; width: 180px; height: 220px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 2; opacity: 0.7;" alt="Client 3">
         </div>
-
-        <!-- RIGHT SIDE: MESSAGES -->
         <div style="flex: 1.2; min-width: 320px;">
             <h4 style="color: #00d4ff; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 10px; font-weight: 800;">Success Intelligence</h4>
             <h2 style="font-size: 42px; font-weight: 900; margin: 0 0 40px 0; line-height: 1; text-transform: uppercase;">Voices of <br><span style="color: #00d4ff;">Global Efficiency</span></h2>
-            
-            <!-- Message 1 -->
             <div style="margin-bottom: 30px; border-left: 3px solid #00d4ff; padding-left: 25px;">
-                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">
-                    "SmartXpress isn't just a carrier; they are a data partner. Our shipping costs dropped 14% after integrating their tracking API."
-                </p>
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"SmartXpress isn't just a carrier; they are a data partner. Our shipping costs dropped 14% after integrating their tracking API."</p>
                 <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Alessandro G. <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Ferrari Logistics Group</span></h5>
             </div>
-
-            <!-- Message 2 -->
             <div style="margin-bottom: 30px; border-left: 3px solid #00a859; padding-left: 25px;">
-                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">
-                    "The fastest customs clearance in the industry. We moved 40 tons of medical supplies through Dubai in record time."
-                </p>
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"The fastest customs clearance in the industry. We moved 40 tons of medical supplies through Dubai in record time."</p>
                 <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Sarah Jenkins <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Global Health Initiative</span></h5>
             </div>
-            </div>
         </div>
-
     </div>
 </section>
 
-
-
-
-<!-- SMARTXPRESS CONSOLIDATED HORIZONTAL GRID FOOTER -->
 <footer style="background:#001a35; color:#ffffff; padding:70px 5% 80px 5%; font-family:'Segoe UI', Roboto, sans-serif; border-top: 4px solid #00d4ff;">
-    
-    <!-- MAIN HORIZONTAL GRID -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
-        
-        <!-- COLUMN 1: BRAND IDENTITY -->
-        <div style="padding-right: 20px;">
-            <h2 style="margin:0 0 20px 0; font-weight:900; letter-spacing:2px; font-size: 22px;">
-                SMART<span style="color:#00d4ff;">XPRESS</span>
-            </h2>
-            <p style="font-size:13px; line-height:1.8; color:#94a3b8; margin:0;">
-                Deploying next-generation logistics through real-time telemetry and global grid optimization.
-            </p>
-            <div style="margin-top: 20px; display: flex; gap: 10px;">
-                <span style="width: 8px; height: 8px; background: #00a859; border-radius: 50%; display: inline-block;"></span>
-                <span style="font-size: 10px; font-weight: 800; color: #00d4ff; text-transform: uppercase;">Global Network Active</span>
-            </div>
-        </div>
-
-
-
-
-        <!-- COLUMN 2: OPERATIONS -->
         <div>
-    <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Operations</h4>
-    <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2; color:#cbd5e1;">
-        <li>Air Freight Command</li>
-        <li>Ocean Cargo Portal</li>
-        <li>Ground Distribution</li>
-        <li>Warehouse Sync</li>
-    </ul>
-</div>
-
-
-
-
-        <!-- COLUMN 3: TOOLS -->
+            <h2 style="margin:0 0 20px 0; font-weight:900; letter-spacing:2px; font-size: 22px;">SMART<span style="color:#00d4ff;">XPRESS</span></h2>
+            <p style="font-size:13px; line-height:1.8; color:#94a3b8; margin:0;">Deploying next-generation logistics through real-time telemetry and global grid optimization.</p>
+            <div style="margin-top: 20px; display: flex; gap: 10px;"><span style="width: 8px; height: 8px; background: #00a859; border-radius: 50%; display: inline-block;"></span><span style="font-size: 10px; font-weight: 800; color: #00d4ff; text-transform: uppercase;">Global Network Active</span></div>
+        </div>
+        <div>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Operations</h4>
+            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2; color:#cbd5e1;"><li>Air Freight Command</li><li>Ocean Cargo Portal</li><li>Ground Distribution</li><li>Warehouse Sync</li></ul>
+        </div>
         <div>
             <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Command Tools</h4>
-            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2;">
-                <li><a href="" style="color:#cbd5e1; text-decoration:none;">Live Global Tracking</a></li>
-                <li><a href="" style="color:#cbd5e1; text-decoration:none;">Rate Calculator</a></li>
-            </ul>
+            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2;"><li><a href="" style="color:#cbd5e1; text-decoration:none;">Live Global Tracking</a></li><li><a href="" style="color:#cbd5e1; text-decoration:none;">Rate Calculator</a></li></ul>
         </div>
-
-        <!-- COLUMN 4: SUPPORT -->
         <div>
             <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Contact Hub</h4>
             <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Global: +52 953 196 0361</p>
             <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Ops: support@smartxpress.com</p>
             <p style="margin:0; font-size:13px; color:#cbd5e1;">24/7 Priority Response</p>
         </div>
-
     </div>
-
-    <!-- BOTTOM BAR (STRICTLY ONE LINE) -->
     <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-        
-        <div style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
-            &copy; 2026 SmartXpress Infrastructure Group. All Rights Reserved.
-        </div>
-        
+        <div style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">&copy; 2026 SmartXpress Infrastructure Group. All Rights Reserved.</div>
     </div>
-
 </footer>
-
-
-</body>
-</html>
-
-
-<script>
-const translations = {
-    en: {
-        heroMsg: "GLOBAL FREIGHT COMMAND",
-        trackPlaceholder: "Enter Tracking Code", // Ensure this match
-        fleetTitle: "Last-Mile Fleet Velocity",
-        opsManifest: "ACTIVE MANIFEST STREAM",
-        systemOnline: "● SYSTEM ONLINE"
-    },
-    // ... rest of your script
-
-    it: {
-        heroMsg: "COMANDO GLOBALE MERCI",
-        trackPlaceholder: "Inserisci Lettera di Vettura o ID",
-        fleetTitle: "Velocità della Flotta Ultimo Miglio",
-        opsManifest: "FLUSSO MANIFESTO ATTIVO",
-        systemOnline: "● SISTEMA ONLINE"
-    },
-    fr: {
-        heroMsg: "COMMANDE DE FRET MONDIALE",
-        trackPlaceholder: "Entrez le bordereau d'expédition",
-        fleetTitle: "Vitesse de la Flotte du Dernier Kilomètre",
-        opsManifest: "FLUX DE MANIFESTE ACTIF",
-        systemOnline: "● SYSTÈME EN LIGNE"
-    }
-};
-
-function changeLanguage(lang) {
-    // 1. Update all static elements with data-key
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translations[lang][key]) {
-            element.innerHTML = translations[lang][key];
-        }
-    });
-
-    // 2. Update Input Placeholders
-    const trackInput = document.getElementById('trackInput');
-    if(trackInput) trackInput.placeholder = translations[lang].trackPlaceholder;
-
-    // 3. Update the Rotating Hero Messages (Optional)
-    if(lang === 'it') {
-        messages = ["COMANDO GLOBALE MERCI", "CARICO AEREO E MARITTIMO SICURO", "TRACCIAMENTO SATELLITARE"];
-    } else if (lang === 'en') {
-        messages = ["GLOBAL FREIGHT COMMAND", "SECURE AIR & SEA CARGO", "REAL-TIME SATELLITE TRACKING"];
-    }
-    
-    // Save preference to browser so it stays if they refresh
-    localStorage.setItem('preferredLang', lang);
-}
-
-// Auto-load saved language on page start
-window.onload = () => {
-    const savedLang = localStorage.getItem('preferredLang') || 'en';
-    document.getElementById('langSelect').value = savedLang;
-    changeLanguage(savedLang);
-};
-</script>
-</footer>
-
-
-
-
-
-
-
-
 
 <div class="chat-hub-wrapper" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: 'Inter', sans-serif;">
     <style>
-        /* Main Trigger Button */
-        .main-trigger-btn {
-            width: 60px; height: 60px; background: #002d5b; border: none; border-radius: 50%;
-            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex;
-            align-items: center; justify-content: center; transition: 0.4s;
-        }
+        .main-trigger-btn { width: 60px; height: 60px; background: #002d5b; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; transition: 0.4s; }
         .main-trigger-btn svg { width: 28px; fill: white; transition: 0.3s; }
         .active-btn { transform: rotate(90deg); background: #64748b; }
-
-        /* The Stack for Official Buttons */
-        #hubStack {
-            position: absolute; bottom: 80px; right: 5px; 
-            display: none; flex-direction: column; gap: 15px; 
-            align-items: center;
-        }
-
-        /* Official WhatsApp Design */
-        .wa-official {
-            width: 50px; height: 50px; background: #25D366; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; border: none; cursor: pointer;
-        }
+        #hubStack { position: absolute; bottom: 80px; right: 5px; display: none; flex-direction: column; gap: 15px; align-items: center; }
+        .wa-official { width: 50px; height: 50px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; border: none; cursor: pointer; }
         .wa-official img { width: 30px; }
-
-        /* Official Tawk.to Design */
-        .tawk-official {
-            width: 50px; height: 50px; background: #00b44a; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; border: none; cursor: pointer;
-        }
+        .tawk-official { width: 50px; height: 50px; background: #00b44a; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; border: none; cursor: pointer; }
         .tawk-official img { width: 30px; }
-
-        .chat-label {
-            position: absolute; right: 65px; background: #0f172a; color: white;
-            padding: 5px 12px; border-radius: 5px; font-size: 10px; font-weight: 800;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); white-space: nowrap; pointer-events: none;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-
+        .chat-label { position: absolute; right: 65px; background: #0f172a; color: white; padding: 5px 12px; border-radius: 5px; font-size: 10px; font-weight: 800; box-shadow: 0 2px 5px rgba(0,0,0,0.1); white-space: nowrap; pointer-events: none; text-transform: uppercase; letter-spacing: 1px; }
         .chat-item { position: relative; display: flex; align-items: center; transition: 0.3s; }
         .chat-item:hover { transform: scale(1.1); }
-
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.5) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
+        @keyframes popIn { from { opacity: 0; transform: scale(0.5) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
         .pop { animation: popIn 0.3s ease-out forwards; }
     </style>
-
     <div id="hubStack">
-        <div class="chat-item pop">
-            <span class="chat-label">WhatsApp Support</span>
-            <a href="https://wa.me/529531960361" target="_blank" class="wa-official">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            </a>
-        </div>
-
-        <div class="chat-item pop" style="animation-delay: 0.1s;">
-            <span class="chat-label">Live Agent (Sarah)</span>
-            <button onclick="openLiveChat()" class="tawk-official">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="filter: brightness(0) invert(1);" alt="Live">
-            </button>
-        </div>
+        <div class="chat-item pop"><span class="chat-label">WhatsApp Support</span><a href="https://wa.me/529531960361" target="_blank" class="wa-official"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></div>
+        <div class="chat-item pop" style="animation-delay: 0.1s;"><span class="chat-label">Live Agent (Sarah)</span><button onclick="openLiveChat()" class="tawk-official"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="filter: brightness(0) invert(1);" alt="Live"></button></div>
     </div>
-
-    <button class="main-trigger-btn" id="hubBtn" onclick="toggleHub()">
-        <svg id="msgIcon" viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-        </svg>
-    </button>
+    <button class="main-trigger-btn" id="hubBtn" onclick="toggleHub()"><svg id="msgIcon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></button>
 </div>
 
 <script type="text/javascript">
@@ -1233,37 +577,23 @@ window.onload = () => {
             btn.classList.add('active-btn');
         }
     }
-
     function openLiveChat() {
         if (window.Tawk_API && Tawk_API.maximize) {
             Tawk_API.maximize();
-            toggleHub(); // Hide buttons after opening chat
+            toggleHub();
         }
     }
-
-    // Your Tawk.to Script Integration
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    
-    // Auto-hide the default bubble so only our Hub button shows
-    Tawk_API.onLoad = function(){
-        Tawk_API.hideWidget();
-    };
-
+    Tawk_API.onLoad = function(){ Tawk_API.hideWidget(); };
     (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
         s1.async=true;
-        // Using your new updated ID
         s1.src='https://embed.tawk.to/69ccff9fd746a31c382e1a2c/default';
         s1.charset='UTF-8';
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
-
-
-
-
-
 
 </body>
 </html>
