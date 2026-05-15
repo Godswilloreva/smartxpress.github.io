@@ -138,6 +138,40 @@
             .track-container input { border-radius: 8px; margin-bottom: 10px; }
             .track-container button { border-radius: 8px; padding: 20px; }
         }
+
+
+/* CUSTOM TRANSLATOR STYLING */
+#google_translate_element {
+    display: inline-block;
+    vertical-align: middle;
+}
+.goog-te-gadget-simple {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid #00d4ff !important; /* Electric Blue Border */
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+}
+.goog-te-gadget-simple a.goog-te-menu-value span {
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.goog-te-gadget-icon, .goog-te-menu-value span:nth-child(3), .goog-te-menu-value span:nth-child(5) {
+    display: none !important; /* Hides default Google branding accents */
+}
+.goog-te-banner-frame.skiptranslate, .goog-te-banner-frame {
+    display: none !important; /* Prevents layout shifting from the native top bar */
+}
+body {
+    top: 0px !important;
+}
+
+
+
+
     </style>
 </head>
 
@@ -151,6 +185,14 @@
         <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Our Services</a>
         <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Contact Us</a>
     </div>
+
+
+
+    <!-- RIGHT SIDE TRANSLATOR ACCENT -->
+    <div style="width: 150px; text-align: right;">
+        <div id="google_translate_element"></div>
+    </div>
+
 </div><br><br>
 
     <!-- VIDEO HEADER -->
@@ -594,6 +636,29 @@ setInterval(generateLog2, 5000);
         s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
+
+
+
+
+
+
+
+
+
+<!-- GOOGLE TRANSLATION CORE SCRIPTS -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
 
 </body>
 </html>
