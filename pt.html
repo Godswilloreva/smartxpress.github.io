@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartXpress | Global Logistics Command</title>
+    <title>SmartXpress | Comando Logístico Global</title>
     <style>
         /* 1. GLOBAL SETTINGS - BRIGHT & SOLID */
         :root {
@@ -101,8 +101,7 @@
         .track-container {
             width: 100%;
             max-width: 700px;
-            display: flex;
-            gap: 0;
+            display: flex; gap: 0;
         }
         .track-container input {
             flex: 2; padding: 20px; background: #fff; border: none;
@@ -147,24 +146,19 @@
 <div style="width:100%; background:#002d5b; padding:12px 5%; display:flex; justify-content:center; align-items:center; position:fixed; top:0; left:0; z-index:9999;">
     <!-- CENTER NAV LINKS -->
     <div style="display:flex; gap:50px; align-items:center;">
-        <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">About Us</a>
-        <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Our Services</a>
-        <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Contact Us</a>
-
-
+        <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Sobre Nós</a>
+        <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Nossos Serviços</a>
+        <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Contato</a>
 
 <!-- GLOBAL LANGUAGE SELECTOR -->
 <select onchange="window.location.href=this.value;" style="background:#002d5b; color:#fff; border:1px solid #00d4ff; padding:2px; border-radius:4px; font-size:12px; font-weight:bold; cursor:pointer;">
     <option value="index.html">English</option>
     <option value="es.html">Español</option>
-    <option value="pt.html">Português (PT)</option>
+    <option value="pt.html" selected>Português (PT)</option>
     <option value="br.html">Português (BR)</option>
     <option value="tl.html">Filipino</option>
     <option value="fr.html">Français</option>
 </select>
-
-
-
 
     </div>
 </div><br><br>
@@ -175,7 +169,7 @@
             <div style="display:flex; align-items:center; gap:10px;"><br><br>
                 <div style="font-weight:900; color:#fff; letter-spacing:5px; font-size: 10px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
                 <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:2px 12px; border-radius:1px; font-weight: bold;">
-                    <span class="status-dot"></span> SYSTEM LIVE
+                    <span class="status-dot"></span> SISTEMA ONLINE
                 </div>
             </div>
         </div>
@@ -183,7 +177,7 @@
             <source src="v.mp4" type="video/mp4">
         </video>
         <div class="header-overlay">
-            <div class="fade-text" id="rotateMsg">GLOBAL FREIGHT COMMAND</div>
+            <div class="fade-text" id="rotateMsg">COMANDO DE CARGA GLOBAL</div>
         </div>
     </header>
 
@@ -193,17 +187,17 @@
         <div style="display: flex; width: 100%; max-width: 700px; gap: 15px; flex-wrap: wrap; justify-content: center;"> 
             <input type="text" 
                    id="trackInput" 
-                   placeholder="Enter Tracking Code" 
+                   placeholder="Insira o Código de Rastreamento" 
                    style="flex: 2; min-width: 280px; padding: 20px; background: #fff; border: none; color: #000; border-radius: 8px; font-weight: bold; font-size: 16px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             
             <button id="trackBtn" 
                     onclick="handleTrack()" 
                     style="flex: 1; min-width: 200px; background: var(--accent); color: #000; border: none; font-weight: 900; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                Track Shipment
+                Rastrear Encomenda
             </button>
         </div>
         <div id="trackError" style="color: #ff4d4d; font-size: 12px; font-weight: bold; margin-top: 15px; display: none; text-transform: uppercase; letter-spacing: 1px; text-align: center;">
-            ⚠️ INVALID TRACKING ID: ACCESS DENIED
+            ⚠️ ID DE RASTREAMENTO INVÁLIDO: ACESSO NEGADO
         </div>
     </div>
 </section>
@@ -218,9 +212,9 @@
                 SMART<span style="color:#ffffff;">XPRESS</span> // MONITOR.V3
             </h2>
             <div style="display:flex; gap:15px; margin-top:5px;">
-                <span style="font-size:10px; color:#22c55e; font-weight:bold;">● SYSTEM ONLINE</span>
-                <span style="font-size:10px; color:#94a3b8;">ENC-PROTOCOL: AES-256</span>
-                <span style="font-size:10px; color:#38bdf8;">LATENCY: 24ms</span>
+                <span style="font-size:10px; color:#22c55e; font-weight:bold;">● SISTEMA ONLINE</span>
+                <span style="font-size:10px; color:#94a3b8;">PROTOCOLO-ENC: AES-256</span>
+                <span style="font-size:10px; color:#38bdf8;">LATÊNCIA: 24ms</span>
             </div>
         </div>
         <div style="text-align:right;">
@@ -232,16 +226,16 @@
         <div style="flex:1.5; display:flex; flex-direction:column;">
             <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; flex:1; display:flex; flex-direction:column; overflow:hidden;">
                 <div style="background:#1e293b; padding:10px 15px; font-size:11px; font-weight:900; letter-spacing:1px; color:#38bdf8;">
-                    ACTIVE MANIFEST STREAM
+                    FLUXO DE MANIFESTO ATIVO
                 </div>
                 <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
                     <thead style="background:rgba(56, 189, 248, 0.05); color:#94a3b8; font-size:10px;">
                         <tr>
-                            <th style="padding:12px;">TRACKING ID</th>
-                            <th style="padding:12px;">CLIENT ENTITY</th>
-                            <th style="padding:12px;">ROUTE NODE</th>
-                            <th style="padding:12px;">LOGISTIC STATUS</th>
-                            <th style="padding:12px; text-align:right;">TIMESTAMP</th>
+                            <th style="padding:12px;">ID DE RASTREAMENTO</th>
+                            <th style="padding:12px;">CLIENTE</th>
+                            <th style="padding:12px;">NÓ DA ROTA</th>
+                            <th style="padding:12px;">STATUS LOGÍSTICO</th>
+                            <th style="padding:12px; text-align:right;">HORA</th>
                         </tr>
                     </thead>
                     <tbody id="liveLogBody2"></tbody>
@@ -250,35 +244,35 @@
         </div>
         <div style="flex:1; display:flex; flex-direction:column; gap:20px;">
             <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:15px;">
-                <div style="font-size:10px; color:#94a3b8; margin-bottom:10px; font-weight:bold;">GLOBAL NETWORK CAPACITY</div>
+                <div style="font-size:10px; color:#94a3b8; margin-bottom:10px; font-weight:bold;">CAPACIDADE DA REDE GLOBAL</div>
                 <div style="height:8px; background:#1e293b; border-radius:10px; overflow:hidden;">
                     <div style="width:84%; height:100%; background:linear-gradient(90deg, #38bdf8, #22c55e);"></div>
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:14px; font-weight:900;">
                     <span>95.2%</span>
-                    <span style="color:#22c55e;">OPTIMAL</span>
+                    <span style="color:#22c55e;">OTIMIZADO</span>
                 </div>
             </div>
             <div style="flex:1; background:#0f172a; border:1px solid #1e293b; border-radius:8px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                 <div style="position:absolute; inset:0; opacity:0.1; background: repeating-linear-gradient(0deg, #38bdf8, #38bdf8 1px, transparent 1px, transparent 20px);"></div>
                 <div style="text-align:center; z-index:1;">
-                    <div style="font-size:10px; color:#38bdf8; letter-spacing:2px; margin-bottom:5px;">SATELLITE LINK</div>
+                    <div style="font-size:10px; color:#38bdf8; letter-spacing:2px; margin-bottom:5px;">LINK DE SATÉLITE</div>
                     <div style="font-size:30px; opacity:0.5;">🛰️</div>
-                    <div style="font-size:10px; color:#94a3b8;">ACTIVE TRACKING IN 142 COUNTRIES</div>
+                    <div style="font-size:10px; color:#94a3b8;">RASTREAMENTO ATIVO EM 142 PAÍSES</div>
                 </div>
             </div>
         </div>
     </div>
     <div style="margin-top:15px; border-top:1px solid #1e293b; padding-top:10px; display:flex; justify-content:space-between; font-size:10px; color:#64748b; font-weight:bold;">
-        <span>SECURE SMARTXPRESS TERMINAL: SMX-A09</span>
-        <span style="color:#38bdf8;">SYNCING DATA...</span>
+        <span>TERMINAL SEGURO SMARTXPRESS: SMX-A09</span>
+        <span style="color:#38bdf8;">SINCRONIZANDO DADOS...</span>
     </div>
 </div>
 
 <script>
 const clients2 = ["Apex Global", "Nexus Ltd", "Prime Freight", "Transit King", "Oceanic Co", "SkyLink Hub"];
-const locations2 = ["London → DXB", "NYC → Tokyo", "Paris → Lagos", "Berlin → SIN", "Sydney → LAX"];
-const statusFlow2 = ["PROCESSING", "IN TRANSIT", "ARRIVED", "DELIVERED"];
+const locations2 = ["Londres → DXB", "NYC → Tóquio", "Paris → Lagos", "Berlim → SIN", "Sydney → LAX"];
+const statusFlow2 = ["PROCESSANDO", "EM TRÂNSITO", "CHEGOU", "ENTREGUE"];
 
 const logBody2 = document.getElementById("liveLogBody2");
 const sysTime2 = document.getElementById("sysTime2");
@@ -286,8 +280,8 @@ const sysDate = document.getElementById("sysDate");
 
 function updateClock() {
     const now = new Date();
-    sysTime2.textContent = now.toLocaleTimeString();
-    sysDate.textContent = now.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    sysTime2.textContent = now.toLocaleTimeString('pt-PT');
+    sysDate.textContent = now.toLocaleDateString('pt-PT', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 setInterval(updateClock, 1000);
 updateClock();
@@ -297,9 +291,9 @@ function generateLog2() {
     for (let i = 0; i < 6; i++) {
         let status = statusFlow2[Math.floor(Math.random() * statusFlow2.length)];
         let color = "#38bdf8"; 
-        if (status === "DELIVERED") color = "#22c55e";
-        if (status === "PROCESSING") color = "#f97316";
-        if (status === "ARRIVED") color = "#a855f7";
+        if (status === "ENTREGUE") color = "#22c55e";
+        if (status === "PROCESSANDO") color = "#f97316";
+        if (status === "CHEGOU") color = "#a855f7";
 
         logBody2.innerHTML += `
             <tr style="border-top:1px solid #1e293b;">
@@ -311,7 +305,7 @@ function generateLog2() {
                         ● ${status}
                     </span>
                 </td>
-                <td style="padding:12px; color:#64748b; text-align:right; font-family:monospace;">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'})}</td>
+                <td style="padding:12px; color:#64748b; text-align:right; font-family:monospace;">${new Date().toLocaleTimeString('pt-PT', {hour: '2-digit', minute:'2-digit', second:'2-digit'})}</td>
             </tr>
         `;
     }
@@ -338,7 +332,7 @@ setInterval(generateLog2, 5000);
         .stat-box { font-size: 12px; color: #475569; font-weight: 600; }
         .stat-box i { color: #22c55e; margin-right: 5px; }
     </style>
-    <div class="trust-label">System Integrity Check</div>
+    <div class="trust-label">Verificação de Integridade do Sistema</div>
     <div class="gauge-wrapper">
         <div class="gauge-track"></div>
         <div class="gauge-fill"></div>
@@ -347,9 +341,9 @@ setInterval(generateLog2, 5000);
     </div>
     <div class="trust-score">89<span style="font-size: 20px; vertical-align: top;">%</span></div>
     <div class="gauge-footer">
-        <div class="stat-box"> Operational</div>
-        <div class="stat-box"> Encrypted</div>
-        <div class="stat-box"> Verified</div>
+        <div class="stat-box"> Operacional</div>
+        <div class="stat-box"> Criptografado</div>
+        <div class="stat-box"> Verificado</div>
     </div>
 </div>
 
@@ -380,11 +374,11 @@ setInterval(generateLog2, 5000);
     inputField.style.border = "none";
 
     if (!idPattern.test(val)) {
-        showTrackError("SECURITY ALERT: INVALID FORMAT");
+        showTrackError("ALERTA DE SEGURANÇA: FORMATO INVÁLIDO");
         return;
     }
 
-    btn.innerText = "VERIFYING SATELLITE LINK...";
+    btn.innerText = "VERIFICANDO LINK DE SATÉLITE...";
     btn.disabled = true;
 
     try {
@@ -394,13 +388,13 @@ setInterval(generateLog2, 5000);
             const authKey = Math.random().toString(36).substr(2, 9);
             window.location.href = `track.html?id=${val}&auth=${authKey}`;
         } else {
-            showTrackError("ACCESS DENIED: ID NOT FOUND IN GLOBAL MANIFEST");
-            btn.innerText = "TRACK SHIPMENT";
+            showTrackError("ACESSO NEGADO: ID NÃO ENCONTRADO NO MANIFESTO GLOBAL");
+            btn.innerText = "RASTREAR ENCOMENDA";
             btn.disabled = false;
         }
     } catch (error) {
-        showTrackError("SYSTEM ERROR: CONNECTION TIMEOUT");
-        btn.innerText = "TRACK SHIPMENT";
+        showTrackError("ERRO DE SISTEMA: TIMEOUT DE CONEXÃO");
+        btn.innerText = "RASTREAR ENCOMENDA";
         btn.disabled = false;
     }
   }
@@ -422,28 +416,28 @@ setInterval(generateLog2, 5000);
 <div style="width:100%; overflow:hidden; padding:60px 0; background:#f4f7f9; border-top: 1px solid #ddd;">
     <div style="text-align:center; margin-bottom:40px;">
         <h3 style="color:#002d5b; font-weight:900; text-transform:uppercase; letter-spacing:2px; margin:0;">
-            Smart<span style="color:#00d4ff;">Xpress</span> Global Solutions
+            Soluções Globais Smart<span style="color:#00d4ff;">Xpress</span>
         </h3>
         <div style="width:50px; height:4px; background:#00d4ff; margin:10px auto;"></div>
     </div>
     <div style="width:100%; overflow:hidden; position:relative;">
         <div class="smart-xpress-track">
             <!-- Service Cards -->
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Ar"><div class="card-content"><h4>Comando Aéreo</h4><p>Entrega prioritária em voos globais.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Mar"><div class="card-content"><h4>Carga Oceânica</h4><p>Frete marítimo total e parcial (LCL).</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Armazém"><div class="card-content"><h4>Armazenamento Seguro</h4><p>Sistemas inteligentes de gestão de estoque.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Alfândega"><div class="card-content"><h4>Portal Aduaneiro</h4><p>Conformidade e desembaraço digital.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Estrada"><div class="card-content"><h4>Frota Terrestre</h4><p>Transporte rodoviário e distribuição nacional.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Ligação Ferroviária</h4><p>Transporte ferroviário transcontinental ecológico.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>Serviço Premium</h4><p>Entrega e montagem especializada de última milha.</p></div></div>
             <!-- Duplicate for Loop -->
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Ar"><div class="card-content"><h4>Comando Aéreo</h4><p>Entrega prioritária em voos globais.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Mar"><div class="card-content"><h4>Carga Oceânica</h4><p>Frete marítimo total e parcial (LCL).</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Armazém"><div class="card-content"><h4>Armazenamento Seguro</h4><p>Sistemas inteligentes de gestão de estoque.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Alfândega"><div class="card-content"><h4>Portal Aduaneiro</h4><p>Conformidade e desembaraço digital.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Estrada"><div class="card-content"><h4>Frota Terrestre</h4><p>Transporte rodoviário e distribuição nacional.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Ligação Ferroviária</h4><p>Transporte ferroviário transcontinental ecológico.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>Serviço Premium</h4><p>Entrega e montagem especializada de última milha.</p></div></div>
         </div>
     </div>
 </div>
@@ -466,19 +460,19 @@ setInterval(generateLog2, 5000);
     <div style="max-width:1100px; margin:auto; padding:0 20px; display:flex; align-items:center; gap:50px; flex-wrap:wrap;">
         <div style="flex:1; min-width:320px; position:relative;">
             <div style="position:absolute; top:-20px; left:-20px; width:100px; height:100px; border-top:5px solid #00d4ff; border-left:5px solid #00d4ff; z-index:1;"></div>
-            <img src="pic1.jpg" alt="Logistics Loading" style="width:100%; border-radius:4px; box-shadow: 20px 20px 0px #002d5b; position:relative; z-index:2; display:block;">
-            <div style="position:absolute; bottom:20px; right:-10px; background:#00a859; color:#fff; padding:10px 20px; border-radius:4px; font-weight:900; font-size:12px; z-index:3; box-shadow:0 10px 20px rgba(0,0,0,0.2);">SECURE LOAD VERIFIED</div>
+            <img src="pic1.jpg" alt="Carregamento Logístico" style="width:100%; border-radius:4px; box-shadow: 20px 20px 0px #002d5b; position:relative; z-index:2; display:block;">
+            <div style="position:absolute; bottom:20px; right:-10px; background:#00a859; color:#fff; padding:10px 20px; border-radius:4px; font-weight:900; font-size:12px; z-index:3; box-shadow:0 10px 20px rgba(0,0,0,0.2);">CARGA SEGURA VERIFICADA</div>
         </div>
         <div style="flex:1; min-width:320px;">
-            <div style="display:inline-block; background:rgba(0,45,91,0.05); color:#002d5b; padding:5px 15px; border-radius:20px; font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:15px; border:1px solid #002d5b;">Precision Operations</div>
-            <h2 style="color:#002d5b; font-size:36px; font-weight:900; margin:0 0 20px 0; line-height:1.1; text-transform:uppercase;">Seamless Cargo <span style="color:#00d4ff;">Integration</span></h2>
-            <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:25px;">Our synchronized loading protocols ensure that every piece of freight is handled with surgical precision. By utilizing automated weight distribution sensors and real-time transit-ready staging, SmartXpress eliminates delays at the dock, guaranteeing your goods move from warehouse to wing in record time.</p>
+            <div style="display:inline-block; background:rgba(0,45,91,0.05); color:#002d5b; padding:5px 15px; border-radius:20px; font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:15px; border:1px solid #002d5b;">Operações de Precisão</div>
+            <h2 style="color:#002d5b; font-size:36px; font-weight:900; margin:0 0 20px 0; line-height:1.1; text-transform:uppercase;">Integração Sem Costuras <span style="color:#00d4ff;">de Carga</span></h2>
+            <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:25px;">Nossos protocolos de carregamento sincronizados garantem que cada frete seja manuseado com precisão cirúrgica. Ao utilizar sensores automáticos de distribuição de peso, a SmartXpress elimina atrasos no cais, garantindo que as suas mercadorias movam-se do armazém para o destino em tempo recorde.</p>
             <ul style="list-style:none; padding:0; margin:0 0 30px 0;">
-                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Zero-G Damage Prevention Loading</li>
-                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Rapid-Scan Digital Manifest Sync</li>
-                <li style="display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Optimized Weight-Balance Distribution</li>
+                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Carregamento de Prevenção contra Danos Zero-G</li>
+                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Sincronização Digital de Manifesto via Scan Rápido</li>
+                <li style="display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Distribuição Otimizada de Peso e Equilíbrio</li>
             </ul>
-            <a href="#" style="text-decoration:none; display:inline-block; background:#002d5b; color:#fff; padding:15px 35px; border-radius:4px; font-weight:800; font-size:13px; text-transform:uppercase; transition:0.3s; letter-spacing:1px;">View Loading Specs</a>
+            <a href="#" style="text-decoration:none; display:inline-block; background:#002d5b; color:#fff; padding:15px 35px; border-radius:4px; font-weight:800; font-size:13px; text-transform:uppercase; transition:0.3s; letter-spacing:1px;">Ver Especificações de Carga</a>
         </div>
     </div>
 </div>
@@ -489,20 +483,20 @@ setInterval(generateLog2, 5000);
     <div style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.05; background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
     <div style="max-width:1200px; margin:auto; padding:0 20px; display:flex; align-items:center; gap:60px; flex-wrap:wrap; position:relative; z-index:2;">
         <div style="flex:1; min-width:320px;">
-            <h4 style="color:#00d4ff; text-transform:uppercase; letter-spacing:4px; font-size:12px; margin-bottom:10px; font-weight:900;">Mobile Command Unit</h4>
-            <h2 style="font-size:42px; font-weight:900; margin:0 0 25px 0; line-height:1; text-transform:uppercase;">Last-Mile <br><span style="color:#00d4ff;">Fleet Velocity</span></h2>
+            <h4 style="color:#00d4ff; text-transform:uppercase; letter-spacing:4px; font-size:12px; margin-bottom:10px; font-weight:900;">Unidade de Comando Móvel</h4>
+            <h2 style="font-size:42px; font-weight:900; margin:0 0 25px 0; line-height:1; text-transform:uppercase;">Velocidade de <br><span style="color:#00d4ff;">Frota de Última Milha</span></h2>
             <div style="background:rgba(255,255,255,0.1); border-left:4px solid #00d4ff; padding:20px; margin-bottom:30px;">
-                <p style="margin:0; font-size:15px; line-height:1.6; color:#cbd5e1;">Our specialized cargo vans are equipped with <strong>Real-Time GPS Telemetry</strong> and climate-controlled interiors. Every SmartXpress vehicle acts as a localized data hub, ensuring your delivery is never "off the grid."</p>
+                <p style="margin:0; font-size:15px; line-height:1.6; color:#cbd5e1;">Nossas vans de carga especializadas são equipadas com <strong>Telemetria GPS em Tempo Real</strong> e interiores com controle climático. Cada veículo SmartXpress atua como um hub de dados localizado.</p>
             </div>
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">99.8%</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">On-Time Reliability</span></div>
-                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">EV-READY</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">Zero Emission Option</span></div>
+                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">99.8%</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">Confiabilidade de Prazo</span></div>
+                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">EV-READY</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">Opção de Emissão Zero</span></div>
             </div>
         </div>
         <div style="flex:1.2; min-width:320px;">
             <div style="position:relative;">
                 <div style="position:absolute; inset: -15px; border: 1px solid rgba(0,212,255,0.3); border-radius: 8px;"></div>
-                <img src="pic2.jpg" alt="SmartXpress Delivery Van" style="width:100%; border-radius:4px; display:block; filter: contrast(1.1) brightness(0.9);">
+                <img src="pic2.jpg" alt="Van de Entrega SmartXpress" style="width:100%; border-radius:4px; display:block; filter: contrast(1.1) brightness(0.9);">
             </div>
         </div>
     </div>
@@ -512,19 +506,19 @@ setInterval(generateLog2, 5000);
     <div style="max-width: 1200px; margin: auto; display: flex; align-items: center; gap: 80px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 320px; position: relative; height: 500px;">
             <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; border: 2px solid rgba(0, 212, 255, 0.2); border-radius: 20px; z-index: 1;"></div>
-            <img src="c1.jpg" style="position: absolute; top: 0; left: 0; width: 220px; height: 300px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 4; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" alt="Client 1">
-            <img src="c2.jpg" style="position: absolute; top: 150px; left: 180px; width: 260px; height: 320px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 3; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" alt="Client 2">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" style="position: absolute; top: 40px; right: 0; width: 180px; height: 220px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 2; opacity: 0.7;" alt="Client 3">
+            <img src="c1.jpg" style="position: absolute; top: 0; left: 0; width: 220px; height: 300px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 4; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" alt="Cliente 1">
+            <img src="c2.jpg" style="position: absolute; top: 150px; left: 180px; width: 260px; height: 320px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 3; box-shadow: 10px 10px 30px rgba(0,0,0,0.5);" alt="Cliente 2">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" style="position: absolute; top: 40px; right: 0; width: 180px; height: 220px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 2; opacity: 0.7;" alt="Cliente 3">
         </div>
         <div style="flex: 1.2; min-width: 320px;">
-            <h4 style="color: #00d4ff; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 10px; font-weight: 800;">Success Intelligence</h4>
-            <h2 style="font-size: 42px; font-weight: 900; margin: 0 0 40px 0; line-height: 1; text-transform: uppercase;">Voices of <br><span style="color: #00d4ff;">Global Efficiency</span></h2>
+            <h4 style="color: #00d4ff; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 10px; font-weight: 800;">Inteligência de Sucesso</h4>
+            <h2 style="font-size: 42px; font-weight: 900; margin: 0 0 40px 0; line-height: 1; text-transform: uppercase;">Vozes da <br><span style="color: #00d4ff;">Eficiência Global</span></h2>
             <div style="margin-bottom: 30px; border-left: 3px solid #00d4ff; padding-left: 25px;">
-                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"SmartXpress isn't just a carrier; they are a data partner. Our shipping costs dropped 14% after integrating their tracking API."</p>
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"A SmartXpress não é apenas uma transportadora; eles são um parceiro de dados. Nossos custos de envio caíram 14% após integrarmos a API deles."</p>
                 <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Alessandro G. <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Ferrari Logistics Group</span></h5>
             </div>
             <div style="margin-bottom: 30px; border-left: 3px solid #00a859; padding-left: 25px;">
-                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"The fastest customs clearance in the industry. We moved 40 tons of medical supplies through Dubai in record time."</p>
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"O desembaraço aduaneiro mais rápido do setor. Movemos 40 toneladas de suprimentos médicos através de Dubai em tempo recorde."</p>
                 <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Sarah Jenkins <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Global Health Initiative</span></h5>
             </div>
         </div>
@@ -535,26 +529,26 @@ setInterval(generateLog2, 5000);
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
         <div>
             <h2 style="margin:0 0 20px 0; font-weight:900; letter-spacing:2px; font-size: 22px;">SMART<span style="color:#00d4ff;">XPRESS</span></h2>
-            <p style="font-size:13px; line-height:1.8; color:#94a3b8; margin:0;">Deploying next-generation logistics through real-time telemetry and global grid optimization.</p>
-            <div style="margin-top: 20px; display: flex; gap: 10px;"><span style="width: 8px; height: 8px; background: #00a859; border-radius: 50%; display: inline-block;"></span><span style="font-size: 10px; font-weight: 800; color: #00d4ff; text-transform: uppercase;">Global Network Active</span></div>
+            <p style="font-size:13px; line-height:1.8; color:#94a3b8; margin:0;">Implementando a logística da próxima geração por meio de telemetria em tempo real e otimização de rede global.</p>
+            <div style="margin-top: 20px; display: flex; gap: 10px;"><span style="width: 8px; height: 8px; background: #00a859; border-radius: 50%; display: inline-block;"></span><span style="font-size: 10px; font-weight: 800; color: #00d4ff; text-transform: uppercase;">Rede Global Ativa</span></div>
         </div>
         <div>
-            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Operations</h4>
-            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2; color:#cbd5e1;"><li>Air Freight Command</li><li>Ocean Cargo Portal</li><li>Ground Distribution</li><li>Warehouse Sync</li></ul>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Operações</h4>
+            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2; color:#cbd5e1;"><li>Comando de Frete Aéreo</li><li>Portal de Carga Oceânica</li><li>Distribuição Terrestre</li><li>Sincronização de Armazém</li></ul>
         </div>
         <div>
-            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Command Tools</h4>
-            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2;"><li><a href="" style="color:#cbd5e1; text-decoration:none;">Live Global Tracking</a></li><li><a href="" style="color:#cbd5e1; text-decoration:none;">Rate Calculator</a></li></ul>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Ferramentas</h4>
+            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2;"><li><a href="" style="color:#cbd5e1; text-decoration:none;">Rastreamento Global em Vivo</a></li><li><a href="" style="color:#cbd5e1; text-decoration:none;">Calculadora de Taxas</a></li></ul>
         </div>
         <div>
-            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Contact Hub</h4>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Hub de Contato</h4>
             <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Global: +52 953 196 0361</p>
             <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Ops: support@smartxpress.com</p>
-            <p style="margin:0; font-size:13px; color:#cbd5e1;">24/7 Priority Response</p>
+            <p style="margin:0; font-size:13px; color:#cbd5e1;">Resposta Prioritária 24/7</p>
         </div>
     </div>
     <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-        <div style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">&copy; 2026 SmartXpress Infrastructure Group. All Rights Reserved.</div>
+        <div style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">&copy; 2026 SmartXpress Infrastructure Group. Todos os Direitos Reservados.</div>
     </div>
 </footer>
 
@@ -575,8 +569,8 @@ setInterval(generateLog2, 5000);
         .pop { animation: popIn 0.3s ease-out forwards; }
     </style>
     <div id="hubStack">
-        <div class="chat-item pop"><span class="chat-label">WhatsApp Support</span><a href="https://wa.me/529531960361" target="_blank" class="wa-official"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></div>
-        <div class="chat-item pop" style="animation-delay: 0.1s;"><span class="chat-label">Live Agent (Sarah)</span><button onclick="openLiveChat()" class="tawk-official"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="filter: brightness(0) invert(1);" alt="Live"></button></div>
+        <div class="chat-item pop"><span class="chat-label">Suporte WhatsApp</span><a href="https://wa.me/529531960361" target="_blank" class="wa-official"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></div>
+        <div class="chat-item pop" style="animation-delay: 0.1s;"><span class="chat-label">Agente ao Vivo (Sarah)</span><button onclick="openLiveChat()" class="tawk-official"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="filter: brightness(0) invert(1);" alt="Live"></button></div>
     </div>
     <button class="main-trigger-btn" id="hubBtn" onclick="toggleHub()"><svg id="msgIcon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></button>
 </div>

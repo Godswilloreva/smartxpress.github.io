@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartXpress | Global Logistics Command</title>
+    <title>SmartXpress | Pandaigdigang Kontrol sa Logistika</title>
     <style>
         /* 1. GLOBAL SETTINGS - BRIGHT & SOLID */
         :root {
@@ -83,7 +83,7 @@
         }
 
         @keyframes textSequence {
-            0%, 10% { opacity: 0; transform: translateY(10px); }
+            0% { opacity: 0; transform: translateY(10px); }
             20%, 80% { opacity: 1; transform: translateY(0); }
             90%, 100% { opacity: 0; transform: translateY(-10px); }
         }
@@ -147,11 +147,9 @@
 <div style="width:100%; background:#002d5b; padding:12px 5%; display:flex; justify-content:center; align-items:center; position:fixed; top:0; left:0; z-index:9999;">
     <!-- CENTER NAV LINKS -->
     <div style="display:flex; gap:50px; align-items:center;">
-        <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">About Us</a>
-        <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Our Services</a>
-        <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Contact Us</a>
-
-
+        <a href="about.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Tungkol sa Amin</a>
+        <a href="services.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Serbisyo</a>
+        <a href="contact.html" style="color:#fff; text-decoration:none; font-size:13px; font-weight:800; letter-spacing:1px;">Makipag-ugnayan</a>
 
 <!-- GLOBAL LANGUAGE SELECTOR -->
 <select onchange="window.location.href=this.value;" style="background:#002d5b; color:#fff; border:1px solid #00d4ff; padding:2px; border-radius:4px; font-size:12px; font-weight:bold; cursor:pointer;">
@@ -159,12 +157,9 @@
     <option value="es.html">Español</option>
     <option value="pt.html">Português (PT)</option>
     <option value="br.html">Português (BR)</option>
-    <option value="tl.html">Filipino</option>
+    <option value="tl.html" selected>Filipino</option>
     <option value="fr.html">Français</option>
 </select>
-
-
-
 
     </div>
 </div><br><br>
@@ -175,7 +170,7 @@
             <div style="display:flex; align-items:center; gap:10px;"><br><br>
                 <div style="font-weight:900; color:#fff; letter-spacing:5px; font-size: 10px;">SMART<span style="color:var(--accent)">XPRESS</span></div>
                 <div style="color:#fff; font-size:10px; border:1px solid #fff; padding:2px 12px; border-radius:1px; font-weight: bold;">
-                    <span class="status-dot"></span> SYSTEM LIVE
+                    <span class="status-dot"></span> AKTIBO ANG SISTEMA
                 </div>
             </div>
         </div>
@@ -183,7 +178,7 @@
             <source src="v.mp4" type="video/mp4">
         </video>
         <div class="header-overlay">
-            <div class="fade-text" id="rotateMsg">GLOBAL FREIGHT COMMAND</div>
+            <div class="fade-text" id="rotateMsg">PANDAIGDIGANG KONTROL SA KARGAMENTO</div>
         </div>
     </header>
 
@@ -193,17 +188,17 @@
         <div style="display: flex; width: 100%; max-width: 700px; gap: 15px; flex-wrap: wrap; justify-content: center;"> 
             <input type="text" 
                    id="trackInput" 
-                   placeholder="Enter Tracking Code" 
+                   placeholder="Ilagay ang tracking code" 
                    style="flex: 2; min-width: 280px; padding: 20px; background: #fff; border: none; color: #000; border-radius: 8px; font-weight: bold; font-size: 16px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             
             <button id="trackBtn" 
                     onclick="handleTrack()" 
                     style="flex: 1; min-width: 200px; background: var(--accent); color: #000; border: none; font-weight: 900; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                Track Shipment
+                I-track ang Padala
             </button>
         </div>
         <div id="trackError" style="color: #ff4d4d; font-size: 12px; font-weight: bold; margin-top: 15px; display: none; text-transform: uppercase; letter-spacing: 1px; text-align: center;">
-            ⚠️ INVALID TRACKING ID: ACCESS DENIED
+            ⚠️ MALI ANG TRACKING ID : TINANGGIHAN ANG AKSESO
         </div>
     </div>
 </section>
@@ -219,8 +214,8 @@
             </h2>
             <div style="display:flex; gap:15px; margin-top:5px;">
                 <span style="font-size:10px; color:#22c55e; font-weight:bold;">● SYSTEM ONLINE</span>
-                <span style="font-size:10px; color:#94a3b8;">ENC-PROTOCOL: AES-256</span>
-                <span style="font-size:10px; color:#38bdf8;">LATENCY: 24ms</span>
+                <span style="font-size:10px; color:#94a3b8;">PROTOKOL-ENCRYPT : AES-256</span>
+                <span style="font-size:10px; color:#38bdf8;">LATENCY : 24ms</span>
             </div>
         </div>
         <div style="text-align:right;">
@@ -232,16 +227,16 @@
         <div style="flex:1.5; display:flex; flex-direction:column;">
             <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; flex:1; display:flex; flex-direction:column; overflow:hidden;">
                 <div style="background:#1e293b; padding:10px 15px; font-size:11px; font-weight:900; letter-spacing:1px; color:#38bdf8;">
-                    ACTIVE MANIFEST STREAM
+                    AKTIBONG MANIFEST FLOW
                 </div>
                 <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
                     <thead style="background:rgba(56, 189, 248, 0.05); color:#94a3b8; font-size:10px;">
                         <tr>
                             <th style="padding:12px;">TRACKING ID</th>
-                            <th style="padding:12px;">CLIENT ENTITY</th>
-                            <th style="padding:12px;">ROUTE NODE</th>
-                            <th style="padding:12px;">LOGISTIC STATUS</th>
-                            <th style="padding:12px; text-align:right;">TIMESTAMP</th>
+                            <th style="padding:12px;">KLIYENTE</th>
+                            <th style="padding:12px;">RUTA (NODE)</th>
+                            <th style="padding:12px;">ESTADO NG LOGISTIKA</th>
+                            <th style="padding:12px; text-align:right;">ORAS (TIMESTAMP)</th>
                         </tr>
                     </thead>
                     <tbody id="liveLogBody2"></tbody>
@@ -250,7 +245,7 @@
         </div>
         <div style="flex:1; display:flex; flex-direction:column; gap:20px;">
             <div style="background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:15px;">
-                <div style="font-size:10px; color:#94a3b8; margin-bottom:10px; font-weight:bold;">GLOBAL NETWORK CAPACITY</div>
+                <div style="font-size:10px; color:#94a3b8; margin-bottom:10px; font-weight:bold;">KAPASIDAD NG GLOBAL NETWORK</div>
                 <div style="height:8px; background:#1e293b; border-radius:10px; overflow:hidden;">
                     <div style="width:84%; height:100%; background:linear-gradient(90deg, #38bdf8, #22c55e);"></div>
                 </div>
@@ -264,21 +259,21 @@
                 <div style="text-align:center; z-index:1;">
                     <div style="font-size:10px; color:#38bdf8; letter-spacing:2px; margin-bottom:5px;">SATELLITE LINK</div>
                     <div style="font-size:30px; opacity:0.5;">🛰️</div>
-                    <div style="font-size:10px; color:#94a3b8;">ACTIVE TRACKING IN 142 COUNTRIES</div>
+                    <div style="font-size:10px; color:#94a3b8;">AKTIBONG PAG-TRACK SA 142 BANSA</div>
                 </div>
             </div>
         </div>
     </div>
     <div style="margin-top:15px; border-top:1px solid #1e293b; padding-top:10px; display:flex; justify-content:space-between; font-size:10px; color:#64748b; font-weight:bold;">
-        <span>SECURE SMARTXPRESS TERMINAL: SMX-A09</span>
-        <span style="color:#38bdf8;">SYNCING DATA...</span>
+        <span>SECURE TERMINAL SMARTXPRESS : SMX-A09</span>
+        <span style="color:#38bdf8;">NAGSISYNC NG DATOS...</span>
     </div>
 </div>
 
 <script>
 const clients2 = ["Apex Global", "Nexus Ltd", "Prime Freight", "Transit King", "Oceanic Co", "SkyLink Hub"];
 const locations2 = ["London → DXB", "NYC → Tokyo", "Paris → Lagos", "Berlin → SIN", "Sydney → LAX"];
-const statusFlow2 = ["PROCESSING", "IN TRANSIT", "ARRIVED", "DELIVERED"];
+const statusFlow2 = ["PINOPROSESO", "NAGBIBIYAHE", "NAKARATING NA", "NAIDELIBER NA"];
 
 const logBody2 = document.getElementById("liveLogBody2");
 const sysTime2 = document.getElementById("sysTime2");
@@ -287,7 +282,7 @@ const sysDate = document.getElementById("sysDate");
 function updateClock() {
     const now = new Date();
     sysTime2.textContent = now.toLocaleTimeString();
-    sysDate.textContent = now.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    sysDate.textContent = now.toLocaleDateString('tl-PH', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 setInterval(updateClock, 1000);
 updateClock();
@@ -297,9 +292,9 @@ function generateLog2() {
     for (let i = 0; i < 6; i++) {
         let status = statusFlow2[Math.floor(Math.random() * statusFlow2.length)];
         let color = "#38bdf8"; 
-        if (status === "DELIVERED") color = "#22c55e";
-        if (status === "PROCESSING") color = "#f97316";
-        if (status === "ARRIVED") color = "#a855f7";
+        if (status === "NAIDELIBER NA") color = "#22c55e";
+        if (status === "PINOPROSESO") color = "#f97316";
+        if (status === "NAKARATING NA") color = "#a855f7";
 
         logBody2.innerHTML += `
             <tr style="border-top:1px solid #1e293b;">
@@ -338,7 +333,7 @@ setInterval(generateLog2, 5000);
         .stat-box { font-size: 12px; color: #475569; font-weight: 600; }
         .stat-box i { color: #22c55e; margin-right: 5px; }
     </style>
-    <div class="trust-label">System Integrity Check</div>
+    <div class="trust-label">Veripikasyon ng Integridad ng Sistema</div>
     <div class="gauge-wrapper">
         <div class="gauge-track"></div>
         <div class="gauge-fill"></div>
@@ -347,9 +342,9 @@ setInterval(generateLog2, 5000);
     </div>
     <div class="trust-score">89<span style="font-size: 20px; vertical-align: top;">%</span></div>
     <div class="gauge-footer">
-        <div class="stat-box"> Operational</div>
+        <div class="stat-box"> Operasyonal</div>
         <div class="stat-box"> Encrypted</div>
-        <div class="stat-box"> Verified</div>
+        <div class="stat-box"> Beripikado</div>
     </div>
 </div>
 
@@ -380,11 +375,11 @@ setInterval(generateLog2, 5000);
     inputField.style.border = "none";
 
     if (!idPattern.test(val)) {
-        showTrackError("SECURITY ALERT: INVALID FORMAT");
+        showTrackError("SECURITY ALERT : MALI ANG FORMAT");
         return;
     }
 
-    btn.innerText = "VERIFYING SATELLITE LINK...";
+    btn.innerText = "NAGVE-VERIFY NG SATELLITE LINK...";
     btn.disabled = true;
 
     try {
@@ -394,13 +389,13 @@ setInterval(generateLog2, 5000);
             const authKey = Math.random().toString(36).substr(2, 9);
             window.location.href = `track.html?id=${val}&auth=${authKey}`;
         } else {
-            showTrackError("ACCESS DENIED: ID NOT FOUND IN GLOBAL MANIFEST");
-            btn.innerText = "TRACK SHIPMENT";
+            showTrackError("TINANGGIHAN ANG AKSESO : ID HINDI NAHANAP");
+            btn.innerText = "I-track ang Padala";
             btn.disabled = false;
         }
     } catch (error) {
-        showTrackError("SYSTEM ERROR: CONNECTION TIMEOUT");
-        btn.innerText = "TRACK SHIPMENT";
+        showTrackError("SYSTEM ERROR : CONNECTION TIMEOUT");
+        btn.innerText = "I-track ang Padala";
         btn.disabled = false;
     }
   }
@@ -422,28 +417,28 @@ setInterval(generateLog2, 5000);
 <div style="width:100%; overflow:hidden; padding:60px 0; background:#f4f7f9; border-top: 1px solid #ddd;">
     <div style="text-align:center; margin-bottom:40px;">
         <h3 style="color:#002d5b; font-weight:900; text-transform:uppercase; letter-spacing:2px; margin:0;">
-            Smart<span style="color:#00d4ff;">Xpress</span> Global Solutions
+            Pandaigdigang Solusyon ng Smart<span style="color:#00d4ff;">Xpress</span>
         </h3>
         <div style="width:50px; height:4px; background:#00d4ff; margin:10px auto;"></div>
     </div>
     <div style="width:100%; overflow:hidden; position:relative;">
         <div class="smart-xpress-track">
             <!-- Service Cards -->
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Kargamentong Pang-himpapawid</h4><p>Pandaigdigang paghahatid sa mga high-priority flights.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Kargamentong Pandagat</h4><p>Pagpapadala ng Full Container at LCL.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure na Bodega</h4><p>Matalinong sistema para sa pamamahala ng imbentaryo.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital na pagsunod at clearance sa adwana.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Transportasyong Panlupa</h4><p>Trucking at inter-state na distribusyon.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Riles ng Tren</h4><p>Eco-friendly na transcontinental na pagbiyahe sa riles.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove Service</h4><p>Premium na instalasyon at last-mile delivery.</p></div></div>
             <!-- Duplicate for Loop -->
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Air Command</h4><p>High-priority global flight delivery.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Ocean Cargo</h4><p>Full container & LCL sea freight.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure Storage</h4><p>Smart inventory management systems.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital border compliance & clearing.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Ground Fleet</h4><p>Interstate trucking and distribution.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Air"><div class="card-content"><h4>Air Command</h4><p>Global delivery on high-priority flights.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55" alt="Sea"><div class="card-content"><h4>Sea Freight</h4><p>Full container and LCL shipping.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c" alt="Warehouse"><div class="card-content"><h4>Secure Warehouse</h4><p>Smart inventory management systems.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1592838064575-70ed626d3a0e" alt="Customs"><div class="card-content"><h4>Customs Portal</h4><p>Digital compliance and clearance.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59" alt="Road"><div class="card-content"><h4>Road Fleet</h4><p>Trucking and inter-state distribution.</p></div></div>
             <div class="service-card"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840" alt="Rail"><div class="card-content"><h4>Rail Link</h4><p>Eco-friendly transcontinental rail.</p></div></div>
-            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove</h4><p>Premium last-mile setup & delivery.</p></div></div>
+            <div class="service-card"><img src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b" alt="WhiteGlove"><div class="card-content"><h4>White Glove</h4><p>Premium installation and last-mile delivery.</p></div></div>
         </div>
     </div>
 </div>
@@ -467,18 +462,18 @@ setInterval(generateLog2, 5000);
         <div style="flex:1; min-width:320px; position:relative;">
             <div style="position:absolute; top:-20px; left:-20px; width:100px; height:100px; border-top:5px solid #00d4ff; border-left:5px solid #00d4ff; z-index:1;"></div>
             <img src="pic1.jpg" alt="Logistics Loading" style="width:100%; border-radius:4px; box-shadow: 20px 20px 0px #002d5b; position:relative; z-index:2; display:block;">
-            <div style="position:absolute; bottom:20px; right:-10px; background:#00a859; color:#fff; padding:10px 20px; border-radius:4px; font-weight:900; font-size:12px; z-index:3; box-shadow:0 10px 20px rgba(0,0,0,0.2);">SECURE LOAD VERIFIED</div>
+            <div style="position:absolute; bottom:20px; right:-10px; background:#00a859; color:#fff; padding:10px 20px; border-radius:4px; font-weight:900; font-size:12px; z-index:3; box-shadow:0 10px 20px rgba(0,0,0,0.2);">BERIPIKADONG SECURE LOADING</div>
         </div>
         <div style="flex:1; min-width:320px;">
-            <div style="display:inline-block; background:rgba(0,45,91,0.05); color:#002d5b; padding:5px 15px; border-radius:20px; font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:15px; border:1px solid #002d5b;">Precision Operations</div>
-            <h2 style="color:#002d5b; font-size:36px; font-weight:900; margin:0 0 20px 0; line-height:1.1; text-transform:uppercase;">Seamless Cargo <span style="color:#00d4ff;">Integration</span></h2>
-            <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:25px;">Our synchronized loading protocols ensure that every piece of freight is handled with surgical precision. By utilizing automated weight distribution sensors and real-time transit-ready staging, SmartXpress eliminates delays at the dock, guaranteeing your goods move from warehouse to wing in record time.</p>
+            <div style="display:inline-block; background:rgba(0,45,91,0.05); color:#002d5b; padding:5px 15px; border-radius:20px; font-size:11px; font-weight:800; text-transform:uppercase; margin-bottom:15px; border:1px solid #002d5b;">Operasyon ng Katumpakan</div>
+            <h2 style="color:#002d5b; font-size:36px; font-weight:900; margin:0 0 20px 0; line-height:1.1; text-transform:uppercase;">Maayos na <span style="color:#00d4ff;">Integrasyon</span> ng Kargamento</h2>
+            <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:25px;">Tinitiyak ng aming synchronized loading protocols na ang bawat pakete ay hinahawakan nang may tumpak na pag-iingat. Gamit ang automated weight-balancing sensors at real-time staging, tinatanggal ng SmartXpress ang mga pagkaantala sa loading dock.</p>
             <ul style="list-style:none; padding:0; margin:0 0 30px 0;">
-                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Zero-G Damage Prevention Loading</li>
-                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Rapid-Scan Digital Manifest Sync</li>
+                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Zero-G Loading (proteksyon laban sa pinsala)</li>
+                <li style="margin-bottom:10px; display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> "Quick-Scan" Digital Manifest Sync</li>
                 <li style="display:flex; align-items:center; color:#002d5b; font-weight:700; font-size:14px;"><span style="color:#00a859; margin-right:10px;">✔</span> Optimized Weight-Balance Distribution</li>
             </ul>
-            <a href="#" style="text-decoration:none; display:inline-block; background:#002d5b; color:#fff; padding:15px 35px; border-radius:4px; font-weight:800; font-size:13px; text-transform:uppercase; transition:0.3s; letter-spacing:1px;">View Loading Specs</a>
+            <a href="#" style="text-decoration:none; display:inline-block; background:#002d5b; color:#fff; padding:15px 35px; border-radius:4px; font-weight:800; font-size:13px; text-transform:uppercase; transition:0.3s; letter-spacing:1px;">Tingnan ang Spec ng Kargamento</a>
         </div>
     </div>
 </div>
@@ -490,13 +485,13 @@ setInterval(generateLog2, 5000);
     <div style="max-width:1200px; margin:auto; padding:0 20px; display:flex; align-items:center; gap:60px; flex-wrap:wrap; position:relative; z-index:2;">
         <div style="flex:1; min-width:320px;">
             <h4 style="color:#00d4ff; text-transform:uppercase; letter-spacing:4px; font-size:12px; margin-bottom:10px; font-weight:900;">Mobile Command Unit</h4>
-            <h2 style="font-size:42px; font-weight:900; margin:0 0 25px 0; line-height:1; text-transform:uppercase;">Last-Mile <br><span style="color:#00d4ff;">Fleet Velocity</span></h2>
+            <h2 style="font-size:42px; font-weight:900; margin:0 0 25px 0; line-height:1; text-transform:uppercase;">Bilis ng <br><span style="color:#00d4ff;">Last-Mile Fleet</span></h2>
             <div style="background:rgba(255,255,255,0.1); border-left:4px solid #00d4ff; padding:20px; margin-bottom:30px;">
-                <p style="margin:0; font-size:15px; line-height:1.6; color:#cbd5e1;">Our specialized cargo vans are equipped with <strong>Real-Time GPS Telemetry</strong> and climate-controlled interiors. Every SmartXpress vehicle acts as a localized data hub, ensuring your delivery is never "off the grid."</p>
+                <p style="margin:0; font-size:15px; line-height:1.6; color:#cbd5e1;">Ang aming mga espesyal na van ay nilagyan ng <strong>real-time GPS telemetry</strong> at mga interior na kontrolado ang temperatura. Bawat sasakyan ng SmartXpress ay nagsisilbing localized data hub.</p>
             </div>
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
                 <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">99.8%</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">On-Time Reliability</span></div>
-                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">EV-READY</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">Zero Emission Option</span></div>
+                <div><span style="display:block; font-size:24px; font-weight:900; color:#00d4ff;">EV-READY</span><span style="font-size:11px; text-transform:uppercase; color:#94a3b8;">Zero-Emission Option</span></div>
             </div>
         </div>
         <div style="flex:1.2; min-width:320px;">
@@ -517,14 +512,14 @@ setInterval(generateLog2, 5000);
             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" style="position: absolute; top: 40px; right: 0; width: 180px; height: 220px; object-fit: cover; border-radius: 15px; border: 4px solid #001a35; z-index: 2; opacity: 0.7;" alt="Client 3">
         </div>
         <div style="flex: 1.2; min-width: 320px;">
-            <h4 style="color: #00d4ff; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 10px; font-weight: 800;">Success Intelligence</h4>
-            <h2 style="font-size: 42px; font-weight: 900; margin: 0 0 40px 0; line-height: 1; text-transform: uppercase;">Voices of <br><span style="color: #00d4ff;">Global Efficiency</span></h2>
+            <h4 style="color: #00d4ff; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 10px; font-weight: 800;">Tagumpay mula sa Intelligence</h4>
+            <h2 style="font-size: 42px; font-weight: 900; margin: 0 0 40px 0; line-height: 1; text-transform: uppercase;">Mga Tinig ng <br><span style="color: #00d4ff;">Pandaigdigang Epektibidad</span></h2>
             <div style="margin-bottom: 30px; border-left: 3px solid #00d4ff; padding-left: 25px;">
-                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"SmartXpress isn't just a carrier; they are a data partner. Our shipping costs dropped 14% after integrating their tracking API."</p>
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"Ang SmartXpress ay hindi lamang isang transport carrier; sila ay kasosyo sa datos. Ang aming gastos sa pagpapadala ay bumaba ng 14% pagkatapos gamitin ang kanilang API."</p>
                 <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Alessandro G. <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Ferrari Logistics Group</span></h5>
             </div>
             <div style="margin-bottom: 30px; border-left: 3px solid #00a859; padding-left: 25px;">
-                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"The fastest customs clearance in the industry. We moved 40 tons of medical supplies through Dubai in record time."</p>
+                <p style="font-size: 16px; font-style: italic; color: #cbd5e1; margin-bottom: 10px;">"Ang pinakamabilis na customs clearance sa industriya. Nakapaglipat kami ng 40 tonelada ng medikal na kagamitan sa Dubai sa loob ng record na oras."</p>
                 <h5 style="margin: 0; font-size: 14px; font-weight: 900;">Sarah Jenkins <span style="font-weight: 400; color: #94a3b8; font-size: 12px; margin-left: 10px;">/ Global Health Initiative</span></h5>
             </div>
         </div>
@@ -535,26 +530,26 @@ setInterval(generateLog2, 5000);
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
         <div>
             <h2 style="margin:0 0 20px 0; font-weight:900; letter-spacing:2px; font-size: 22px;">SMART<span style="color:#00d4ff;">XPRESS</span></h2>
-            <p style="font-size:13px; line-height:1.8; color:#94a3b8; margin:0;">Deploying next-generation logistics through real-time telemetry and global grid optimization.</p>
-            <div style="margin-top: 20px; display: flex; gap: 10px;"><span style="width: 8px; height: 8px; background: #00a859; border-radius: 50%; display: inline-block;"></span><span style="font-size: 10px; font-weight: 800; color: #00d4ff; text-transform: uppercase;">Global Network Active</span></div>
+            <p style="font-size:13px; line-height:1.8; color:#94a3b8; margin:0;">Pag-deploy ng susunod na henerasyong logistika sa pamamagitan ng real-time telemetry at pandaigdigang network optimization.</p>
+            <div style="margin-top: 20px; display: flex; gap: 10px;"><span style="width: 8px; height: 8px; background: #00a859; border-radius: 50%; display: inline-block;"></span><span style="font-size: 10px; font-weight: 800; color: #00d4ff; text-transform: uppercase;">Aktibong Global Network</span></div>
         </div>
         <div>
-            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Operations</h4>
-            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2; color:#cbd5e1;"><li>Air Freight Command</li><li>Ocean Cargo Portal</li><li>Ground Distribution</li><li>Warehouse Sync</li></ul>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Mga Operasyon</h4>
+            <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2; color:#cbd5e1;"><li>Air Freight Command</li><li>Sea Freight Portal</li><li>Distribusyong Panlupa</li><li>Warehouse Synchronization</li></ul>
         </div>
         <div>
-            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Command Tools</h4>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Mga Tool sa Kontrol</h4>
             <ul style="list-style:none; padding:0; margin:0; font-size:13px; line-height: 2.2;"><li><a href="" style="color:#cbd5e1; text-decoration:none;">Live Global Tracking</a></li><li><a href="" style="color:#cbd5e1; text-decoration:none;">Rate Calculator</a></li></ul>
         </div>
         <div>
-            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Contact Hub</h4>
+            <h4 style="margin:0 0 20px 0; font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#00d4ff; font-weight: 800;">Contact Center</h4>
             <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Global: +52 953 196 0361</p>
             <p style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Ops: support@smartxpress.com</p>
             <p style="margin:0; font-size:13px; color:#cbd5e1;">24/7 Priority Response</p>
         </div>
     </div>
     <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-        <div style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">&copy; 2026 SmartXpress Infrastructure Group. All Rights Reserved.</div>
+        <div style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">&copy; 2026 SmartXpress Infrastructure Group. Nakalaan ang lahat ng karapatan.</div>
     </div>
 </footer>
 
@@ -575,7 +570,7 @@ setInterval(generateLog2, 5000);
         .pop { animation: popIn 0.3s ease-out forwards; }
     </style>
     <div id="hubStack">
-        <div class="chat-item pop"><span class="chat-label">WhatsApp Support</span><a href="https://wa.me/529531960361" target="_blank" class="wa-official"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></div>
+        <div class="chat-item pop"><span class="chat-label">Support sa WhatsApp</span><a href="https://wa.me/529531960361" target="_blank" class="wa-official"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></div>
         <div class="chat-item pop" style="animation-delay: 0.1s;"><span class="chat-label">Live Agent (Sarah)</span><button onclick="openLiveChat()" class="tawk-official"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tawk.to_logo.png" style="filter: brightness(0) invert(1);" alt="Live"></button></div>
     </div>
     <button class="main-trigger-btn" id="hubBtn" onclick="toggleHub()"><svg id="msgIcon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></button>
