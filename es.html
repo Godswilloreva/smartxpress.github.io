@@ -394,7 +394,7 @@ setInterval(generateLog2, 5000);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const authKey = Math.random().toString(36).substr(2, 9);
-            window.location.href = `track.html?id=${val}&auth=${authKey}`;
+            window.location.href = `estrack.html?id=${val}&auth=${authKey}`;
         } else {
             showTrackError("ACCESO DENEGADO: ID NO ENCONTRADO EN EL MANIFIESTO");
             btn.innerText = "RASTREAR ENVÍO";

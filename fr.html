@@ -399,7 +399,7 @@ setInterval(generateLog2, 5000);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const authKey = Math.random().toString(36).substr(2, 9);
-            window.location.href = `track.html?id=${val}&auth=${authKey}`;
+            window.location.href = `frtrack.html?id=${val}&auth=${authKey}`;
         } else {
             showTrackError("ACCÈS REFUSÉ : ID NON TROUVÉ DANS LE MANIFESTE");
             btn.innerText = "Suivre l'envoi";
